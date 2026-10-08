@@ -160,7 +160,7 @@
       <div data-anim="up" data-delay="700" style="align-self:flex-start;border:2px solid #6809C6;border-radius:999px;padding:14px 34px;font-size:26px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;color:#6809C6">Alcance territorial</div>
       <div data-anim="up" data-delay="850" style="margin-top:56px;display:flex;flex-direction:column;gap:22px">
         <h1 data-ro="title" style="margin:0;font-size:88px;line-height:1.02;font-weight:800;font-stretch:125%;letter-spacing:-.02em">16 Gerências Regionais</h1>
-        <div data-ro="sub" style="display:flex;align-items:baseline;gap:20px;font-size:40px;min-height:48px;opacity:0"><span data-ro="name" style="font-weight:600;white-space:nowrap"></span><span data-ro="count" style="font-weight:800;color:#EF2280;white-space:nowrap"></span></div>
+        <div data-ro="sub" style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;opacity:0"><span data-ro="name" style="font-size:62px;line-height:1.05;font-weight:800;font-stretch:110%;color:#6809C6;border-left:12px solid #EF2280;padding-left:24px;white-space:nowrap"></span><div data-ro="cbox" style="display:flex;flex-direction:column;padding-left:36px"><span data-ro="count" style="font-size:84px;line-height:1;font-weight:900;font-stretch:120%;color:#EF2280;letter-spacing:-.02em;white-space:nowrap"></span><span data-ro="clabel" style="font-size:34px;font-weight:500;color:#2E0950;margin-top:6px">inscrições</span></div></div>
       </div>
       <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
         <div data-anim="up" data-delay="1100" style="font-size:170px;line-height:.9;font-weight:900;font-stretch:125%;color:#6809C6;letter-spacing:-.03em" data-ro="total">12.053</div>
@@ -182,11 +182,12 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 class Component extends DCLogic {
   componentDidMount() {
-    this.anims = []; this.timers = [];
+    this.anims = []; this.timers = []; this.pending = new Set();
     this.noRail = () => { const dk = document.querySelector('deck-stage'); if (dk && !dk.hasAttribute('no-rail')) dk.setAttribute('no-rail', ''); const sr = dk && dk.shadowRoot; if (sr && !sr.querySelector('style[data-hide-ui]')) { const st = document.createElement('style'); st.setAttribute('data-hide-ui', ''); st.textContent = '.overlay{display:none!important}'; sr.appendChild(st); } };
     this.noRail();
-    this.fs = () => { const r = document.documentElement; if (!document.fullscreenElement && r.requestFullscreen) r.requestFullscreen().catch(() => {}); };
-    document.addEventListener('click', this.fs); document.addEventListener('keydown', this.fs);
+    this.fs = () => { const r = document.documentElement; if (!document.fullscreenElement && r.requestFullscreen) { r.requestFullscreen().catch(() => {}); return true; } return false; };
+    this.onClick = () => { if (this.fs()) return; this.togglePause(); };
+    document.addEventListener('click', this.onClick); document.addEventListener('keydown', this.fs);
     this.onChange = (e) => (this.noRail(), this.play(e.detail.slide, e.detail.index, e.detail.total));
     document.addEventListener('slidechange', this.onChange);
     this.boot = setTimeout(() => {
@@ -196,24 +197,56 @@ class Component extends DCLogic {
       if (deck && s && !this.current) { const all = [...deck.querySelectorAll(':scope > section')]; this.play(s, all.indexOf(s), all.length); }
     }, 400);
   }
-  componentWillUnmount() { document.removeEventListener('slidechange', this.onChange); document.removeEventListener('click', this.fs); document.removeEventListener('keydown', this.fs); clearTimeout(this.boot); this.stop(); }
+  componentWillUnmount() { document.removeEventListener('slidechange', this.onChange); document.removeEventListener('click', this.onClick); document.removeEventListener('keydown', this.fs); clearTimeout(this.boot); this.stop(); }
   stop() {
     this.seq = (this.seq || 0) + 1;
     document.querySelectorAll('[data-hero]').forEach(el => el.style.opacity = '');
     this.anims.forEach(a => { try { a.cancel(); } catch (e) {} });
     this.timers.forEach(t => { clearTimeout(t); cancelAnimationFrame(t); });
-    this.anims = []; this.timers = [];
+    this.anims = []; this.timers = []; this.pending = new Set(); clearTimeout(this.advance); this.advanceAt = 0;
   }
-  later(fn, ms) { this.timers.push(setTimeout(fn, ms)); }
+  armAdvance() {
+    clearTimeout(this.advance);
+    this.advanceAt = Date.now();
+    this.advance = setTimeout(() => { const d = document.querySelector('deck-stage'); if (d && d.goTo) d.goTo(this.nextIndex); }, this.remaining);
+  }
+  togglePause() {
+    this.paused = !this.paused;
+    if (this.paused) {
+      clearTimeout(this.advance);
+      if (this.advanceAt) this.remaining = Math.max(1500, this.remaining - (Date.now() - this.advanceAt));
+      document.getAnimations().forEach(a => { if (a.playState === 'running') a.pause(); });
+      this.pending.forEach(o => { clearTimeout(o.id); o.ms = Math.max(0, o.ms - (Date.now() - o.at)); });
+    } else {
+      document.getAnimations().forEach(a => { if (a.playState === 'paused') a.play(); });
+      this.pending.forEach(o => { o.at = Date.now(); o.id = setTimeout(o.run, o.ms); this.timers.push(o.id); });
+      if (this.nextIndex != null && (this.props.autoplay ?? true)) this.armAdvance();
+    }
+    this.showBadge(this.paused ? '❚❚  Pausado' : '▶  Reproduzindo');
+  }
+  showBadge(text) {
+    let b = document.getElementById('pause-badge');
+    if (!b) { b = document.createElement('div'); b.id = 'pause-badge'; b.style.cssText = 'position:fixed;right:24px;bottom:24px;z-index:9999;background:rgba(46,9,80,.85);color:#fff;font:600 16px Archivo,sans-serif;letter-spacing:.08em;padding:10px 18px;border-radius:999px;pointer-events:none;transition:opacity .4s'; document.body.appendChild(b); }
+    b.textContent = text; b.style.opacity = 1;
+    clearTimeout(this.badgeT);
+    if (!this.paused) this.badgeT = setTimeout(() => { b.style.opacity = 0; }, 1200);
+  }
+  later(fn, ms) {
+    const o = { fn, ms, at: Date.now() };
+    o.run = () => { this.pending.delete(o); fn(); };
+    this.pending.add(o);
+    if (!this.paused) { o.id = setTimeout(o.run, ms); this.timers.push(o.id); }
+  }
   fmt(n) { return Math.round(n).toLocaleString('pt-BR'); }
   count(el, from, to, dur, delay) {
     el.textContent = this.fmt(from);
     this.later(() => {
-      const t0 = Date.now();
+      let last = Date.now(), el2 = 0;
       const step = () => {
-        const p = Math.min(1, (Date.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        const now = Date.now(); el2 += Math.min(now - last, 60); last = now;
+        const p = Math.min(1, el2 / dur), e = 1 - Math.pow(1 - p, 3);
         el.textContent = this.fmt(from + (to - from) * e);
-        if (p < 1) this.timers.push(setTimeout(step, 30));
+        if (p < 1) this.later(step, 30);
       };
       step();
     }, delay);
@@ -221,12 +254,14 @@ class Component extends DCLogic {
   play(slide, index, total) {
     if (!slide) return;
     this.stop(); this.current = slide;
+    if (this.paused) { this.paused = false; this.showBadge('▶  Reproduzindo'); }
     const speed = this.props.speed ?? 1;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) this.animate(slide);
     if (this.props.autoplay ?? true) {
-      const dur = (+slide.dataset.duration || 8000) / speed;
-      this.later(() => { const d = document.querySelector('deck-stage'); if (d && d.goTo) d.goTo((index + 1) % total); }, dur);
+      this.nextIndex = (index + 1) % total;
+      this.remaining = (+slide.dataset.duration || 8000) / speed;
+      if (!this.paused) this.armAdvance();
     }
   }
   animate(slide) {
@@ -261,12 +296,13 @@ class Component extends DCLogic {
       });
       m.forEach(o => { o.el.style.opacity = 0; o.el.querySelectorAll('[data-count]').forEach(c => c.textContent = '0'); });
       const countTo = (c, to, dur) => new Promise(res => {
-        const t0 = Date.now();
+        let last = Date.now(), el2 = 0;
         const step = () => {
           if (token !== this.seq) return res();
-          const p = Math.min(1, (Date.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+          const now = Date.now(); el2 += Math.min(now - last, 60); last = now;
+          const p = Math.min(1, el2 / dur), e = 1 - Math.pow(1 - p, 3);
           c.textContent = this.fmt(to * e);
-          if (p < 1) this.timers.push(setTimeout(step, 30)); else res();
+          if (p < 1) this.later(step, 30); else res();
         };
         step();
       });
@@ -315,7 +351,7 @@ class Component extends DCLogic {
     const regions = [...slide.querySelectorAll('[data-region]')].sort((a, b) => a.dataset.region - b.dataset.region);
     if (!regions.length) return;
     const q = s => slide.querySelector('[data-ro="' + s + '"]');
-    const totalEl = q('total'), titleEl = q('title'), subEl = q('sub'), nameEl = q('name'), cntEl = q('count');
+    const totalEl = q('total'), titleEl = q('title'), subEl = q('sub'), nameEl = q('name'), cntEl = q('count'), cbox = q('cbox');
     const swap = (fn) => {
       run(titleEl, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 500 });
       run(subEl, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: 80 });
@@ -328,9 +364,9 @@ class Component extends DCLogic {
       run(r, [{ fillOpacity: 0, fill: '#EF2280' }, { fillOpacity: 1, fill: '#EF2280', offset: .2 }, { fillOpacity: 1, fill: '#EF2280', offset: .8 }, { fillOpacity: op, fill: '#6809C6' }], { duration: gap + 200, delay, easing: 'ease-out' });
       const from = acc; acc += v;
       this.count(totalEl, from, acc, 600, delay);
-      this.later(() => swap(() => { titleEl.textContent = r.dataset.code; nameEl.textContent = r.dataset.name; const st = v >= 1000 ? 100 : (v >= 100 ? 50 : 10), rv = Math.floor((v - 1) / st) * st; cntEl.textContent = 'mais de ' + this.fmt(rv) + ' inscrições'; subEl.style.opacity = 1; }), delay);
+      this.later(() => swap(() => { titleEl.textContent = r.dataset.code; nameEl.textContent = r.dataset.name; const st = v >= 1000 ? 100 : (v >= 100 ? 50 : 10), rv = Math.floor((v - 1) / st) * st; cntEl.textContent = '+' + this.fmt(rv); cbox.style.display = 'flex'; subEl.style.opacity = 1; }), delay);
     });
-    this.later(() => swap(() => { titleEl.textContent = '16 Gerências Regionais'; nameEl.textContent = 'Paraíba'; cntEl.textContent = 'Total'; subEl.style.opacity = 1; }), base + regions.length * gap + 400);
+    this.later(() => swap(() => { titleEl.textContent = '16 Gerências Regionais'; nameEl.textContent = 'Paraíba'; cbox.style.display = 'none'; subEl.style.opacity = 1; }), base + regions.length * gap + 400);
   }
   renderVals() { return {}; }
 }
