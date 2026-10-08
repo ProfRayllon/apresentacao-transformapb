@@ -10,14 +10,13 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#000;font-family:'Archivo',sans-serif}a{color:#6809C6}a:hover{color:#EF2280}</style>
+<style>body{margin:0;background:#000;font-family:'Archivo',sans-serif}a{color:#6809C6}a:hover{color:#EF2280}deck-stage>section[data-deck-active]>*{visibility:visible}</style>
 </helmet>
 <x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
 
 <section data-label="Capa" data-screen-label="01 Capa" data-duration="9000" style="background:#6809C6;overflow:hidden;font-family:'Archivo',sans-serif">
   <img data-anim="zoom" src="assets/capa-3200.png" alt="Transforma Educação PB 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img>
   <img data-anim="up" data-delay="900" src="assets/logos-branco-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="position:absolute;left:50%;top:712px;width:860px;margin-left:-430px"></img>
-  <div data-anim="wipe-white" style="position:absolute;inset:0;background:#ffffff;transform:translateY(101%);pointer-events:none;z-index:10"></div>
 </section>
 
 <section data-label="O Programa" data-screen-label="02 O Programa" data-duration="13000" style="background:#ffffff;overflow:hidden;font-family:'Archivo',sans-serif;color:#2E0950">
@@ -184,7 +183,7 @@
 class Component extends DCLogic {
   componentDidMount() {
     this.anims = []; this.timers = [];
-    this.noRail = () => { const dk = document.querySelector('deck-stage'); if (dk && !dk.hasAttribute('no-rail')) dk.setAttribute('no-rail', ''); };
+    this.noRail = () => { const dk = document.querySelector('deck-stage'); if (dk && !dk.hasAttribute('no-rail')) dk.setAttribute('no-rail', ''); const sr = dk && dk.shadowRoot; if (sr && !sr.querySelector('style[data-hide-ui]')) { const st = document.createElement('style'); st.setAttribute('data-hide-ui', ''); st.textContent = '.overlay{display:none!important}'; sr.appendChild(st); } };
     this.noRail();
     this.fs = () => { const r = document.documentElement; if (!document.fullscreenElement && r.requestFullscreen) r.requestFullscreen().catch(() => {}); };
     document.addEventListener('click', this.fs); document.addEventListener('keydown', this.fs);
