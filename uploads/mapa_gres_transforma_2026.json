@@ -1,0 +1,178 @@
+[
+  {
+    "gre_id": 1,
+    "gre_codigo": "1ª GRE",
+    "gre_nome": "João Pessoa",
+    "inscricoes": 2030,
+    "percentual_total": 13.394,
+    "confirmados": 763,
+    "nunca_acessou": 1266,
+    "outros_status": 1,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 2,
+    "gre_codigo": "2ª GRE",
+    "gre_nome": "Guarabira",
+    "inscricoes": 1139,
+    "percentual_total": 7.5152,
+    "confirmados": 463,
+    "nunca_acessou": 673,
+    "outros_status": 3,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 3,
+    "gre_codigo": "3ª GRE",
+    "gre_nome": "Campina Grande",
+    "inscricoes": 1861,
+    "percentual_total": 12.279,
+    "confirmados": 1113,
+    "nunca_acessou": 737,
+    "outros_status": 11,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 4,
+    "gre_codigo": "4ª GRE",
+    "gre_nome": "Cuité",
+    "inscricoes": 391,
+    "percentual_total": 2.5798,
+    "confirmados": 316,
+    "nunca_acessou": 74,
+    "outros_status": 1,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 5,
+    "gre_codigo": "5ª GRE",
+    "gre_nome": "Monteiro",
+    "inscricoes": 446,
+    "percentual_total": 2.9427,
+    "confirmados": 312,
+    "nunca_acessou": 133,
+    "outros_status": 1,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 6,
+    "gre_codigo": "6ª GRE",
+    "gre_nome": "Patos",
+    "inscricoes": 800,
+    "percentual_total": 5.2784,
+    "confirmados": 463,
+    "nunca_acessou": 330,
+    "outros_status": 7,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 7,
+    "gre_codigo": "7ª GRE",
+    "gre_nome": "Itaporanga",
+    "inscricoes": 487,
+    "percentual_total": 3.2132,
+    "confirmados": 338,
+    "nunca_acessou": 148,
+    "outros_status": 1,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 8,
+    "gre_codigo": "8ª GRE",
+    "gre_nome": "Catolé do Rocha",
+    "inscricoes": 312,
+    "percentual_total": 2.0586,
+    "confirmados": 267,
+    "nunca_acessou": 45,
+    "outros_status": 0,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 9,
+    "gre_codigo": "9ª GRE",
+    "gre_nome": "Cajazeiras",
+    "inscricoes": 578,
+    "percentual_total": 3.8137,
+    "confirmados": 444,
+    "nunca_acessou": 132,
+    "outros_status": 2,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 10,
+    "gre_codigo": "10ª GRE",
+    "gre_nome": "Sousa",
+    "inscricoes": 548,
+    "percentual_total": 3.6157,
+    "confirmados": 404,
+    "nunca_acessou": 141,
+    "outros_status": 3,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 11,
+    "gre_codigo": "11ª GRE",
+    "gre_nome": "Princesa Isabel",
+    "inscricoes": 296,
+    "percentual_total": 1.953,
+    "confirmados": 179,
+    "nunca_acessou": 117,
+    "outros_status": 0,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 12,
+    "gre_codigo": "12ª GRE",
+    "gre_nome": "Itabaiana",
+    "inscricoes": 544,
+    "percentual_total": 3.5893,
+    "confirmados": 315,
+    "nunca_acessou": 227,
+    "outros_status": 2,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 13,
+    "gre_codigo": "13ª GRE",
+    "gre_nome": "Pombal",
+    "inscricoes": 283,
+    "percentual_total": 1.8672,
+    "confirmados": 233,
+    "nunca_acessou": 48,
+    "outros_status": 2,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 14,
+    "gre_codigo": "14ª GRE",
+    "gre_nome": "Mamanguape",
+    "inscricoes": 647,
+    "percentual_total": 4.2689,
+    "confirmados": 258,
+    "nunca_acessou": 386,
+    "outros_status": 3,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 15,
+    "gre_codigo": "15ª GRE",
+    "gre_nome": "Queimadas",
+    "inscricoes": 442,
+    "percentual_total": 2.9163,
+    "confirmados": 295,
+    "nunca_acessou": 145,
+    "outros_status": 2,
+    "indicador": "Cadastros por GRE"
+  },
+  {
+    "gre_id": 16,
+    "gre_codigo": "16ª GRE",
+    "gre_nome": "Santa Rita",
+    "inscricoes": 1249,
+    "percentual_total": 8.241,
+    "confirmados": 362,
+    "nunca_acessou": 883,
+    "outros_status": 4,
+    "indicador": "Cadastros por GRE"
+  }
+]

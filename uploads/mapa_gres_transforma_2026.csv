@@ -1,0 +1,17 @@
+﻿gre_id;gre_codigo;gre_nome;inscricoes;percentual_total;confirmados;nunca_acessou;outros_status;indicador
+1;1ª GRE;João Pessoa;2030;13.394;763;1266;1;Cadastros por GRE
+2;2ª GRE;Guarabira;1139;7.5152;463;673;3;Cadastros por GRE
+3;3ª GRE;Campina Grande;1861;12.279;1113;737;11;Cadastros por GRE
+4;4ª GRE;Cuité;391;2.5798;316;74;1;Cadastros por GRE
+5;5ª GRE;Monteiro;446;2.9427;312;133;1;Cadastros por GRE
+6;6ª GRE;Patos;800;5.2784;463;330;7;Cadastros por GRE
+7;7ª GRE;Itaporanga;487;3.2132;338;148;1;Cadastros por GRE
+8;8ª GRE;Catolé do Rocha;312;2.0586;267;45;0;Cadastros por GRE
+9;9ª GRE;Cajazeiras;578;3.8137;444;132;2;Cadastros por GRE
+10;10ª GRE;Sousa;548;3.6157;404;141;3;Cadastros por GRE
+11;11ª GRE;Princesa Isabel;296;1.953;179;117;0;Cadastros por GRE
+12;12ª GRE;Itabaiana;544;3.5893;315;227;2;Cadastros por GRE
+13;13ª GRE;Pombal;283;1.8672;233;48;2;Cadastros por GRE
+14;14ª GRE;Mamanguape;647;4.2689;258;386;3;Cadastros por GRE
+15;15ª GRE;Queimadas;442;2.9163;295;145;2;Cadastros por GRE
+16;16ª GRE;Santa Rita;1249;8.241;362;883;4;Cadastros por GRE

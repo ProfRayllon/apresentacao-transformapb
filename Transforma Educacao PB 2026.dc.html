@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#000;font-family:'Archivo',sans-serif}a{color:#6809C6}a:hover{color:#EF2280}</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Capa" data-screen-label="01 Capa" data-duration="9000" style="background:#6809C6;overflow:hidden;font-family:'Archivo',sans-serif">
+  <img data-anim="zoom" src="assets/capa-3200.png" alt="Transforma Educação PB 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></img>
+  <img data-anim="up" data-delay="900" src="assets/logos-branco-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="position:absolute;left:50%;top:712px;width:860px;margin-left:-430px"></img>
+  <div data-anim="wipe-white" style="position:absolute;inset:0;background:#ffffff;transform:translateY(101%);pointer-events:none;z-index:10"></div>
+</section>
+
+<section data-label="O Programa" data-screen-label="02 O Programa" data-duration="13000" style="background:#ffffff;overflow:hidden;font-family:'Archivo',sans-serif;color:#2E0950">
+  <img data-anim="fade" data-delay="900" src="assets/transforma-rosa-crop.png" alt="Transforma" style="position:absolute;top:108px;right:140px;height:64px;z-index:2"></img>
+  <div style="position:absolute;inset:0;padding:110px 140px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div data-anim="up" data-delay="700" style="align-self:flex-start;border:2px solid #6809C6;border-radius:999px;padding:14px 34px;font-size:26px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;color:#6809C6">Sobre o programa</div>
+    <div style="margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:56px">
+      <h1 data-anim="up" data-delay="900" style="margin:0;font-size:132px;line-height:.98;font-weight:800;font-stretch:120%;letter-spacing:-.025em;max-width:1300px;text-wrap:balance">O Programa <span style="color:#6809C6">Transforma</span></h1>
+      <div data-anim="up" data-delay="1200" style="display:flex;gap:44px;align-items:stretch;max-width:1480px">
+        <div style="flex:none;width:10px;border-radius:999px;background:#EF2280"></div>
+        <p style="margin:0;font-size:50px;line-height:1.3;font-weight:400;text-wrap:pretty">O Transforma Educação PB é o programa de formação continuada dos profissionais da educação da rede estadual, conduzido pela Gerência Executiva de Formação e Desenvolvimento dos Profissionais da Educação <strong style="font-weight:800;color:#6809C6">(GEFDP)</strong>.</p>
+      </div>
+    </div>
+    <img data-anim="fade" data-delay="1600" src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:720px;align-self:flex-start"></img>
+  </div>
+  <div data-anim="wipe2" style="position:absolute;inset:0;background:#E9A6FF;transform:translateY(-101%);pointer-events:none;z-index:9"></div>
+  <div data-anim="wipe" style="position:absolute;inset:0;background:#6809C6;transform:translateY(-101%);pointer-events:none;z-index:10"></div>
+</section>
+
+<section data-label="Resultados" data-screen-label="03 Resultados" data-duration="24000" style="background:#ffffff;overflow:hidden;font-family:'Archivo',sans-serif;color:#2E0950">
+  <div style="position:absolute;inset:0;padding:110px 140px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div data-anim="up" data-delay="700" style="border:2px solid #6809C6;border-radius:999px;padding:14px 34px;font-size:26px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;color:#6809C6">Resultados do programa</div>
+      <img data-anim="fade" data-delay="900" src="assets/transforma-rosa-crop.png" alt="Transforma" style="height:64px"></img>
+    </div>
+    <h1 data-anim="up" data-delay="850" style="margin:56px 0 0;font-size:100px;line-height:1.02;font-weight:800;font-stretch:120%;letter-spacing:-.02em;max-width:760px;text-wrap:balance">Formação que chega a toda a rede</h1>
+    <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,400px);justify-content:center;gap:48px">
+      <div style="min-width:0;"><div data-hero="0" style="position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:18px;transform-origin:0 0"><div style="font-size:120px;line-height:.9;font-weight:900;font-stretch:86%;color:#6809C6;letter-spacing:-.03em;display:flex;align-items:baseline;white-space:nowrap"><span style="color:#EF2280">+</span><span data-count="14">14</span><span style="font-size:50px;margin-left:8px;letter-spacing:0">mil</span></div><div style="font-size:34px;line-height:1.1;font-weight:400;font-stretch:80%;white-space:nowrap">cursistas</div></div></div>
+      <div style="min-width:0;padding-left:36px;border-left:2px solid #E4D3F7"><div data-hero="1" style="position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:18px;transform-origin:0 0"><div style="font-size:120px;line-height:.9;font-weight:900;font-stretch:86%;color:#6809C6;letter-spacing:-.03em;display:flex;align-items:baseline;white-space:nowrap"><span style="color:#EF2280">+</span><span data-count="200">200</span><span style="font-size:50px;margin-left:8px;letter-spacing:0">h</span></div><div style="font-size:34px;line-height:1.1;font-weight:400;font-stretch:80%;white-space:nowrap">de formação</div></div></div>
+      <div style="min-width:0;padding-left:36px;border-left:2px solid #E4D3F7"><div data-hero="2" style="position:relative;z-index:2;display:inline-flex;flex-direction:column;gap:18px;transform-origin:0 0"><div style="font-size:120px;line-height:.9;font-weight:900;font-stretch:86%;color:#6809C6;letter-spacing:-.03em;display:flex;align-items:baseline;white-space:nowrap"><span data-count="95">95</span><span style="color:#EF2280">%</span></div><div style="font-size:34px;line-height:1.1;font-weight:400;font-stretch:80%;white-space:nowrap">de satisfação</div></div></div>
+          </div>
+  </div>
+  <div style="position:absolute;left:990px;width:820px;top:250px;height:400px;display:flex;align-items:center;justify-content:center;z-index:2"><div data-hero="3" data-stay="1" style="display:inline-flex;flex-direction:column;gap:28px;transform-origin:50% 50%"><div style="font-size:250px;line-height:.9;font-weight:900;font-stretch:86%;color:#6809C6;letter-spacing:-.03em;display:flex;align-items:baseline;white-space:nowrap"><span data-count="100">100</span><span style="color:#EF2280">%</span></div><div style="font-size:62px;line-height:1.1;font-weight:400;font-stretch:80%;white-space:nowrap">dos certificados entregues</div></div></div>
+  <div data-anim="wipe2" style="position:absolute;inset:0;background:#E9A6FF;transform:translateY(-101%);pointer-events:none;z-index:9"></div>
+  <div data-anim="wipe" style="position:absolute;inset:0;background:#6809C6;transform:translateY(-101%);pointer-events:none;z-index:10"></div>
+</section>
+
+<section data-label="Trilhas" data-screen-label="04 Trilhas" data-duration="24000" style="background:#ffffff;overflow:hidden;font-family:'Archivo',sans-serif;color:#2E0950">
+  <img data-anim="fade" data-delay="900" src="assets/transforma-rosa-crop.png" alt="Transforma" style="position:absolute;top:108px;right:140px;height:64px;z-index:2"></img>
+  <div style="position:absolute;inset:0;padding:110px 140px;display:grid;grid-template-columns:700px minmax(0,1fr);gap:72px;box-sizing:border-box">
+    <div style="display:flex;flex-direction:column">
+      <h1 data-anim="up" data-delay="800" style="margin:0;font-size:80px;line-height:1.02;font-weight:800;font-stretch:120%;letter-spacing:-.02em;max-width:640px">Trilhas formativas</h1>
+      <div style="margin-top:72px;display:flex;flex-direction:column;gap:48px">
+        <div data-anim="up" data-delay="1000" style="display:flex;flex-direction:column;gap:16px">
+          <div style="align-self:flex-start;background:#6809C6;color:#ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;margin-bottom:6px">Transversais</div>
+          <div data-trail-item="0" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:700;color:#2E0950"><span data-trail-dot="1" style="flex:none;width:36px;height:12px;border-radius:999px;background:#EF2280"></span><span>Gestão Pedagógica</span></div>
+          <div data-trail-item="1" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Educação, Ciência e Tecnologia</span></div>
+          <div data-trail-item="2" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Inclusão, Diversidade e Equidade</span></div>
+          <div data-trail-item="3" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Educação Socioemocional</span></div>
+        </div>
+        <div data-anim="up" data-delay="1200" style="display:flex;flex-direction:column;gap:16px">
+          <div style="align-self:flex-start;background:#6809C6;color:#ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;margin-bottom:6px">BNCC</div>
+          <div data-trail-item="4" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Matemática e Ciências da Natureza</span></div>
+          <div data-trail-item="5" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Linguagens</span></div>
+          <div data-trail-item="6" style="flex:none;display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:28px;line-height:1.2;font-weight:400;color:#8B6FB0"><span data-trail-dot="1" style="flex:none;width:12px;height:12px;border-radius:999px;background:#E4D3F7"></span><span>Ciências Humanas</span></div>
+        </div>
+      </div>
+    </div>
+    <div data-anim="up" data-delay="1000" style="position:relative;margin-top:110px;background:#6809C6;border-radius:56px;color:#ffffff;overflow:hidden">
+      <div data-trail-card="0" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:1">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"></rect><path d="M9 4V2.8h6V4"></path><path d="M8.5 11l2 2 4-4"></path><path d="M8.5 17h7"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">01 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha transversal</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Gestão Pedagógica</div>
+        </div>
+      </div>
+      <div data-trail-card="1" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9.5" ry="3.8"></ellipse><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(120 12 12)"></ellipse><circle cx="12" cy="12" r="1.3" fill="currentColor"></circle></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">02 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha transversal</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Educação, Ciência e Tecnologia</div>
+        </div>
+      </div>
+      <div data-trail-card="2" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"></circle><circle cx="5" cy="15" r="2.2"></circle><circle cx="19" cy="15" r="2.2"></circle><path d="M8.6 20.5a7 7 0 0 0 6.8 0"></path><path d="M10.3 6.7 6.2 13M13.7 6.7 17.8 13"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">03 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha transversal</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Inclusão, Diversidade e Equidade</div>
+        </div>
+      </div>
+      <div data-trail-card="3" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">04 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha transversal</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Educação Socioemocional</div>
+        </div>
+      </div>
+      <div data-trail-card="4" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5"></path><path d="M10.5 3v5.5L5.2 18a2 2 0 0 0 1.8 3h10a2 2 0 0 0 1.8-3l-5.3-9.5V3"></path><path d="M7.5 14.5h9"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">05 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha da BNCC</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Matemática e Ciências da Natureza</div>
+        </div>
+      </div>
+      <div data-trail-card="5" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"></path><path d="M12 6.5v13"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">06 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha da BNCC</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Linguagens</div>
+        </div>
+      </div>
+      <div data-trail-card="6" style="position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between;opacity:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div style="width:220px;height:220px;border-radius:999px;background:#ffffff;color:#6809C6;display:flex;align-items:center;justify-content:center"><svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg></div>
+          <div style="font-size:30px;font-weight:700;letter-spacing:.12em;color:#E9A6FF">07 / 07</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+          <div style="border:2px solid #ffffff;border-radius:999px;padding:10px 26px;font-size:24px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap">Trilha da BNCC</div>
+          <div style="font-size:92px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em;text-wrap:balance">Ciências Humanas</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:80px;right:80px;bottom:40px;height:4px;border-radius:4px;background:rgba(255,255,255,.2)"><div data-trail-bar="1" style="height:100%;width:14.28%;border-radius:4px;background:#ffffff"></div></div>
+    </div>
+  </div>
+  <div data-anim="wipe2" style="position:absolute;inset:0;background:#E9A6FF;transform:translateY(-101%);pointer-events:none;z-index:9"></div>
+  <div data-anim="wipe" style="position:absolute;inset:0;background:#6809C6;transform:translateY(-101%);pointer-events:none;z-index:10"></div>
+</section>
+
+<section data-label="Alcance territorial" data-screen-label="05 Alcance territorial" data-duration="27000" style="background:#ffffff;overflow:hidden;font-family:'Archivo',sans-serif;color:#2E0950">
+  <img data-anim="fade" data-delay="900" src="assets/transforma-rosa-crop.png" alt="Transforma" style="position:absolute;top:108px;right:140px;height:64px;z-index:2"></img>
+  <div style="position:absolute;inset:0;padding:110px 120px 110px 140px;display:grid;grid-template-columns:600px minmax(0,1fr);gap:40px;box-sizing:border-box">
+    <div style="display:flex;flex-direction:column">
+      <div data-anim="up" data-delay="700" style="align-self:flex-start;border:2px solid #6809C6;border-radius:999px;padding:14px 34px;font-size:26px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;color:#6809C6">Alcance territorial</div>
+      <div data-anim="up" data-delay="850" style="margin-top:56px;display:flex;flex-direction:column;gap:22px">
+        <h1 data-ro="title" style="margin:0;font-size:88px;line-height:1.02;font-weight:800;font-stretch:125%;letter-spacing:-.02em">16 Gerências Regionais</h1>
+        <div data-ro="sub" style="display:flex;align-items:baseline;gap:20px;font-size:40px;min-height:48px;opacity:0"><span data-ro="name" style="font-weight:600;white-space:nowrap"></span><span data-ro="count" style="font-weight:800;color:#EF2280;white-space:nowrap"></span></div>
+      </div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <div data-anim="up" data-delay="1100" style="font-size:170px;line-height:.9;font-weight:900;font-stretch:125%;color:#6809C6;letter-spacing:-.03em" data-ro="total">12.053</div>
+        <div data-anim="up" data-delay="1200" style="font-size:36px;font-stretch:80%">inscrições nas 16 GREs</div>
+      </div>
+    </div>
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+      <svg viewBox="0 0 1160 700" width="1160" height="700" style="overflow:visible"><g data-mapslot="1"><path data-region="1" data-v="2030" data-code="1ª GRE" data-name="João Pessoa" d="M1040.5 415.2L1051.2 418.3L1061.8 416.3L1085.8 434.3L1085.9 445.1L1092.7 456.1L1122.9 456.4L1128.5 458.9L1135.5 447.8L1134.1 442.1L1137.3 413.3L1139.6 397.7L1136.4 372.5L1140.0 347.0L1132.0 339.9L1129.6 323.9L1126.1 318.9L1121.4 311.5L1120.0 304.2L1026.8 375.4Z" fill="#6809C6" stroke="none" style="fill-opacity:1"></path><path data-region="2" data-v="1139" data-code="2ª GRE" data-name="Guarabira" d="M959.4 157.4L957.0 157.1L937.2 154.4L922.4 158.6L917.7 156.4L911.3 149.4L902.1 148.0L894.6 145.8L882.3 152.3L863.6 156.1L861.8 156.2L853.2 156.7L822.8 242.0L924.0 337.0L955.2 329.7L985.8 271.8Z" fill="#6809C6" stroke="none" style="fill-opacity:0.64"></path><path data-region="3" data-v="1861" data-code="3ª GRE" data-name="Campina Grande" d="M879.7 418.4L924.0 337.0L822.8 242.0L632.5 336.4L631.5 346.9L648.0 375.6Z" fill="#6809C6" stroke="none" style="fill-opacity:0.932"></path><path data-region="4" data-v="391" data-code="4ª GRE" data-name="Cuité" d="M632.5 336.4L822.8 242.0L853.2 156.7L836.3 157.7L815.4 159.0L809.5 156.5L798.2 155.6L778.1 134.1L772.6 138.3L772.5 138.3L768.6 140.8L750.5 141.3L735.8 142.2L728.9 133.8L717.5 131.4L716.2 124.1L721.0 109.1L716.5 101.9L702.7 104.8L688.4 102.4L677.7 122.1L658.8 120.7L657.5 128.7L650.0 147.3L650.8 155.1L651.5 161.3L663.9 166.8L664.6 172.3L675.0 179.3L676.2 197.7L654.8 187.8L652.9 192.4L642.2 220.0L649.3 227.3L657.4 233.1L655.9 251.3L646.4 258.2L641.8 257.8L639.6 267.5L629.5 283.3L615.0 282.6L608.7 282.2Z" fill="#6809C6" stroke="none" style="fill-opacity:0.338"></path><path data-region="5" data-v="446" data-code="5ª GRE" data-name="Monteiro" d="M497.1 407.1L502.7 410.9L513.9 417.8L511.1 426.3L521.9 438.2L510.6 444.2L510.5 444.3L495.4 449.8L484.4 454.9L471.6 466.3L461.9 483.6L472.3 501.4L475.4 506.7L478.6 514.9L474.9 524.6L469.6 530.4L456.4 532.3L448.9 551.3L436.7 559.9L430.6 568.5L419.0 572.6L421.8 581.4L435.5 577.3L455.8 579.5L472.5 586.4L475.6 593.9L473.2 601.7L477.2 612.2L477.1 622.7L472.6 635.6L482.1 636.5L483.1 646.6L494.6 661.6L506.4 662.8L511.9 669.5L520.2 673.3L530.6 672.2L532.7 666.0L543.6 659.1L556.7 650.4L577.6 641.1L606.0 631.4L604.1 627.2L622.5 618.8L615.4 607.2L622.4 603.4L622.7 583.3L627.0 572.8L638.3 569.0L638.5 560.0L648.4 559.2L664.3 565.8L673.9 563.4L678.5 555.0L678.5 548.2L648.0 375.6L631.5 346.9L394.6 453.1L394.6 453.1Z" fill="#6809C6" stroke="none" style="fill-opacity:0.36"></path><path data-region="6" data-v="800" data-code="6ª GRE" data-name="Patos" d="M370.4 428.8L370.6 427.9L380.2 413.7L377.9 406.7L396.0 404.4L409.0 404.4L425.2 384.9L429.2 385.3L444.2 380.9L451.7 380.9L467.9 391.0L470.3 397.4L493.6 404.8L497.1 407.1L631.5 346.9L632.5 336.4L608.7 282.2L605.9 282.0L599.7 295.8L591.8 295.3L583.6 284.8L585.4 278.7L593.8 256.5L582.7 257.2L581.8 242.5L564.3 226.6L543.1 234.0L529.3 241.5L524.1 224.0L516.7 220.5L507.8 227.5L496.5 233.2L481.7 236.4L474.8 245.7L463.4 253.6L451.6 253.2L445.8 249.4L441.8 235.4L443.3 226.9L429.1 214.7L421.1 218.1L403.1 217.0L334.6 392.7Z" fill="#6809C6" stroke="none" style="fill-opacity:0.503"></path><path data-region="7" data-v="487" data-code="7ª GRE" data-name="Itaporanga" d="M82.4 380.4L85.0 385.6L80.8 398.2L67.8 421.1L65.7 433.1L53.9 433.7L51.6 460.1L43.2 467.5L37.3 468.1L34.1 479.7L42.1 483.5L59.3 500.7L68.4 517.4L92.6 516.3L101.9 511.1L106.9 507.1L108.9 507.3L322.7 389.4L220.5 296.7L158.9 306.2Z" fill="#6809C6" stroke="none" style="fill-opacity:0.377"></path><path data-region="8" data-v="312" data-code="8ª GRE" data-name="Catolé do Rocha" d="M383.5 185.0L386.7 170.2L399.0 170.4L406.1 163.8L410.3 143.1L408.1 130.0L415.3 110.4L423.6 106.5L428.9 97.9L440.7 98.4L441.4 90.4L451.9 79.4L460.9 77.3L473.5 62.2L468.4 59.3L468.7 32.5L452.4 26.7L445.4 27.0L410.9 43.1L406.8 50.0L392.1 50.8L388.3 60.1L370.6 62.0L357.1 63.0L344.0 68.9L327.9 73.0L317.8 69.2L308.4 72.6L298.8 88.7L302.1 101.9L288.7 102.0L280.0 113.5L275.6 125.3L258.5 135.8L252.0 139.4L233.5 141.7L228.2 153.8L228.2 153.8L254.1 192.7Z" fill="#6809C6" stroke="none" style="fill-opacity:0.306"></path><path data-region="9" data-v="578" data-code="9ª GRE" data-name="Cajazeiras" d="M68.8 158.8L63.1 164.7L63.6 170.1L64.6 169.3L54.5 184.3L58.3 190.7L52.7 197.2L53.3 204.8L46.1 219.5L51.8 234.0L62.7 241.2L51.9 249.5L46.4 259.6L45.3 263.8L20.0 277.7L26.5 295.7L20.1 301.3L40.8 311.3L45.8 316.2L46.9 316.6L50.7 329.3L44.6 340.7L43.5 356.3L54.1 355.3L60.9 365.6L68.6 373.4L79.4 374.6L82.4 380.4L158.9 306.2Z" fill="#6809C6" stroke="none" style="fill-opacity:0.413"></path><path data-region="10" data-v="548" data-code="10ª GRE" data-name="Sousa" d="M228.2 153.8L215.8 150.7L201.9 167.3L194.9 159.3L181.7 160.6L171.2 156.2L163.4 156.2L154.4 162.5L138.8 148.6L130.7 148.5L122.5 135.3L109.4 133.5L99.5 129.6L98.0 121.6L106.5 112.7L93.6 120.1L85.6 116.0L77.2 119.9L68.7 126.3L84.0 138.6L74.9 152.5L68.8 158.8L158.9 306.2L220.5 296.7L254.1 192.7Z" fill="#6809C6" stroke="none" style="fill-opacity:0.401"></path><path data-region="11" data-v="296" data-code="11ª GRE" data-name="Princesa Isabel" d="M356.5 442.0L368.9 435.2L370.4 428.8L334.6 392.7L322.7 389.4L92.6 516.3L95.7 516.1L101.9 511.1L108.9 507.3L113.3 507.8L120.3 510.6L135.7 495.8L143.6 500.1L148.1 513.0L152.4 523.3L153.0 536.9L158.1 540.1L173.2 536.1L189.5 524.6L198.7 529.2L201.9 535.8L214.0 539.0L216.2 522.5L224.6 515.6L235.6 524.4L247.7 520.7L263.0 501.4L276.0 488.3L289.4 486.0L296.2 480.9L301.4 489.8L305.3 480.9L307.5 476.2L310.5 472.7L332.8 451.8L342.9 452.5L356.5 442.0Z" fill="#6809C6" stroke="none" style="fill-opacity:0.3"></path><path data-region="12" data-v="544" data-code="12ª GRE" data-name="Itabaiana" d="M901.7 497.5L903.6 496.6L907.0 491.3L916.0 487.8L923.9 490.9L933.1 486.3L935.5 474.7L930.2 468.0L940.2 448.7L942.1 440.5L954.7 431.9L959.2 436.8L979.4 428.9L985.1 422.9L987.8 421.0L1002.7 413.2L1011.6 409.5L1027.9 416.1L1038.3 414.6L1040.5 415.2L1026.8 375.4L955.2 329.7L924.0 337.0L879.7 418.4Z" fill="#6809C6" stroke="none" style="fill-opacity:0.4"></path><path data-region="13" data-v="283" data-code="13ª GRE" data-name="Pombal" d="M403.1 217.0L402.9 217.0L381.1 220.6L386.3 206.4L382.3 190.8L383.5 185.0L254.1 192.7L220.5 296.7L322.7 389.4L334.6 392.7Z" fill="#6809C6" stroke="none" style="fill-opacity:0.294"></path><path data-region="14" data-v="647" data-code="14ª GRE" data-name="Mamanguape" d="M1104.8 244.3L1102.9 237.0L1101.0 223.8L1101.2 214.4L1095.0 210.0L1091.6 190.2L1090.6 157.3L1073.7 162.5L1065.4 168.9L1054.8 160.3L1050.0 162.4L1040.6 176.0L1027.0 175.2L1018.4 167.1L1004.3 173.4L985.5 171.9L978.9 164.4L966.7 158.0L959.4 157.4L985.8 271.8Z" fill="#6809C6" stroke="none" style="fill-opacity:0.441"></path><path data-region="15" data-v="442" data-code="15ª GRE" data-name="Queimadas" d="M678.5 548.2L678.5 538.1L687.1 533.3L714.6 532.7L725.4 539.4L728.0 529.3L738.6 520.2L748.0 525.8L764.0 525.9L780.3 525.0L793.6 533.3L798.8 534.0L815.7 527.5L828.4 527.2L833.3 520.8L849.0 516.0L859.0 513.4L885.6 500.2L890.0 503.0L901.7 497.5L879.7 418.4L648.0 375.6Z" fill="#6809C6" stroke="none" style="fill-opacity:0.359"></path><path data-region="16" data-v="1249" data-code="16ª GRE" data-name="Santa Rita" d="M1026.8 375.4L1120.0 304.2L1118.6 296.8L1122.8 275.7L1110.3 264.9L1104.8 244.3L985.8 271.8L955.2 329.7Z" fill="#6809C6" stroke="none" style="fill-opacity:0.685"></path><path data-anim="draw" data-delay="900" d="M356.5 442.0L368.9 435.2L370.6 427.9L380.2 413.7L377.9 406.7L396.0 404.4L409.0 404.4L425.2 384.9L429.2 385.3L444.2 380.9L451.7 380.9L467.9 391.0L470.3 397.4L493.6 404.8L502.7 410.9L513.9 417.8L511.1 426.3L521.9 438.2L510.6 444.2L510.5 444.3L495.4 449.8L484.4 454.9L471.6 466.3L461.9 483.6L472.3 501.4L475.4 506.7L478.6 514.9L474.9 524.6L469.6 530.4L456.4 532.3L448.9 551.3L436.7 559.9L430.6 568.5L419.0 572.6L421.8 581.4L435.5 577.3L455.8 579.5L472.5 586.4L475.6 593.9L473.2 601.7L477.2 612.2L477.1 622.7L472.6 635.6L482.1 636.5L483.1 646.6L494.6 661.6L506.4 662.8L511.9 669.5L520.2 673.3L530.6 672.2L532.7 666.0L543.6 659.1L556.7 650.4L577.6 641.1L606.0 631.4L604.1 627.2L622.5 618.8L615.4 607.2L622.4 603.4L622.7 583.3L627.0 572.8L638.3 569.0L638.5 560.0L648.4 559.2L664.3 565.8L673.9 563.4L678.5 555.0L678.5 538.1L687.1 533.3L714.6 532.7L725.4 539.4L728.0 529.3L738.6 520.2L748.0 525.8L764.0 525.9L780.3 525.0L793.6 533.3L798.8 534.0L815.7 527.5L828.4 527.2L833.3 520.8L849.0 516.0L859.0 513.4L885.6 500.2L890.0 503.0L903.6 496.6L907.0 491.3L916.0 487.8L923.9 490.9L933.1 486.3L935.5 474.7L930.2 468.0L940.2 448.7L942.1 440.5L954.7 431.9L959.2 436.8L979.4 428.9L985.1 422.9L987.8 421.0L1002.7 413.2L1011.6 409.5L1027.9 416.1L1038.3 414.6L1051.2 418.3L1061.8 416.3L1085.8 434.3L1085.9 445.1L1092.7 456.1L1122.9 456.4L1128.5 458.9L1135.5 447.8L1134.1 442.1L1137.3 413.3L1139.6 397.7L1136.4 372.5L1140.0 347.0L1132.0 339.9L1129.6 323.9L1126.1 318.9L1121.4 311.5L1118.6 296.8L1122.8 275.7L1110.3 264.9L1102.9 237.0L1101.0 223.8L1101.2 214.4L1095.0 210.0L1091.6 190.2L1090.6 157.3L1073.7 162.5L1065.4 168.9L1054.8 160.3L1050.0 162.4L1040.6 176.0L1027.0 175.2L1018.4 167.1L1004.3 173.4L985.5 171.9L978.9 164.4L966.7 158.0L957.0 157.1L937.2 154.4L922.4 158.6L917.7 156.4L911.3 149.4L902.1 148.0L894.6 145.8L882.3 152.3L863.6 156.1L861.8 156.2L836.3 157.7L815.4 159.0L809.5 156.5L798.2 155.6L778.1 134.1L772.6 138.3L772.5 138.3L768.6 140.8L750.5 141.3L735.8 142.2L728.9 133.8L717.5 131.4L716.2 124.1L721.0 109.1L716.5 101.9L702.7 104.8L688.4 102.4L677.7 122.1L658.8 120.7L657.5 128.7L650.0 147.3L650.8 155.1L651.5 161.3L663.9 166.8L664.6 172.3L675.0 179.3L676.2 197.7L654.8 187.8L652.9 192.4L642.2 220.0L649.3 227.3L657.4 233.1L655.9 251.3L646.4 258.2L641.8 257.8L639.6 267.5L629.5 283.3L615.0 282.6L605.9 282.0L599.7 295.8L591.8 295.3L583.6 284.8L585.4 278.7L593.8 256.5L582.7 257.2L581.8 242.5L564.3 226.6L543.1 234.0L529.3 241.5L524.1 224.0L516.7 220.5L507.8 227.5L496.5 233.2L481.7 236.4L474.8 245.7L463.4 253.6L451.6 253.2L445.8 249.4L441.8 235.4L443.3 226.9L429.1 214.7L421.1 218.1L402.9 217.0L381.1 220.6L386.3 206.4L382.3 190.8L386.7 170.2L399.0 170.4L406.1 163.8L410.3 143.1L408.1 130.0L415.3 110.4L423.6 106.5L428.9 97.9L440.7 98.4L441.4 90.4L451.9 79.4L460.9 77.3L473.5 62.2L468.4 59.3L468.7 32.5L452.4 26.7L445.4 27.0L410.9 43.1L406.8 50.0L392.1 50.8L388.3 60.1L370.6 62.0L357.1 63.0L344.0 68.9L327.9 73.0L317.8 69.2L308.4 72.6L298.8 88.7L302.1 101.9L288.7 102.0L280.0 113.5L275.6 125.3L258.5 135.8L252.0 139.4L233.5 141.7L228.2 153.8L215.8 150.7L201.9 167.3L194.9 159.3L181.7 160.6L171.2 156.2L163.4 156.2L154.4 162.5L138.8 148.6L130.7 148.5L122.5 135.3L109.4 133.5L99.5 129.6L98.0 121.6L106.5 112.7L93.6 120.1L85.6 116.0L77.2 119.9L68.7 126.3L84.0 138.6L74.9 152.5L63.1 164.7L63.6 170.1L64.6 169.3L54.5 184.3L58.3 190.7L52.7 197.2L53.3 204.8L46.1 219.5L51.8 234.0L62.7 241.2L51.9 249.5L46.4 259.6L45.3 263.8L20.0 277.7L26.5 295.7L20.1 301.3L40.8 311.3L45.8 316.2L46.9 316.6L50.7 329.3L44.6 340.7L43.5 356.3L54.1 355.3L60.9 365.6L68.6 373.4L79.4 374.6L85.0 385.6L80.8 398.2L67.8 421.1L65.7 433.1L53.9 433.7L51.6 460.1L43.2 467.5L37.3 468.1L34.1 479.7L42.1 483.5L59.3 500.7L68.4 517.4L95.7 516.1L106.9 507.1L113.3 507.8L120.3 510.6L135.7 495.8L143.6 500.1L148.1 513.0L152.4 523.3L153.0 536.9L158.1 540.1L173.2 536.1L189.5 524.6L198.7 529.2L201.9 535.8L214.0 539.0L216.2 522.5L224.6 515.6L235.6 524.4L247.7 520.7L263.0 501.4L276.0 488.3L289.4 486.0L296.2 480.9L301.4 489.8L305.3 480.9L307.5 476.2L310.5 472.7L332.8 451.8L342.9 452.5L356.5 442.0Z" fill="none" stroke="#6809C6" style="stroke-width:3.5;stroke-linejoin:round"></path></g></svg>
+    </div>
+  </div>
+  <div data-anim="wipe2" style="position:absolute;inset:0;background:#E9A6FF;transform:translateY(-101%);pointer-events:none;z-index:9"></div>
+  <div data-anim="wipe" style="position:absolute;inset:0;background:#6809C6;transform:translateY(-101%);pointer-events:none;z-index:10"></div>
+</section>
+
+
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;×&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.anims = []; this.timers = [];
+    this.onChange = (e) => this.play(e.detail.slide, e.detail.index, e.detail.total);
+    document.addEventListener('slidechange', this.onChange);
+    this.boot = setTimeout(() => {
+      const deck = document.querySelector('deck-stage');
+      const s = document.querySelector('deck-stage > section[data-deck-active]');
+      if (deck && s && !this.current) { const all = [...deck.querySelectorAll(':scope > section')]; this.play(s, all.indexOf(s), all.length); }
+    }, 400);
+  }
+  componentWillUnmount() { document.removeEventListener('slidechange', this.onChange); clearTimeout(this.boot); this.stop(); }
+  stop() {
+    this.seq = (this.seq || 0) + 1;
+    document.querySelectorAll('[data-hero]').forEach(el => el.style.opacity = '');
+    this.anims.forEach(a => { try { a.cancel(); } catch (e) {} });
+    this.timers.forEach(t => { clearTimeout(t); cancelAnimationFrame(t); });
+    this.anims = []; this.timers = [];
+  }
+  later(fn, ms) { this.timers.push(setTimeout(fn, ms)); }
+  fmt(n) { return Math.round(n).toLocaleString('pt-BR'); }
+  count(el, from, to, dur, delay) {
+    el.textContent = this.fmt(from);
+    this.later(() => {
+      const t0 = Date.now();
+      const step = () => {
+        const p = Math.min(1, (Date.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = this.fmt(from + (to - from) * e);
+        if (p < 1) this.timers.push(setTimeout(step, 30));
+      };
+      step();
+    }, delay);
+  }
+  play(slide, index, total) {
+    if (!slide) return;
+    this.stop(); this.current = slide;
+    const speed = this.props.speed ?? 1;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) this.animate(slide);
+    if (this.props.autoplay ?? true) {
+      const dur = (+slide.dataset.duration || 8000) / speed;
+      this.later(() => { const d = document.querySelector('deck-stage'); if (d && d.goTo) d.goTo((index + 1) % total); }, dur);
+    }
+  }
+  animate(slide) {
+    const ease = 'cubic-bezier(.22,1,.36,1)';
+    const run = (el, kf, o) => { const a = el.animate(kf, Object.assign({ fill: 'backwards', easing: ease }, o)); this.anims.push(a); };
+    slide.querySelectorAll('[data-anim]').forEach(el => {
+      const t = el.dataset.anim, d = (+el.dataset.delay || 0) + (/wipe/.test(t) ? 0 : 900);
+      if (t === 'up') run(el, [{ opacity: 0, transform: 'translateY(48px)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: d });
+      else if (t === 'fade') run(el, [{ opacity: 0 }, { opacity: 1 }], { duration: 900, delay: d });
+      else if (t === 'pop') run(el, [{ opacity: 0, transform: 'scale(.4) rotate(-20deg)' }, { opacity: 1, transform: 'none' }], { duration: 800, delay: d, easing: 'cubic-bezier(.34,1.56,.64,1)' });
+      else if (t === 'zoom') run(el, [{ transform: 'scale(1.12)', opacity: .4 }, { transform: 'scale(1)', opacity: 1 }], { duration: 2600, delay: d });
+      else if (t === 'wipe') run(el, [{ transform: 'translateY(0)' }, { transform: 'translateY(0)', offset: .25 }, { transform: 'translateY(-101%)' }], { duration: 2200, delay: d, easing: 'cubic-bezier(.76,0,.24,1)' });
+      else if (t === 'wipe2') run(el, [{ transform: 'translateY(0)' }, { transform: 'translateY(0)', offset: .35 }, { transform: 'translateY(-101%)' }], { duration: 2450, delay: d, easing: 'cubic-bezier(.76,0,.24,1)' });
+      else if (t === 'wipe-white') run(el, [{ transform: 'translateY(0)' }, { transform: 'translateY(0)', offset: .2 }, { transform: 'translateY(101%)' }], { duration: 2000, delay: d, easing: 'cubic-bezier(.76,0,.24,1)' });
+      else if (t === 'trail') run(el, [{ opacity: 0, transform: 'translateY(60px) scale(.94)', background: '#ffffff' }, { opacity: 1, transform: 'none', background: '#F1E6FC', offset: .5 }, { opacity: 1, transform: 'none', background: '#ffffff' }], { duration: 1400, delay: d });
+      else if (t === 'cert') run(el, [{ opacity: 0, transform: 'translateY(120px) rotate(6deg) scale(.9)' }, { opacity: 1, transform: 'rotate(-3deg)' }], { duration: 1200, delay: d });
+      else if (t === 'stamp') run(el, [{ opacity: 0, transform: 'scale(2.4) rotate(-30deg)' }, { opacity: 1, transform: 'rotate(8deg)' }], { duration: 600, delay: d, easing: 'cubic-bezier(.34,1.56,.64,1)' });
+      else if (t === 'draw' && el.getTotalLength) { const L = el.getTotalLength(); run(el, [{ strokeDasharray: L + ' ' + L, strokeDashoffset: L }, { strokeDasharray: L + ' ' + L, strokeDashoffset: 0 }], { duration: 2200, delay: d, easing: 'ease-in-out' }); }
+      else if (t === 'dash') run(el, [{ opacity: 0 }, { opacity: 1 }], { duration: 900, delay: d });
+    });
+    const heroes = [...slide.querySelectorAll('[data-hero]')];
+    if (heroes.length) {
+      const sr = slide.getBoundingClientRect(), k = sr.width / 1920 || 1;
+      const m = heroes.map(el => { const r = el.getBoundingClientRect(); return { el, x: (r.left - sr.left) / k, y: (r.top - sr.top) / k, w: r.width / k, h: r.height / k }; });
+      const token = (this.seq = (this.seq || 0) + 1);
+      const wait = ms => new Promise(res => this.later(res, ms));
+      const geo = m.map(o => {
+        const S = Math.min(2.2, 820 / o.w, 400 / o.h);
+        const tx = 1400 - o.w * S / 2 - o.x, ty = 450 - o.h * S / 2 - o.y;
+        if (o.el.dataset.stay) return { stay: true, big: 'none', bigIn: 'translateY(40px) scale(.92)' };
+        return { big: 'translate(' + tx + 'px,' + ty + 'px) scale(' + S + ')', bigIn: 'translate(' + tx + 'px,' + (ty + 40) + 'px) scale(' + (S * .92) + ')' };
+      });
+      m.forEach(o => { o.el.style.opacity = 0; o.el.querySelectorAll('[data-count]').forEach(c => c.textContent = '0'); });
+      const countTo = (c, to, dur) => new Promise(res => {
+        const t0 = Date.now();
+        const step = () => {
+          if (token !== this.seq) return res();
+          const p = Math.min(1, (Date.now() - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+          c.textContent = this.fmt(to * e);
+          if (p < 1) this.timers.push(setTimeout(step, 30)); else res();
+        };
+        step();
+      });
+      (async () => {
+        await wait(2700);
+        for (let i = 0; i < m.length; i++) {
+          if (token !== this.seq) return;
+          const o = m[i], g = geo[i];
+          o.el.style.opacity = 1;
+          const a1 = o.el.animate([{ opacity: 0, transform: g.bigIn, filter: 'blur(14px)' }, { opacity: 1, transform: g.big, filter: 'blur(0px)' }], { duration: 900, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
+          this.anims.push(a1);
+          await wait(300);
+          await Promise.all([...o.el.querySelectorAll('[data-count]')].map(c => countTo(c, +c.dataset.count, 1600)));
+          await wait(1400);
+          if (token !== this.seq || g.stay) return;
+          const a2 = o.el.animate([{ transform: g.big }, { transform: 'none' }], { duration: 1100, easing: 'cubic-bezier(.65,0,.25,1)', fill: 'forwards' });
+          this.anims.push(a2);
+          await wait(1200);
+        }
+      })();
+    }
+    slide.querySelectorAll('[data-count]').forEach(el => { if (!el.closest('[data-hero]')) this.count(el, 0, +el.dataset.count, 1800, (+el.dataset.delay || 0) + 900); });
+    const tcards = [...slide.querySelectorAll('[data-trail-card]')];
+    if (tcards.length) {
+      const tok = this.seq, items = [...slide.querySelectorAll('[data-trail-item]')], bar = slide.querySelector('[data-trail-bar]');
+      const setActive = (i) => {
+        items.forEach((it, j) => { const on = j === i, dot = it.querySelector('[data-trail-dot]'); it.style.color = on ? '#2E0950' : '#8B6FB0'; it.style.fontWeight = on ? 700 : 400; dot.style.width = on ? '36px' : '12px'; dot.style.background = on ? '#EF2280' : '#E4D3F7'; dot.style.transition = 'all .5s'; it.style.transition = 'color .5s'; });
+        if (bar) { bar.style.transition = 'width .8s cubic-bezier(.65,0,.35,1)'; bar.style.width = ((i + 1) / tcards.length * 100) + '%'; }
+      };
+      tcards.forEach((c, j) => c.style.opacity = j ? 0 : 1);
+      setActive(0);
+      let cur = 0; const hold = 2800;
+      const next = () => {
+        if (tok !== this.seq) return;
+        const n = (cur + 1) % tcards.length, out = tcards[cur], inn = tcards[n];
+        const a1 = out.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-60px)' }], { duration: 600, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
+        const a2 = inn.animate([{ opacity: 0, transform: 'translateY(80px)' }, { opacity: 1, transform: 'none' }], { duration: 800, delay: 250, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+        this.anims.push(a1, a2);
+        a1.onfinish = () => { out.style.opacity = 0; a1.cancel(); };
+        inn.style.opacity = 1;
+        cur = n; setActive(n);
+        this.later(next, hold);
+      };
+      this.later(next, 2700 + hold);
+    }
+    const regions = [...slide.querySelectorAll('[data-region]')].sort((a, b) => a.dataset.region - b.dataset.region);
+    if (!regions.length) return;
+    const q = s => slide.querySelector('[data-ro="' + s + '"]');
+    const totalEl = q('total'), titleEl = q('title'), subEl = q('sub'), nameEl = q('name'), cntEl = q('count');
+    const swap = (fn) => {
+      run(titleEl, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 500 });
+      run(subEl, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: 80 });
+      fn();
+    };
+    let acc = 0; const base = 3300, gap = 1000;
+    totalEl.textContent = '0'; titleEl.textContent = '16 Gerências Regionais'; subEl.style.opacity = 0;
+    regions.forEach((r, i) => {
+      const op = parseFloat(r.style.fillOpacity) || .5, delay = base + i * gap, v = +r.dataset.v;
+      run(r, [{ fillOpacity: 0, fill: '#EF2280' }, { fillOpacity: 1, fill: '#EF2280', offset: .2 }, { fillOpacity: 1, fill: '#EF2280', offset: .8 }, { fillOpacity: op, fill: '#6809C6' }], { duration: gap + 200, delay, easing: 'ease-out' });
+      const from = acc; acc += v;
+      this.count(totalEl, from, acc, 600, delay);
+      this.later(() => swap(() => { titleEl.textContent = r.dataset.code; nameEl.textContent = r.dataset.name; const st = v >= 1000 ? 100 : (v >= 100 ? 50 : 10), rv = Math.floor((v - 1) / st) * st; cntEl.textContent = 'mais de ' + this.fmt(rv) + ' inscrições'; subEl.style.opacity = 1; }), delay);
+    });
+    this.later(() => swap(() => { titleEl.textContent = '16 Gerências Regionais'; nameEl.textContent = 'Paraíba'; cntEl.textContent = 'Total'; subEl.style.opacity = 1; }), base + regions.length * gap + 400);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
