@@ -185,7 +185,7 @@ class Component extends DCLogic {
     this.anims = []; this.timers = []; this.pending = new Set();
     this.noRail = () => { const dk = document.querySelector('deck-stage'); if (dk && !dk.hasAttribute('no-rail')) dk.setAttribute('no-rail', ''); const sr = dk && dk.shadowRoot; if (sr && !sr.querySelector('style[data-hide-ui]')) { const st = document.createElement('style'); st.setAttribute('data-hide-ui', ''); st.textContent = '.overlay{display:none!important}'; sr.appendChild(st); } };
     this.noRail();
-    this.fs = () => { let d = document; try { d = window.top.document; } catch (e) {} const r = d.documentElement; if (!d.fullscreenElement && r.requestFullscreen) { r.requestFullscreen().catch(() => {}); return true; } return false; };
+    this.fs = () => { let d = document; try { d = window.top.document; } catch (e) {} const r = d.documentElement, req = r.requestFullscreen || r.webkitRequestFullscreen; if (!(d.fullscreenElement || d.webkitFullscreenElement) && req) { try { const pr = req.call(r); if (pr && pr.catch) pr.catch(() => {}); } catch (e) {} return true; } return false; };
     this.onClick = () => { if (this.fs()) return; this.togglePause(); };
     document.addEventListener('click', this.onClick); document.addEventListener('keydown', this.fs);
     this.buildCtrl();

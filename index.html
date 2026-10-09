@@ -11,20 +11,24 @@ iframe.ativa{visibility:visible;pointer-events:auto}
 </style>
 </head>
 <body>
-<iframe id="transforma" title="Transforma Educação PB 2026" allow="fullscreen" allowfullscreen src="Transforma%20Educacao%20PB%202026.dc.html"></iframe>
-<iframe id="jornada" title="Jornada Formativa" allow="fullscreen" allowfullscreen src="Jornada/Main.dc.html"></iframe>
+<iframe id="transforma" title="Transforma Educação PB 2026" allow="fullscreen" allowfullscreen src="Transforma%20Educacao%20PB%202026.dc.html?v=6"></iframe>
+<iframe id="jornada" title="Jornada Formativa" allow="fullscreen" allowfullscreen src="Jornada/Main.dc.html?v=6"></iframe>
 <script>
 (function () {
   var titulos = { transforma: 'Transforma Educação PB 2026', jornada: 'Jornada Formativa' };
-  window.mostrar = function (nome) {
+  function telaCheia() {
+    var r = document.documentElement, req = r.requestFullscreen || r.webkitRequestFullscreen;
+    if (!(document.fullscreenElement || document.webkitFullscreenElement) && req) { try { var p = req.call(r); if (p && p.catch) p.catch(function () {}); } catch (e) {} }
+  }
+  window.mostrar = function (nome, inicial) {
     Object.keys(titulos).forEach(function (k) { document.getElementById(k).classList.toggle('ativa', k === nome); });
-    history.replaceState(null, '', nome === 'jornada' ? '#jornada' : location.pathname);
     document.title = titulos[nome];
+    if (!inicial) telaCheia();
     try { document.getElementById(nome).contentWindow.focus(); } catch (e) {}
   };
   var inicio = location.hash === '#jornada' ? 'jornada' : 'transforma';
-  window.mostrar(inicio);
-  document.getElementById(inicio).addEventListener('load', function () { window.mostrar(inicio); });
+  window.mostrar(inicio, true);
+  document.getElementById(inicio).addEventListener('load', function () { window.mostrar(inicio, true); });
 })();
 </script>
 </body>
