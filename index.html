@@ -6,25 +6,25 @@
 <title>Transforma Educação PB 2026</title>
 <style>
 html,body{margin:0;height:100%;overflow:hidden;background:#000}
-iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#000;visibility:hidden;pointer-events:none}
+iframe.ativa{visibility:visible;pointer-events:auto}
 </style>
 </head>
 <body>
-<iframe id="tela" title="Apresentação" allow="fullscreen" allowfullscreen></iframe>
+<iframe id="transforma" title="Transforma Educação PB 2026" allow="fullscreen" allowfullscreen src="Transforma%20Educacao%20PB%202026.dc.html"></iframe>
+<iframe id="jornada" title="Jornada Formativa" allow="fullscreen" allowfullscreen src="Jornada/Main.dc.html"></iframe>
 <script>
 (function () {
-  var paginas = { transforma: 'Transforma%20Educacao%20PB%202026.dc.html', jornada: 'Jornada/Main.dc.html' };
-  var tela = document.getElementById('tela');
+  var titulos = { transforma: 'Transforma Educação PB 2026', jornada: 'Jornada Formativa' };
+  window.mostrar = function (nome) {
+    Object.keys(titulos).forEach(function (k) { document.getElementById(k).classList.toggle('ativa', k === nome); });
+    history.replaceState(null, '', nome === 'jornada' ? '#jornada' : location.pathname);
+    document.title = titulos[nome];
+    try { document.getElementById(nome).contentWindow.focus(); } catch (e) {}
+  };
   var inicio = location.hash === '#jornada' ? 'jornada' : 'transforma';
-  tela.src = paginas[inicio];
-  tela.addEventListener('load', function () {
-    try {
-      var atual = /\/Jornada\//.test(tela.contentWindow.location.pathname) ? 'jornada' : 'transforma';
-      history.replaceState(null, '', atual === 'jornada' ? '#jornada' : location.pathname);
-      document.title = atual === 'jornada' ? 'Jornada Formativa' : 'Transforma Educação PB 2026';
-    } catch (e) {}
-    tela.contentWindow.focus();
-  });
+  window.mostrar(inicio);
+  document.getElementById(inicio).addEventListener('load', function () { window.mostrar(inicio); });
 })();
 </script>
 </body>

@@ -208,7 +208,7 @@ class Component extends DCLogic {
     pb.addEventListener('click', e => { e.stopPropagation(); this.togglePause(); });
     const jl = document.createElement('a'); jl.href = 'Jornada/Main.dc.html'; jl.title = 'Jornada Formativa'; jl.setAttribute('aria-label', 'Abrir Jornada Formativa');
     jl.innerHTML = '<img src="assets/icone-jornada.png" alt="">';
-    jl.addEventListener('click', e => e.stopPropagation());
+    jl.addEventListener('click', e => { e.stopPropagation(); try { if (window.top !== window && window.top.mostrar) { e.preventDefault(); window.top.mostrar('jornada'); } } catch (err) {} });
     box.append(pb, jl); document.body.appendChild(box);
     this.pauseBtn = pb; this.updateCtrl();
   }
