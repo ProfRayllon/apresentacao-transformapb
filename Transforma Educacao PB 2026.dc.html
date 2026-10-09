@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./jornada.js?v=8"></script>
 </head>
 <body>
 <x-dc>
@@ -186,7 +187,7 @@ class Component extends DCLogic {
     this.noRail = () => { const dk = document.querySelector('deck-stage'); if (dk && !dk.hasAttribute('no-rail')) dk.setAttribute('no-rail', ''); const sr = dk && dk.shadowRoot; if (sr && !sr.querySelector('style[data-hide-ui]')) { const st = document.createElement('style'); st.setAttribute('data-hide-ui', ''); st.textContent = '.overlay{display:none!important}'; sr.appendChild(st); } };
     this.noRail();
     this.fs = () => { let d = document; try { d = window.top.document; } catch (e) {} const r = d.documentElement, req = r.requestFullscreen || r.webkitRequestFullscreen; if (!(d.fullscreenElement || d.webkitFullscreenElement) && req) { try { const pr = req.call(r); if (pr && pr.catch) pr.catch(() => {}); } catch (e) {} return true; } return false; };
-    this.onClick = () => { if (this.fs()) return; this.togglePause(); };
+    this.onClick = (e) => { const entrou = this.fs(); if ((window.Jornada && window.Jornada.aberta()) || (e && e.target && e.target.closest && e.target.closest('#jf-layer, #deck-ctrl'))) return; if (entrou) return; this.togglePause(); };
     document.addEventListener('click', this.onClick); document.addEventListener('keydown', this.fs);
     this.buildCtrl();
     this.onChange = (e) => (this.noRail(), this.play(e.detail.slide, e.detail.index, e.detail.total));
@@ -206,13 +207,32 @@ class Component extends DCLogic {
     const box = document.createElement('div'); box.id = 'deck-ctrl';
     const pb = document.createElement('button'); pb.type = 'button';
     pb.addEventListener('click', e => { e.stopPropagation(); this.togglePause(); });
-    const jl = document.createElement('a'); jl.href = 'Jornada/Main.dc.html'; jl.title = 'Jornada Formativa'; jl.setAttribute('aria-label', 'Abrir Jornada Formativa');
-    jl.innerHTML = '<img src="assets/icone-jornada.png" alt="">';
-    jl.addEventListener('click', e => { e.stopPropagation(); try { if (window.top !== window && window.top.mostrar) { e.preventDefault(); window.top.mostrar('jornada'); } } catch (err) {} });
+    const jl = document.createElement('button'); jl.type = 'button';
+    jl.addEventListener('click', e => { e.stopPropagation(); this.fs(); this.toggleJornada(); });
     box.append(pb, jl); document.body.appendChild(box);
-    this.pauseBtn = pb; this.updateCtrl();
+    this.pauseBtn = pb; this.swapBtn = jl; this.updateCtrl();
+    if (window.Jornada) { window.Jornada.preparar(); if (window.Jornada.pedidaNoInicio) this.toggleJornada(); }
+  }
+  toggleJornada() {
+    const J = window.Jornada; if (!J) return;
+    if (J.aberta()) {
+      J.fechar();
+      if (this.pausedByJornada && this.paused) this.togglePause(true);
+      this.pausedByJornada = false;
+    } else {
+      this.pausedByJornada = !this.paused;
+      if (!this.paused) this.togglePause(true);
+      J.abrir();
+    }
+    this.updateCtrl();
   }
   updateCtrl() {
+    const jl = this.swapBtn, naJornada = !!(window.Jornada && window.Jornada.aberta());
+    if (jl) {
+      jl.title = naJornada ? 'Voltar para o Transforma' : 'Jornada Formativa'; jl.setAttribute('aria-label', jl.title);
+      jl.innerHTML = naJornada ? '<img src="assets/icone-transforma.png" alt="">' : '<img src="assets/icone-jornada.png" alt="">';
+    }
+    if (this.pauseBtn) this.pauseBtn.style.display = naJornada ? 'none' : '';
     const pb = this.pauseBtn; if (!pb) return;
     pb.title = this.paused ? 'Reproduzir' : 'Pausar'; pb.setAttribute('aria-label', pb.title);
     pb.innerHTML = this.paused
@@ -232,20 +252,20 @@ class Component extends DCLogic {
     this.advanceAt = Date.now();
     this.advance = setTimeout(() => { const d = document.querySelector('deck-stage'); if (d && d.goTo) d.goTo(this.nextIndex); }, this.remaining);
   }
-  togglePause() {
+  togglePause(silencioso) {
     this.paused = !this.paused;
     if (this.paused) {
       clearTimeout(this.advance);
       if (this.advanceAt) this.remaining = Math.max(1500, this.remaining - (Date.now() - this.advanceAt));
-      document.getAnimations().forEach(a => { if (a.playState === 'running') a.pause(); });
+      document.getAnimations().forEach(a => { const el = a.effect && a.effect.target; if (a.playState === 'running' && !(el && el.closest && el.closest('#jf-layer'))) a.pause(); });
       this.pending.forEach(o => { clearTimeout(o.id); o.ms = Math.max(0, o.ms - (Date.now() - o.at)); });
     } else {
-      document.getAnimations().forEach(a => { if (a.playState === 'paused') a.play(); });
+      document.getAnimations().forEach(a => { const el = a.effect && a.effect.target; if (a.playState === 'paused' && !(el && el.closest && el.closest('#jf-layer'))) a.play(); });
       this.pending.forEach(o => { o.at = Date.now(); o.id = setTimeout(o.run, o.ms); this.timers.push(o.id); });
       if (this.nextIndex != null && (this.props.autoplay ?? true)) this.armAdvance();
     }
     this.updateCtrl();
-    this.showBadge(this.paused ? '❚❚  Pausado' : '▶  Reproduzindo');
+    if (!silencioso) this.showBadge(this.paused ? '❚❚  Pausado' : '▶  Reproduzindo');
   }
   showBadge(text) {
     let b = document.getElementById('pause-badge');
