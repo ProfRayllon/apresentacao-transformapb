@@ -195,7 +195,7 @@ a{color:#ffffff}a:hover{color:#ffe7c2}
 (function(){
   function fit(){ document.documentElement.style.setProperty('--jf-s', Math.min(innerWidth/1600, innerHeight/900)); }
   fit(); addEventListener('resize', fit);
-  function fs(){ var r=document.documentElement; if(!document.fullscreenElement && r.requestFullscreen) r.requestFullscreen().catch(function(){}); }
+  function fs(){ var d=document; try{ d=window.top.document; }catch(e){} var r=d.documentElement; if(!d.fullscreenElement && r.requestFullscreen) r.requestFullscreen().catch(function(){}); }
   document.addEventListener('click', fs, true); document.addEventListener('keydown', fs, true);
 })();
 </script>

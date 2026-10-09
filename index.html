@@ -4,9 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transforma Educação PB 2026</title>
-<meta http-equiv="refresh" content="0; url=Transforma%20Educacao%20PB%202026.dc.html">
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#000}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+</style>
 </head>
 <body>
-<p><a href="Transforma%20Educacao%20PB%202026.dc.html">Abrir apresentação</a></p>
+<iframe id="tela" title="Apresentação" allow="fullscreen" allowfullscreen></iframe>
+<script>
+(function () {
+  var paginas = { transforma: 'Transforma%20Educacao%20PB%202026.dc.html', jornada: 'Jornada/Main.dc.html' };
+  var tela = document.getElementById('tela');
+  var inicio = location.hash === '#jornada' ? 'jornada' : 'transforma';
+  tela.src = paginas[inicio];
+  tela.addEventListener('load', function () {
+    try {
+      var atual = /\/Jornada\//.test(tela.contentWindow.location.pathname) ? 'jornada' : 'transforma';
+      history.replaceState(null, '', atual === 'jornada' ? '#jornada' : location.pathname);
+      document.title = atual === 'jornada' ? 'Jornada Formativa' : 'Transforma Educação PB 2026';
+    } catch (e) {}
+    tela.contentWindow.focus();
+  });
+})();
+</script>
 </body>
 </html>
