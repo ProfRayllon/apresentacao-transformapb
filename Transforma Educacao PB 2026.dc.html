@@ -188,6 +188,7 @@ class Component extends DCLogic {
     this.fs = () => { const r = document.documentElement; if (!document.fullscreenElement && r.requestFullscreen) { r.requestFullscreen().catch(() => {}); return true; } return false; };
     this.onClick = () => { if (this.fs()) return; this.togglePause(); };
     document.addEventListener('click', this.onClick); document.addEventListener('keydown', this.fs);
+    this.buildCtrl();
     this.onChange = (e) => (this.noRail(), this.play(e.detail.slide, e.detail.index, e.detail.total));
     document.addEventListener('slidechange', this.onChange);
     this.boot = setTimeout(() => {
@@ -196,6 +197,27 @@ class Component extends DCLogic {
       const s = document.querySelector('deck-stage > section[data-deck-active]');
       if (deck && s && !this.current) { const all = [...deck.querySelectorAll(':scope > section')]; this.play(s, all.indexOf(s), all.length); }
     }, 400);
+  }
+  buildCtrl() {
+    if (document.getElementById('deck-ctrl')) return;
+    const css = document.createElement('style');
+    css.textContent = '#deck-ctrl{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;gap:10px}#deck-ctrl>*{width:46px;height:46px;border-radius:50%;border:0;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(46,9,80,.6);color:#fff;cursor:pointer;opacity:.4;transition:opacity .25s,transform .25s;text-decoration:none}#deck-ctrl>*:hover,#deck-ctrl>*:focus-visible{opacity:1;transform:scale(1.08)}#deck-ctrl img{width:26px;height:26px;object-fit:contain}';
+    document.head.appendChild(css);
+    const box = document.createElement('div'); box.id = 'deck-ctrl';
+    const pb = document.createElement('button'); pb.type = 'button';
+    pb.addEventListener('click', e => { e.stopPropagation(); this.togglePause(); });
+    const jl = document.createElement('a'); jl.href = 'Jornada/Main.dc.html'; jl.title = 'Jornada Formativa'; jl.setAttribute('aria-label', 'Abrir Jornada Formativa');
+    jl.innerHTML = '<img src="assets/icone-jornada.png" alt="">';
+    jl.addEventListener('click', e => e.stopPropagation());
+    box.append(pb, jl); document.body.appendChild(box);
+    this.pauseBtn = pb; this.updateCtrl();
+  }
+  updateCtrl() {
+    const pb = this.pauseBtn; if (!pb) return;
+    pb.title = this.paused ? 'Reproduzir' : 'Pausar'; pb.setAttribute('aria-label', pb.title);
+    pb.innerHTML = this.paused
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l14 8-14 8z"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>';
   }
   componentWillUnmount() { document.removeEventListener('slidechange', this.onChange); document.removeEventListener('click', this.onClick); document.removeEventListener('keydown', this.fs); clearTimeout(this.boot); this.stop(); }
   stop() {
@@ -222,11 +244,12 @@ class Component extends DCLogic {
       this.pending.forEach(o => { o.at = Date.now(); o.id = setTimeout(o.run, o.ms); this.timers.push(o.id); });
       if (this.nextIndex != null && (this.props.autoplay ?? true)) this.armAdvance();
     }
+    this.updateCtrl();
     this.showBadge(this.paused ? '❚❚  Pausado' : '▶  Reproduzindo');
   }
   showBadge(text) {
     let b = document.getElementById('pause-badge');
-    if (!b) { b = document.createElement('div'); b.id = 'pause-badge'; b.style.cssText = 'position:fixed;right:24px;bottom:24px;z-index:9999;background:rgba(46,9,80,.85);color:#fff;font:600 16px Archivo,sans-serif;letter-spacing:.08em;padding:10px 18px;border-radius:999px;pointer-events:none;transition:opacity .4s'; document.body.appendChild(b); }
+    if (!b) { b = document.createElement('div'); b.id = 'pause-badge'; b.style.cssText = 'position:fixed;right:20px;bottom:78px;z-index:9999;background:rgba(46,9,80,.85);color:#fff;font:600 16px Archivo,sans-serif;letter-spacing:.08em;padding:10px 18px;border-radius:999px;pointer-events:none;transition:opacity .4s'; document.body.appendChild(b); }
     b.textContent = text; b.style.opacity = 1;
     clearTimeout(this.badgeT);
     if (!this.paused) this.badgeT = setTimeout(() => { b.style.opacity = 0; }, 1200);
@@ -254,7 +277,7 @@ class Component extends DCLogic {
   play(slide, index, total) {
     if (!slide) return;
     this.stop(); this.current = slide;
-    if (this.paused) { this.paused = false; this.showBadge('▶  Reproduzindo'); }
+    if (this.paused) { this.paused = false; this.updateCtrl(); this.showBadge('▶  Reproduzindo'); }
     const speed = this.props.speed ?? 1;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) this.animate(slide);
