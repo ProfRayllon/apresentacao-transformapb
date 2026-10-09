@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-<script src="./jornada.js?v=8"></script>
+<script src="./jornada.js?v=11"></script>
 </head>
 <body>
 <x-dc>
@@ -211,7 +211,7 @@ class Component extends DCLogic {
     jl.addEventListener('click', e => { e.stopPropagation(); this.fs(); this.toggleJornada(); });
     box.append(pb, jl); document.body.appendChild(box);
     this.pauseBtn = pb; this.swapBtn = jl; this.updateCtrl();
-    if (window.Jornada) { window.Jornada.preparar(); if (window.Jornada.pedidaNoInicio) this.toggleJornada(); }
+    if (window.Jornada) { window.Jornada.preparar(); window.Jornada.aoTerminar = () => { if (window.Jornada.aberta()) this.toggleJornada(); }; if (window.Jornada.pedidaNoInicio) this.toggleJornada(); }
   }
   toggleJornada() {
     const J = window.Jornada; if (!J) return;
@@ -250,7 +250,12 @@ class Component extends DCLogic {
   armAdvance() {
     clearTimeout(this.advance);
     this.advanceAt = Date.now();
-    this.advance = setTimeout(() => { const d = document.querySelector('deck-stage'); if (d && d.goTo) d.goTo(this.nextIndex); }, this.remaining);
+    this.advance = setTimeout(() => {
+      const d = document.querySelector('deck-stage'); if (!d || !d.goTo) return;
+      // Fim do Transforma: volta à Capa por trás e abre a Jornada.
+      if (this.nextIndex === 0 && window.Jornada && !window.Jornada.aberta()) { d.goTo(0); this.toggleJornada(); return; }
+      d.goTo(this.nextIndex);
+    }, this.remaining);
   }
   togglePause(silencioso) {
     this.paused = !this.paused;
@@ -297,7 +302,7 @@ class Component extends DCLogic {
   play(slide, index, total) {
     if (!slide) return;
     this.stop(); this.current = slide;
-    if (this.paused) { this.paused = false; this.updateCtrl(); this.showBadge('▶  Reproduzindo'); }
+    if (this.paused && !(window.Jornada && window.Jornada.aberta())) { this.paused = false; this.updateCtrl(); this.showBadge('▶  Reproduzindo'); }
     const speed = this.props.speed ?? 1;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) this.animate(slide);

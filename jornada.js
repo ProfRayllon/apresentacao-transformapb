@@ -9,7 +9,7 @@
       ringBold: 'MINHA ESCOLA É ANTIRRACISTA', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'MINHA ESCOLA É ANTIRRACISTA • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' },
     { id: 'paz', name: 'Cultura de Paz nas Escolas', badge: '#7A73B5', bg: '#4F33A6', ox: '50%', oy: '47%',
       icon: A + '22b122291d492702966e943269c2d3d3.png', iconH: '66px', fs: '9.6',
-      lockup: A + '8f6915904da1f41b39ee762cc2020cac.png', book: A + 'c79845121cba77f4fd1690608d9fa303.png',
+      lockup: A + '8f6915904da1f41b39ee762cc2020cac.png', book: A + 'livro-cultura-de-paz.png',
       qr: A + 'fe0b304f6c185dc02578223f66f1a617.png', link: 'https://drive.google.com/file/d/12FgFut41YfHMDejPxs0S3rj49tFHr0Vl/view?usp=drivesdk',
       ringBold: 'CULTURA DE PAZ NAS ESCOLAS', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'CULTURA DE PAZ NAS ESCOLAS • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' },
     { id: 'mulher', name: 'Prevenção e Enfrentamento à Violência contra a Mulher', badge: '#C88ABE', bg: '#B12F7C', ox: '30%', oy: '75%',
@@ -19,7 +19,7 @@
       ringBold: 'ENFRENTAMENTO À VIOLÊNCIA CONTRA A MULHER', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'ENFRENTAMENTO À VIOLÊNCIA CONTRA A MULHER • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' },
     { id: 'sust', name: 'Escola Sustentável', badge: '#77C3A5', bg: '#0B7F76', ox: '50%', oy: '75%',
       icon: A + '54fbd6e37ca4c5343bacdf5dfc4ec5c0.png', iconH: '52px', fs: '11.2',
-      lockup: A + '1bbe421ed83a230166aa00e60dedcc0c.png', book: A + '61e2a48944217255be4a45acaf0252c3.png',
+      lockup: A + '1bbe421ed83a230166aa00e60dedcc0c.png', book: A + 'livro-escola-sustentavel.png',
       qr: A + 'qr-escola-sustentavel.png', link: 'https://drive.google.com/file/d/1DgSeX4nA9HhDaE5EtaRYAthuB8oURTzI/view',
       ringBold: 'ESCOLA SUSTENTÁVEL', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'ESCOLA SUSTENTÁVEL • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' }
   ];
@@ -37,7 +37,7 @@
     '@keyframes jfFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}',
     '@keyframes jfFade{from{opacity:0}to{opacity:1}}',
     '@keyframes jfPop{0%{opacity:0;transform:scale(.6) rotate(-6deg)}70%{opacity:1;transform:scale(1.04) rotate(1deg)}100%{opacity:1;transform:none}}',
-    '@keyframes jfReveal{from{clip-path:circle(0% at var(--ox,35%) var(--oy,55%))}to{clip-path:circle(150% at var(--ox,35%) var(--oy,55%))}}',
+    '@keyframes jfViewIn{from{opacity:0}to{opacity:1}}',
     '@keyframes jfBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-24px) scale(1.06)}}',
     '.jf-home{animation:jfFade .5s ease both}',
     '.jf-badge{position:relative;width:226px;height:226px;border:0;padding:0;border-radius:50%;transition:transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .35s}',
@@ -48,7 +48,8 @@
     '.jf-qrcard{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}',
     '.jf-qrcard:hover{transform:scale(1.03) rotate(.5deg)}',
     '.jf-blob{animation:jfBlob 14s ease-in-out infinite}',
-    '.jf-detail{animation:jfReveal .9s cubic-bezier(.7,0,.2,1) both}',
+    '.jf-view{position:absolute;inset:0;animation:jfViewIn 1s ease both;will-change:opacity}',
+    '.jf-view.jf-out{pointer-events:none}',
     '.jf-in1{animation:jfFadeUp .7s .25s cubic-bezier(.2,.8,.2,1) both}',
     '.jf-in2{animation:jfFadeUp .7s .38s cubic-bezier(.2,.8,.2,1) both}',
     '.jf-in3{animation:jfFadeUp .7s .5s cubic-bezier(.2,.8,.2,1) both}',
@@ -68,10 +69,10 @@
       return '<button class="jf-badge" type="button" data-pick="' + x.id + '" aria-label="Abrir cartilha: ' + esc(x.name) + '" style="background:' + x.badge + '">' +
         '<span class="jf-pulse" style="animation-delay:' + (i * 0.7) + 's"></span>' +
         '<svg class="jf-ring" aria-hidden="true" width="226" height="226" viewBox="0 0 212 212" style="position:absolute;inset:0">' +
-          '<defs><path id="jf-ring-' + x.id + '" d="M106,106 m-79,0 a79,79 0 1,1 158,0 a79,79 0 1,1 -158,0"></path></defs>' +
+          '<defs><path id="jf-ring-' + x.id + '-' + seq + '" d="M106,106 m-79,0 a79,79 0 1,1 158,0 a79,79 0 1,1 -158,0"></path></defs>' +
           '<circle cx="106" cy="106" r="95" fill="none" stroke="#1C1C2E" stroke-width="1.1"></circle>' +
           '<circle cx="106" cy="106" r="63" fill="none" stroke="#1C1C2E" stroke-width="1.1"></circle>' +
-          '<text fill="#1C1C2E" font-family="Montserrat, sans-serif" font-size="' + x.fs + '" dy="3.6"><textPath href="#jf-ring-' + x.id + '" textLength="490" lengthAdjust="spacing"><tspan font-weight="800">' + esc(x.ringBold) + '</tspan><tspan font-weight="400">' + esc(x.ringLight) + '</tspan></textPath></text>' +
+          '<text fill="#1C1C2E" font-family="Montserrat, sans-serif" font-size="' + x.fs + '" dy="3.6"><textPath href="#jf-ring-' + x.id + '-' + seq + '" textLength="490" lengthAdjust="spacing"><tspan font-weight="800">' + esc(x.ringBold) + '</tspan><tspan font-weight="400">' + esc(x.ringLight) + '</tspan></textPath></text>' +
         '</svg>' +
         '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><img src="' + x.icon + '" alt="" style="height:' + x.iconH + ';width:auto;display:block"></span>' +
       '</button>';
@@ -115,11 +116,11 @@
     return '<div class="jf-detail" style="position:absolute;inset:0;background-color:' + cur.bg + ';--ox:' + cur.ox + ';--oy:' + cur.oy + '">' +
       '<div aria-hidden="true" class="jf-blob" style="position:absolute;right:-160px;top:-220px;width:640px;height:640px;border-radius:50%;background:rgba(255,255,255,.08)"></div>' +
       '<div aria-hidden="true" class="jf-blob" style="position:absolute;left:-260px;bottom:-320px;width:760px;height:760px;border-radius:50%;background:rgba(0,0,0,.10);animation-delay:-6s"></div>' +
-      '<svg aria-hidden="true" class="jf-bigring" width="760" height="760" viewBox="0 0 212 212" style="position:absolute;left:-10px;top:110px;opacity:.16">' +
-        '<defs><path id="jf-big-path" d="M106,106 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"></path></defs>' +
+      '<svg aria-hidden="true" class="jf-bigring" width="760" height="760" viewBox="0 0 212 212" style="position:absolute;left:-10px;top:110px;opacity:.06">' +
+        '<defs><path id="jf-big-path-' + seq + '" d="M106,106 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"></path></defs>' +
         '<circle cx="106" cy="106" r="104" fill="none" stroke="#fff" stroke-width=".6"></circle>' +
         '<circle cx="106" cy="106" r="80" fill="none" stroke="#fff" stroke-width=".6"></circle>' +
-        '<text fill="#fff" font-family="Montserrat, sans-serif" font-weight="700" font-size="9.4" dy="3"><textPath href="#jf-big-path" textLength="575" lengthAdjust="spacing">' + esc(cur.ring) + '</textPath></text>' +
+        '<text fill="#fff" font-family="Montserrat, sans-serif" font-weight="700" font-size="9.4" dy="3"><textPath href="#jf-big-path-' + seq + '" textLength="575" lengthAdjust="spacing">' + esc(cur.ring) + '</textPath></text>' +
       '</svg>' +
       '<div style="position:absolute;left:64px;right:64px;top:44px;display:flex;align-items:center;justify-content:space-between">' +
         '<button class="jf-back" type="button" data-home="1" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 26px 0 20px;border:0;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-size:17px;font-weight:700;letter-spacing:.04em">' +
@@ -155,12 +156,38 @@
     '</div>';
   }
 
-  var layer, root, aberto = false;
+  var layer, root, aberto = false, seq = 0, atual = null, timer = null;
+  // Passagem automática: tela inicial e depois cada cartilha, devagar.
+  var ORDEM = [null].concat(DATA.map(function (x) { return x.id; }));
+  var TEMPO_INICIO = 10000, TEMPO_CARTILHA = 14000;
 
   function render(sel) {
     var cur = null;
     for (var i = 0; i < DATA.length; i++) if (DATA[i].id === sel) cur = DATA[i];
-    root.innerHTML = cur ? detailHTML(cur) : homeHTML();
+    seq++; atual = cur ? cur.id : null;
+    var antigas = root.querySelectorAll('.jf-view');
+    for (var j = 0; j < antigas.length; j++) {
+      var v = antigas[j];
+      if (v.classList.contains('jf-out')) { v.parentNode.removeChild(v); continue; }
+      v.classList.add('jf-out');
+      (function (el) { setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 1100); })(v);
+    }
+    var nova = document.createElement('div');
+    nova.className = 'jf-view';
+    nova.innerHTML = cur ? detailHTML(cur) : homeHTML();
+    root.appendChild(nova);
+    agendar();
+  }
+
+  function agendar() {
+    clearTimeout(timer);
+    if (!aberto) return;
+    timer = setTimeout(function () {
+      var i = ORDEM.indexOf(atual);
+      // Fim da última cartilha: devolve para o Transforma.
+      if (i === ORDEM.length - 1 && window.Jornada.aoTerminar) { window.Jornada.aoTerminar(); return; }
+      render(ORDEM[(i + 1) % ORDEM.length]);
+    }, atual ? TEMPO_CARTILHA : TEMPO_INICIO);
   }
 
   function fit() { if (layer) layer.style.setProperty('--jf-s', Math.min(innerWidth / 1600, innerHeight / 900)); }
@@ -195,8 +222,8 @@
 
   var pedida = location.hash === '#jornada';
   window.Jornada = {
-    abrir: function () { build(); render(null); aberto = true; layer.classList.add('on'); layer.setAttribute('aria-hidden', 'false'); },
-    fechar: function () { if (!layer) return; aberto = false; layer.classList.remove('on'); layer.setAttribute('aria-hidden', 'true'); },
+    abrir: function () { build(); aberto = true; render(null); layer.classList.add('on'); layer.setAttribute('aria-hidden', 'false'); },
+    fechar: function () { if (!layer) return; aberto = false; clearTimeout(timer); layer.classList.remove('on'); layer.setAttribute('aria-hidden', 'true'); },
     aberta: function () { return aberto; },
     preparar: build,
     pedidaNoInicio: pedida
