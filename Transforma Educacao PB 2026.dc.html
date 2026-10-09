@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-<script src="./jornada.js?v=11"></script>
+<script src="./jornada.js?v=12"></script>
 </head>
 <body>
 <x-dc>
@@ -217,7 +217,13 @@ class Component extends DCLogic {
     const J = window.Jornada; if (!J) return;
     if (J.aberta()) {
       J.fechar();
-      if (this.pausedByJornada && this.paused) this.togglePause(true);
+      if (this.reiniciarAoVoltar) {
+        // Fim do ciclo: o Transforma recomeça da Capa com as animações de entrada.
+        this.reiniciarAoVoltar = false; this.pausedByJornada = false; this.paused = false;
+        const deck = document.querySelector('deck-stage'), all = deck ? [...deck.querySelectorAll(':scope > section')] : [];
+        if (deck && deck.goTo) deck.goTo(0);
+        if (all[0]) this.play(all[0], 0, all.length);
+      } else if (this.pausedByJornada && this.paused) this.togglePause(true);
       this.pausedByJornada = false;
     } else {
       this.pausedByJornada = !this.paused;
@@ -253,7 +259,7 @@ class Component extends DCLogic {
     this.advance = setTimeout(() => {
       const d = document.querySelector('deck-stage'); if (!d || !d.goTo) return;
       // Fim do Transforma: volta à Capa por trás e abre a Jornada.
-      if (this.nextIndex === 0 && window.Jornada && !window.Jornada.aberta()) { d.goTo(0); this.toggleJornada(); return; }
+      if (this.nextIndex === 0 && window.Jornada && !window.Jornada.aberta()) { this.toggleJornada(); this.reiniciarAoVoltar = true; setTimeout(() => { if (window.Jornada.aberta()) d.goTo(0); }, 600); return; }
       d.goTo(this.nextIndex);
     }, this.remaining);
   }
@@ -384,7 +390,7 @@ class Component extends DCLogic {
       setActive(0);
       let cur = 0; const hold = 2800;
       const next = () => {
-        if (tok !== this.seq) return;
+        if (tok !== this.seq || cur === tcards.length - 1) return;
         const n = (cur + 1) % tcards.length, out = tcards[cur], inn = tcards[n];
         const a1 = out.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-60px)' }], { duration: 600, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
         const a2 = inn.animate([{ opacity: 0, transform: 'translateY(80px)' }, { opacity: 1, transform: 'none' }], { duration: 800, delay: 250, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
