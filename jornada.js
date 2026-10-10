@@ -19,7 +19,7 @@
       ringBold: 'ENFRENTAMENTO À VIOLÊNCIA CONTRA A MULHER', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'ENFRENTAMENTO À VIOLÊNCIA CONTRA A MULHER • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' },
     { id: 'sust', name: 'Escola Sustentável', badge: '#77C3A5', bg: '#0B7F76', ox: '50%', oy: '75%',
       icon: A + '54fbd6e37ca4c5343bacdf5dfc4ec5c0.png', iconH: '52px', fs: '11.2',
-      lockup: A + '1bbe421ed83a230166aa00e60dedcc0c.png', book: A + 'livro-escola-sustentavel.png',
+      lockup: A + '1bbe421ed83a230166aa00e60dedcc0c.png', book: A + 'livro-escola-sustentavel.png?v=2',
       qr: A + 'qr-escola-sustentavel.png', link: 'https://drive.google.com/file/d/1DgSeX4nA9HhDaE5EtaRYAthuB8oURTzI/view',
       ringBold: 'ESCOLA SUSTENTÁVEL', ringLight: ' • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •', ring: 'ESCOLA SUSTENTÁVEL • JORNADA FORMATIVA • EDUCAÇÃO SEM BARREIRAS •' }
   ];
