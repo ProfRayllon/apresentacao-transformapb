@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apresentações GEFDP</title>
 <script>
-  // Atalhos diretos (TV / favoritos): index.html#transforma ou #jornada abre a apresentação sem passar pelo menu.
-  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16';
+  // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada ou #ieg abre a apresentação sem passar pelo menu.
+  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16', IEG = 'IEG%202026.dc.html?v=1';
   function modoSalvo() { try { return localStorage.getItem('apresentacao-modo') || 'loop'; } catch (e) { return 'loop'; } }
-  function abrir(prog) { location.href = DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
-  if (location.hash === '#transforma' || location.hash === '#jornada') location.replace(DECK + '&modo=' + modoSalvo() + (location.hash === '#jornada' ? '#jornada' : ''));
+  function destino(prog) { return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
+  function abrir(prog) { location.href = destino(prog); }
+  if (/^#(transforma|jornada|ieg)$/.test(location.hash)) location.replace(destino(location.hash.slice(1)));
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,13 +54,13 @@
 
   /* Programas */
   .rotulo{position:absolute;left:112px;top:560px;font-size:18px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
-  .progs{position:absolute;left:112px;right:112px;top:604px;height:320px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
-  .card{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:30px 34px;border-radius:44px;border:0;text-align:left;font-family:inherit;color:#fff;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s}
+  .progs{position:absolute;left:112px;right:112px;top:604px;height:320px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px}
+  .card{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:28px 28px;border-radius:44px;border:0;text-align:left;font-family:inherit;color:#fff;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s}
   .card:hover,.card:focus-visible{transform:translateY(-10px);box-shadow:0 28px 50px rgba(4,10,50,.5)}
   .card:focus-visible{outline:6px solid var(--creme);outline-offset:8px}
   .card[aria-disabled="true"]{cursor:default}
   .card[aria-disabled="true"]:hover{transform:none;box-shadow:none}
-  .card .tag{align-self:flex-start;border-radius:999px;padding:8px 18px;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;background:rgba(255,255,255,.2)}
+  .card .tag{align-self:flex-start;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700;letter-spacing:.16em;white-space:nowrap;text-transform:uppercase;background:rgba(255,255,255,.2)}
   .card .logo{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 0}
   .card .logo img{max-width:100%;max-height:150px;display:block}
   .card .acao{min-height:52px;display:flex;align-items:center;justify-content:space-between;font-size:22px;font-weight:700;letter-spacing:.04em}
@@ -68,6 +69,9 @@
   .c-antes{background:var(--royal)}
   .c-jornada{background:var(--lavanda)}
   .c-nota{background:var(--creme);color:var(--navy)}
+  .c-ieg{background:#fff;color:var(--navy)}
+  .c-ieg .tag{background:#E4472B;color:#fff}
+  .c-ieg .seta{background:var(--navy)}
   .c-nota .tag{background:rgba(15,34,127,.1)}
   .c-antes .tag,.c-nota .tag.breve{background:var(--rosa);color:var(--navy)}
 
@@ -136,6 +140,11 @@
       <span class="tag breve">Em breve</span>
       <span class="logo"><img src="assets/professor-nota-1000-cor.png" alt="Professor Nota 1000"></span>
       <span class="acao" style="opacity:.75">Apresentação em preparo</span>
+    </button>
+    <button class="card c-ieg a" style="animation-delay:.85s" data-prog="ieg">
+      <span class="tag">Indicadores</span>
+      <span class="logo"><img src="assets/ieg/ieg-logo.png" alt="2026 · Índice de Eficiência e Gestão - IEG"></span>
+      <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
   </nav>
 
