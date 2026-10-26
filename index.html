@@ -6,7 +6,7 @@
 <title>Apresentações GEFDP</title>
 <script>
   // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada ou #ieg abre a apresentação sem passar pelo menu.
-  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16', IEG = 'IEG%202026.dc.html?v=1';
+  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16', IEG = 'IEG%202026.dc.html?v=2';
   function modoSalvo() { try { return localStorage.getItem('apresentacao-modo') || 'loop'; } catch (e) { return 'loop'; } }
   function destino(prog) { return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
   function abrir(prog) { location.href = destino(prog); }
