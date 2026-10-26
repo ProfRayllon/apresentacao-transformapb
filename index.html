@@ -3,11 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transforma Educação PB 2026</title>
-<script>location.replace('Transforma%20Educacao%20PB%202026.dc.html?v=12' + (location.hash === '#jornada' ? '#jornada' : ''));</script>
-<style>body{margin:0;background:#000}</style>
+<title>Apresentações GEFDP</title>
+<script>
+  // Atalhos diretos (TV / favoritos): index.html#transforma ou #jornada abre a apresentação sem passar pelo menu.
+  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=13';
+  function modoSalvo() { try { return localStorage.getItem('apresentacao-modo') || 'loop'; } catch (e) { return 'loop'; } }
+  function abrir(prog) { location.href = DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
+  if (location.hash === '#transforma' || location.hash === '#jornada') location.replace(DECK + '&modo=' + modoSalvo() + (location.hash === '#jornada' ? '#jornada' : ''));
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght@1,9..144,700..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F227F; --azul:#0F89FF; --roxo:#5F00D0; --lavanda:#9966F7; --rosa:#F78BDB; --creme:#FCEAE2; --royal:#1A3FC4;
+  }
+  html,body{margin:0;height:100%;background:var(--navy);overflow:hidden}
+  body{font-family:'Archivo',system-ui,sans-serif;color:var(--creme)}
+  #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--s,1));transform-origin:center;overflow:hidden;background:var(--navy)}
+  *{box-sizing:border-box}
+
+  /* Cabeçalho */
+  .topo{position:absolute;left:112px;right:112px;top:64px;display:flex;align-items:center;justify-content:space-between}
+  .marca{display:flex;align-items:center;gap:28px}
+  .marca .nome{font-size:30px;font-weight:900;font-stretch:125%;letter-spacing:.06em}
+  .marca .sep{width:2px;height:44px;background:rgba(252,234,226,.45)}
+  .marca .ger{font-size:17px;line-height:1.35;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+
+  /* Seletor de modo */
+  .modo{display:flex;align-items:center;gap:20px}
+  .modo .rot{font-size:16px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+  .seg{display:flex;padding:6px;border-radius:999px;background:rgba(252,234,226,.1);border:2px solid rgba(252,234,226,.22)}
+  .seg button{display:flex;align-items:center;gap:10px;height:56px;padding:0 26px;border:0;border-radius:999px;background:transparent;color:var(--creme);font:700 18px 'Archivo',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+  .seg button[aria-pressed="true"]{background:var(--creme);color:var(--navy)}
+  .seg button:focus-visible{outline:4px solid var(--rosa);outline-offset:4px}
+
+  /* Destaque */
+  .hero{position:absolute;left:112px;top:180px;width:900px}
+  .chip{display:inline-block;border:2px solid var(--rosa);color:var(--rosa);border-radius:999px;padding:10px 26px;font-size:18px;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
+  .lema{position:relative;margin:22px 0 0;font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:86px;line-height:.9;letter-spacing:-.01em;color:var(--rosa)}
+  .lema span{display:block}
+  .lema span:nth-child(2){padding-left:62px}
+  .lema svg{position:absolute;left:-30px;top:6px;z-index:-1}
+  .sub{margin:22px 0 0;font-size:26px;font-weight:400;opacity:.9}
+
+  .mosaico{position:absolute;right:112px;top:180px;display:grid;grid-template-columns:repeat(6,116px);grid-auto-rows:116px}
+  .mosaico div{display:flex;align-items:center;justify-content:center}
+  .mosaico svg{width:64px;height:64px}
+
+  /* Programas */
+  .rotulo{position:absolute;left:112px;top:560px;font-size:18px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+  .progs{position:absolute;left:112px;right:112px;top:604px;height:320px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+  .card{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:30px 34px;border-radius:44px;border:0;text-align:left;font-family:inherit;color:#fff;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s}
+  .card:hover,.card:focus-visible{transform:translateY(-10px);box-shadow:0 28px 50px rgba(4,10,50,.5)}
+  .card:focus-visible{outline:6px solid var(--creme);outline-offset:8px}
+  .card[aria-disabled="true"]{cursor:default}
+  .card[aria-disabled="true"]:hover{transform:none;box-shadow:none}
+  .card .tag{align-self:flex-start;border-radius:999px;padding:8px 18px;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;background:rgba(255,255,255,.2)}
+  .card .logo{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 0}
+  .card .logo img{max-width:100%;max-height:150px;display:block}
+  .card .acao{min-height:52px;display:flex;align-items:center;justify-content:space-between;font-size:22px;font-weight:700;letter-spacing:.04em}
+  .card .seta{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center}
+  .c-transforma{background:var(--roxo)}
+  .c-antes{background:var(--royal)}
+  .c-jornada{background:var(--lavanda)}
+  .c-nota{background:var(--creme);color:var(--navy)}
+  .c-nota .tag{background:rgba(15,34,127,.1)}
+  .c-antes .tag,.c-nota .tag.breve{background:var(--rosa);color:var(--navy)}
+
+  /* Rodapé */
+  .rodape{position:absolute;left:0;right:0;bottom:0;height:116px;background:var(--rosa);display:flex;align-items:center;justify-content:center;gap:56px}
+  .rodape img{height:62px;display:block}
+  .rodape .lema-mini{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:30px;line-height:.86;color:var(--navy)}
+  .rodape .linha{width:110px;height:2px;background:var(--navy)}
+
+  @keyframes sobe{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes surge{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+  .a{animation:sobe .9s cubic-bezier(.22,1,.36,1) both}
+  .mosaico div{animation:surge .7s cubic-bezier(.34,1.56,.64,1) both}
+  @media (prefers-reduced-motion:reduce){.a,.mosaico div{animation:none}}
+</style>
 </head>
 <body>
-<p><a href="Transforma%20Educacao%20PB%202026.dc.html" style="color:#fff">Abrir apresentação</a></p>
+<div id="stage">
+  <header class="topo a">
+    <div class="marca">
+      <svg width="64" height="56" viewBox="0 0 110 96" aria-hidden="true"><path d="M26 4h58a22 22 0 0 1 22 22v66H26A22 22 0 0 1 4 70V26A22 22 0 0 1 26 4z" fill="#FCEAE2"/><path d="M55 22 85 38 55 53 25 38z" fill="#0F227F" stroke="#0F227F" stroke-width="5" stroke-linejoin="round"/><path d="M37 46v20a5 5 0 0 0 5 5h26a5 5 0 0 0 5-5V46L55 55z" fill="#0F227F"/><path d="M80 41v14l3-2 3 2V38z" fill="#0F227F"/></svg>
+      <span class="nome">GEFDP</span>
+      <span class="sep"></span>
+      <span class="ger">Gerência Executiva de Formação e Desenvolvimento<br>dos Profissionais da Educação</span>
+    </div>
+    <div class="modo">
+      <span class="rot" id="rot-modo">Passagem</span>
+      <div class="seg" role="group" aria-labelledby="rot-modo">
+        <button type="button" data-modo="loop" aria-pressed="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg>Loop automático</button>
+        <button type="button" data-modo="manual" aria-pressed="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l10 8-10 8z"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>Manual</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="chip a" style="animation-delay:.1s">Apresentações · 2026</div>
+    <h1 class="lema a" style="animation-delay:.2s">
+      <svg width="180" height="223" viewBox="0 0 250 310" aria-hidden="true"><path d="M70 10c-60 20-60 70 0 80s60 70 0 90-60 70 0 90" fill="none" stroke="#5F00D0" stroke-width="54" stroke-linecap="round"/></svg>
+      <span>Formar</span><span>para</span><span>transformar</span>
+    </h1>
+    <p class="sub a" style="animation-delay:.35s">Escolha o programa para apresentar.</p>
+  </section>
+
+  <div class="mosaico" id="mosaico" aria-hidden="true"></div>
+
+  <div class="rotulo a" style="animation-delay:.4s">Programas</div>
+  <nav class="progs" aria-label="Programas">
+    <button class="card c-transforma a" style="animation-delay:.45s" data-prog="transforma">
+      <span class="tag">Formação continuada</span>
+      <span class="logo"><img src="assets/transforma-branco-crop.png" alt="Transforma Educação PB 2026"></span>
+      <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F00D0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+    </button>
+    <button class="card c-antes a" style="animation-delay:.55s" aria-disabled="true">
+      <span class="tag">Em breve</span>
+      <span class="logo"><img src="assets/antes-que-aconteca-branco.png" alt="Antes que Aconteça nas Escolas"></span>
+      <span class="acao" style="opacity:.75">Apresentação em preparo</span>
+    </button>
+    <button class="card c-jornada a" style="animation-delay:.65s" data-prog="jornada">
+      <span class="tag">Cartilhas</span>
+      <span class="logo"><img src="Jornada/assets/24bbb5eb015929b0ccd8ecb3e96cce30.png" alt="Jornada Formativa" style="max-height:80px"></span>
+      <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9966F7" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+    </button>
+    <button class="card c-nota a" style="animation-delay:.75s" aria-disabled="true">
+      <span class="tag breve">Em breve</span>
+      <span class="logo"><img src="assets/professor-nota-1000-cor.png" alt="Professor Nota 1000"></span>
+      <span class="acao" style="opacity:.75">Apresentação em preparo</span>
+    </button>
+  </nav>
+
+  <footer class="rodape">
+    <img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba">
+    <span class="linha"></span>
+    <span class="lema-mini">Formar<br>&nbsp;&nbsp;para<br>transformar</span>
+  </footer>
+</div>
+
+<script>
+  // Escala o palco 1920×1080 para caber em qualquer tela (TV, notebook, celular).
+  function fit() { document.getElementById('stage').style.setProperty('--s', Math.min(innerWidth / 1920, innerHeight / 1080)); }
+  fit(); addEventListener('resize', fit);
+
+  // Mosaico de formas da identidade (balão, capelo, livro, faixas).
+  var F = {
+    balao: '<path d="M30 10h40a20 20 0 0 1 20 20v60H30a20 20 0 0 1-20-20V30a20 20 0 0 1 20-20z"/>',
+    capelo: '<path d="M50 14 92 36 50 57 8 36z" stroke-width="6" stroke-linejoin="round"/><path d="M27 47v25a8 8 0 0 0 8 8h30a8 8 0 0 0 8-8V47L50 58z"/>',
+    livro: '<path d="M10 20c16 0 32 6 40 20 8-14 24-20 40-20v48c-16 0-32 6-40 20-8-14-24-20-40-20z"/>',
+    faixas: '<rect x="12" y="20" width="76" height="16" rx="8"/><rect x="8" y="42" width="76" height="16" rx="8"/><rect x="12" y="64" width="76" height="16" rx="8"/>'
+  };
+  var T = [
+    ['#0F89FF','balao','#5F00D0'], ['#9966F7','capelo','#FCEAE2'], ['#5F00D0','livro','#F78BDB'], ['#F78BDB',null], ['#0F89FF','faixas','#FCEAE2'], ['#9966F7','balao','#5F00D0'],
+    ['#F78BDB','capelo','#5F00D0'], ['#5F00D0',null], ['#0F89FF','livro','#FCEAE2'], ['#9966F7','faixas','#5F00D0'], ['#5F00D0','balao','#FCEAE2'], ['#0F89FF',null],
+    [null], ['#9966F7','livro','#FCEAE2'], ['#F78BDB',null], ['#5F00D0','capelo','#FCEAE2'], [null], ['#F78BDB','faixas','#5F00D0']
+  ];
+  document.getElementById('mosaico').innerHTML = T.map(function (t, i) {
+    var icon = t[1] ? '<svg viewBox="0 0 100 100" fill="' + t[2] + '" stroke="' + t[2] + '">' + F[t[1]] + '</svg>' : '';
+    return '<div style="background:' + (t[0] || 'transparent') + ';animation-delay:' + (0.3 + i * 0.04).toFixed(2) + 's">' + icon + '</div>';
+  }).join('');
+
+  // Modo de passagem (lembrado entre visitas e repassado para a apresentação).
+  var segs = [].slice.call(document.querySelectorAll('[data-modo]'));
+  function marcar(m) { segs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.modo === m)); }); }
+  marcar(modoSalvo());
+  segs.forEach(function (b) { b.addEventListener('click', function () { try { localStorage.setItem('apresentacao-modo', b.dataset.modo); } catch (e) {} marcar(b.dataset.modo); }); });
+
+  // Programas
+  var cards = [].slice.call(document.querySelectorAll('.card'));
+  cards.forEach(function (c) { c.addEventListener('click', function () { if (c.dataset.prog) abrir(c.dataset.prog); }); });
+
+  // Controle remoto / teclado: setas movem o foco, OK/Enter escolhe.
+  var focaveis = segs.concat(cards);
+  addEventListener('keydown', function (e) {
+    var i = focaveis.indexOf(document.activeElement), n = null;
+    if (e.key === 'ArrowRight') n = i < 0 ? 0 : Math.min(focaveis.length - 1, i + 1);
+    else if (e.key === 'ArrowLeft') n = i < 0 ? 0 : Math.max(0, i - 1);
+    else if (e.key === 'ArrowDown') n = i < segs.length ? segs.length : i;
+    else if (e.key === 'ArrowUp') n = i >= segs.length ? 0 : i;
+    if (n === null) return;
+    e.preventDefault(); focaveis[n].focus();
+  });
+  cards[0].focus({ preventScroll: true });
+</script>
 </body>
 </html>

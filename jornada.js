@@ -156,7 +156,7 @@
     '</div>';
   }
 
-  var layer, root, aberto = false, seq = 0, atual = null, timer = null;
+  var layer, root, aberto = false, seq = 0, atual = null, timer = null, auto = true;
   // Passagem automática: tela inicial e depois cada cartilha, devagar.
   var ORDEM = [null].concat(DATA.map(function (x) { return x.id; }));
   var TEMPO_INICIO = 10000, TEMPO_CARTILHA = 14000;
@@ -181,13 +181,19 @@
 
   function agendar() {
     clearTimeout(timer);
-    if (!aberto) return;
+    if (!aberto || !auto) return;
     timer = setTimeout(function () {
       var i = ORDEM.indexOf(atual);
       // Fim da última cartilha: devolve para o Transforma.
       if (i === ORDEM.length - 1 && window.Jornada.aoTerminar) { window.Jornada.aoTerminar(); return; }
       render(ORDEM[(i + 1) % ORDEM.length]);
     }, atual ? TEMPO_CARTILHA : TEMPO_INICIO);
+  }
+
+  // Passagem manual: avança/volta uma tela na ordem (sem dar a volta).
+  function passo(d) {
+    var n = ORDEM.indexOf(atual) + d;
+    if (n >= 0 && n < ORDEM.length) render(ORDEM[n]);
   }
 
   function fit() { if (layer) layer.style.setProperty('--jf-s', Math.min(innerWidth / 1600, innerHeight / 900)); }
@@ -216,6 +222,8 @@
       if (/^(Arrow|Page|Home|End|Escape|Space|Digit|Numpad|KeyR)/.test(e.code) || e.key === ' ') {
         e.stopPropagation();
         if (e.key === 'Escape' || e.key === 'Backspace') render(null);
+        else if (/^(ArrowRight|ArrowDown|PageDown)$/.test(e.key) || e.key === ' ') { e.preventDefault(); passo(1); }
+        else if (/^(ArrowLeft|ArrowUp|PageUp)$/.test(e.key)) { e.preventDefault(); passo(-1); }
       }
     }, true);
   }
@@ -226,6 +234,8 @@
     fechar: function () { if (!layer) return; aberto = false; clearTimeout(timer); layer.classList.remove('on'); layer.setAttribute('aria-hidden', 'true'); },
     aberta: function () { return aberto; },
     preparar: build,
+    passo: function (d) { if (aberto) passo(d); },
+    modoAuto: function (v) { auto = !!v; if (auto) agendar(); else clearTimeout(timer); },
     pedidaNoInicio: pedida
   };
 })();
