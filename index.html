@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apresentações GEFDP</title>
 <script>
-  // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada ou #ieg abre a apresentação sem passar pelo menu.
-  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16', IEG = 'IEG%202026.dc.html?v=2';
+  // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada, #ieg ou #antes abre a apresentação sem passar pelo menu.
+  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=16', IEG = 'IEG%202026.dc.html?v=2', ANTES = 'Antes%20que%20Aconteca.dc.html?v=1';
   function modoSalvo() { try { return localStorage.getItem('apresentacao-modo') || 'loop'; } catch (e) { return 'loop'; } }
-  function destino(prog) { return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
+  function destino(prog) { if (prog === 'antes') return ANTES + '&modo=' + modoSalvo(); return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
   function abrir(prog) { location.href = destino(prog); }
-  if (/^#(transforma|jornada|ieg)$/.test(location.hash)) location.replace(destino(location.hash.slice(1)));
+  if (/^#(transforma|jornada|ieg|antes)$/.test(location.hash)) location.replace(destino(location.hash.slice(1)));
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,10 +126,10 @@
       <span class="logo"><img src="assets/transforma-branco-crop.png" alt="Transforma Educação PB 2026"></span>
       <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5F00D0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
-    <button class="card c-antes a" style="animation-delay:.55s" aria-disabled="true">
-      <span class="tag">Em breve</span>
+    <button class="card c-antes a" style="animation-delay:.55s" data-prog="antes">
+      <span class="tag">Rede de apoio</span>
       <span class="logo"><img src="assets/antes-que-aconteca-branco.png" alt="Antes que Aconteça nas Escolas"></span>
-      <span class="acao" style="opacity:.75">Apresentação em preparo</span>
+      <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3FC4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
     <button class="card c-jornada a" style="animation-delay:.65s" data-prog="jornada">
       <span class="tag">Cartilhas</span>
