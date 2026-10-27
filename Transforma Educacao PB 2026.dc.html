@@ -143,7 +143,7 @@ class Component extends DCLogic {
   buildCtrl() {
     if (document.getElementById('deck-ctrl')) return;
     const css = document.createElement('style');
-    css.textContent = '#deck-ctrl{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;gap:10px}#deck-ctrl>*{width:46px;height:46px;border-radius:50%;border:0;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(46,9,80,.6);color:#fff;cursor:pointer;opacity:.4;transition:opacity .25s,transform .25s;text-decoration:none}#deck-ctrl>*:hover,#deck-ctrl>*:focus-visible{opacity:1;transform:scale(1.08)}#deck-ctrl img{width:26px;height:26px;object-fit:contain}#deck-ctrl>.ctrl-modo{width:auto;padding:0 18px 0 14px;gap:8px;border-radius:999px;font:700 13px Archivo,sans-serif;letter-spacing:.12em}';
+    css.textContent = '#deck-ctrl{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;gap:10px}#deck-ctrl>*{width:46px;height:46px;border-radius:50%;border:0;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(46,9,80,.6);color:#fff;cursor:pointer;opacity:.4;transition:opacity .25s,transform .25s;text-decoration:none}#deck-ctrl>*:hover,#deck-ctrl>*:focus-visible{opacity:1;transform:scale(1.08)}#deck-ctrl img{width:26px;height:26px;object-fit:contain}#deck-ctrl>.ctrl-modo{width:auto;padding:0 18px 0 14px;gap:8px;border-radius:999px;font:700 13px Archivo,sans-serif;letter-spacing:.12em}#deck-ctrl>.ctrl-seta{width:36px;height:36px;margin-top:5px;background:rgba(128,128,150,.28);opacity:.35}';
     document.head.appendChild(css);
     const box = document.createElement('div'); box.id = 'deck-ctrl';
     const btn = (fn) => { const b = document.createElement('button'); b.type = 'button'; b.addEventListener('click', e => { e.stopPropagation(); fn(); }); return b; };
@@ -152,12 +152,12 @@ class Component extends DCLogic {
     menu.addEventListener('click', e => e.stopPropagation());
     const md = btn(() => this.toggleModo()); md.className = 'ctrl-modo';
     const ant = btn(() => this.passo(-1)), prox = btn(() => this.passo(1));
-    ant.title = 'Anterior'; prox.title = 'Próximo';
+    ant.title = 'Anterior'; prox.title = 'Próximo'; ant.className = prox.className = 'ctrl-seta';
     ant.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
     prox.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
     const pb = btn(() => this.togglePause());
     const jl = btn(() => { this.fs(); this.toggleJornada(); });
-    box.append(menu, md, ant, prox, pb, jl); document.body.appendChild(box);
+    box.append(menu, pb, ant, prox, jl); document.body.appendChild(box);
     this.pauseBtn = pb; this.swapBtn = jl; this.modoBtn = md; this.antBtn = ant; this.proxBtn = prox; this.updateCtrl();
     if (window.Jornada) { if (window.Jornada.modoAuto) window.Jornada.modoAuto(!this.manual); window.Jornada.preparar(); window.Jornada.aoTerminar = () => { if (window.Jornada.aberta()) this.toggleJornada(); }; if (window.Jornada.pedidaNoInicio) this.toggleJornada(); }
   }
