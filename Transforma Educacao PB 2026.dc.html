@@ -147,7 +147,7 @@ class Component extends DCLogic {
     document.head.appendChild(css);
     const box = document.createElement('div'); box.id = 'deck-ctrl';
     const btn = (fn) => { const b = document.createElement('button'); b.type = 'button'; b.addEventListener('click', e => { e.stopPropagation(); fn(); }); return b; };
-    const menu = document.createElement('a'); menu.href = 'index.html'; menu.title = 'Voltar ao menu de apresentações'; menu.setAttribute('aria-label', menu.title);
+    const menu = document.createElement('a'); menu.href = 'index.html#menu'; menu.title = 'Voltar ao menu de apresentações'; menu.setAttribute('aria-label', menu.title);
     menu.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
     menu.addEventListener('click', e => e.stopPropagation());
     const md = btn(() => this.toggleModo()); md.className = 'ctrl-modo';
