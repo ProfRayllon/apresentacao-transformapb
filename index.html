@@ -14,7 +14,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght@1,9..144,700..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0F227F; --azul:#0F89FF; --roxo:#5F00D0; --lavanda:#9966F7; --rosa:#F78BDB; --creme:#FCEAE2; --royal:#1A3FC4;
@@ -26,10 +26,7 @@
 
   /* Cabeçalho */
   .topo{position:absolute;left:112px;right:112px;top:64px;display:flex;align-items:center;justify-content:space-between}
-  .marca{display:flex;align-items:center;gap:28px}
-  .marca .nome{font-size:30px;font-weight:900;font-stretch:125%;letter-spacing:.06em}
-  .marca .sep{width:2px;height:44px;background:rgba(252,234,226,.45)}
-  .marca .ger{font-size:17px;line-height:1.35;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+  .marca img{height:72px;display:block}
 
   /* Seletor de modo */
   .modo{display:flex;align-items:center;gap:20px}
@@ -42,10 +39,8 @@
   /* Destaque */
   .hero{position:absolute;left:112px;top:180px;width:900px}
   .chip{display:inline-block;border:2px solid var(--rosa);color:var(--rosa);border-radius:999px;padding:10px 26px;font-size:18px;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
-  .lema{position:relative;margin:22px 0 0;font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:86px;line-height:.9;letter-spacing:-.01em;color:var(--rosa)}
-  .lema span{display:block}
-  .lema span:nth-child(2){padding-left:62px}
-  .lema svg{position:absolute;left:-30px;top:6px;z-index:-1}
+  .lema{margin:26px 0 0}
+  .lema img{width:640px;display:block}
   .sub{margin:22px 0 0;font-size:26px;font-weight:400;opacity:.9}
 
   .mosaico{position:absolute;right:112px;top:180px;display:grid;grid-template-columns:repeat(6,116px);grid-auto-rows:116px}
@@ -78,7 +73,7 @@
   /* Rodapé */
   .rodape{position:absolute;left:0;right:0;bottom:0;height:116px;background:var(--rosa);display:flex;align-items:center;justify-content:center;gap:56px}
   .rodape img{height:62px;display:block}
-  .rodape .lema-mini{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:30px;line-height:.86;color:var(--navy)}
+  .rodape .lema-mini{height:74px}
   .rodape .linha{width:110px;height:2px;background:var(--navy)}
 
   @keyframes sobe{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
@@ -91,12 +86,7 @@
 <body>
 <div id="stage">
   <header class="topo a">
-    <div class="marca">
-      <svg width="64" height="56" viewBox="0 0 110 96" aria-hidden="true"><path d="M26 4h58a22 22 0 0 1 22 22v66H26A22 22 0 0 1 4 70V26A22 22 0 0 1 26 4z" fill="#FCEAE2"/><path d="M55 22 85 38 55 53 25 38z" fill="#0F227F" stroke="#0F227F" stroke-width="5" stroke-linejoin="round"/><path d="M37 46v20a5 5 0 0 0 5 5h26a5 5 0 0 0 5-5V46L55 55z" fill="#0F227F"/><path d="M80 41v14l3-2 3 2V38z" fill="#0F227F"/></svg>
-      <span class="nome">GEFDP</span>
-      <span class="sep"></span>
-      <span class="ger">Gerência Executiva de Formação e Desenvolvimento<br>dos Profissionais da Educação</span>
-    </div>
+    <div class="marca"><img src="assets/identidade/gefdp-logo.svg" alt="GEFDP · Gerência Executiva de Formação e Desenvolvimento dos Profissionais da Educação"></div>
     <div class="modo">
       <div class="seg" role="group" aria-label="Modo de passagem">
         <button type="button" data-modo="loop" aria-pressed="true">
@@ -109,10 +99,7 @@
 
   <section class="hero">
     <div class="chip a" style="animation-delay:.1s">Apresentações · 2026</div>
-    <h1 class="lema a" style="animation-delay:.2s">
-      <svg width="180" height="223" viewBox="0 0 250 310" aria-hidden="true"><path d="M70 10c-60 20-60 70 0 80s60 70 0 90-60 70 0 90" fill="none" stroke="#5F00D0" stroke-width="54" stroke-linecap="round"/></svg>
-      <span>Formar</span><span>para</span><span>transformar</span>
-    </h1>
+    <h1 class="lema a" style="animation-delay:.2s"><img src="assets/identidade/formar-rosa.svg" alt="Formar para transformar"></h1>
     <p class="sub a" style="animation-delay:.35s">Escolha o programa para apresentar.</p>
   </section>
 
@@ -150,7 +137,7 @@
   <footer class="rodape">
     <img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba">
     <span class="linha"></span>
-    <span class="lema-mini">Formar<br>&nbsp;&nbsp;para<br>transformar</span>
+    <img class="lema-mini" src="assets/identidade/formar-navy.svg" alt="Formar para transformar">
   </footer>
 </div>
 
@@ -160,19 +147,23 @@
   fit(); addEventListener('resize', fit);
 
   // Mosaico de formas da identidade (balão, capelo, livro, faixas).
+  // Formas da identidade GEFDP (extraídas do manual de identidade).
   var F = {
-    balao: '<path d="M30 10h40a20 20 0 0 1 20 20v60H30a20 20 0 0 1-20-20V30a20 20 0 0 1 20-20z"/>',
-    capelo: '<path d="M50 14 92 36 50 57 8 36z" stroke-width="6" stroke-linejoin="round"/><path d="M27 47v25a8 8 0 0 0 8 8h30a8 8 0 0 0 8-8V47L50 58z"/>',
-    livro: '<path d="M10 20c16 0 32 6 40 20 8-14 24-20 40-20v48c-16 0-32 6-40 20-8-14-24-20-40-20z"/>',
-    faixas: '<rect x="12" y="20" width="76" height="16" rx="8"/><rect x="8" y="42" width="76" height="16" rx="8"/><rect x="12" y="64" width="76" height="16" rx="8"/>'
+    balao: [81.23, 81.23, 'M71.55 81.23L36.78 81.23C27.05 81.23 18.2 77.44 11.62 71.27C4.47 64.56 0 55.02 0 44.44L0 36.78C0 27.6 3.36 19.21 8.92 12.77C15.67 4.95 25.65 0 36.78 0L44.44 0C54.6 0 63.8 4.12 70.45 10.77C77.11 17.43 81.23 26.62 81.23 36.78L81.23 71.55C81.23 74.41 79.98 76.98 78.01 78.75C76.3 80.29 74.04 81.23 71.55 81.23Z'],
+    faixas: [114.17, 79.69, 'M113.43 31.69C112.68 27.41 108.97 24.29 104.62 24.29L88.35 24.29L107.65 17.35C111.74 15.88 114.17 11.68 113.43 7.4C112.68 3.12 108.97 0 104.62 0L46.39 0C45.36 0 44.34 0.18 43.37 0.53L6.53 13.77C2.44 15.24 0 19.44 0.75 23.72C1.49 28 5.21 31.12 9.55 31.12L25.83 31.12L6.53 38.06C2.44 39.53 0 43.73 0.75 48.01C1.49 52.28 5.21 55.41 9.55 55.41L25.83 55.41L6.53 62.35C2.44 63.82 0 68.01 0.75 72.29C1.49 76.57 5.21 79.69 9.55 79.69L67.78 79.69C68.81 79.69 69.84 79.52 70.81 79.17L107.65 65.92C111.74 64.45 114.17 60.25 113.43 55.98C112.68 51.7 108.97 48.57 104.62 48.57L88.35 48.57L107.65 41.63C111.74 40.16 114.17 35.97 113.43 31.69Z'],
+    livro: [89.06, 81.57, 'M44.53 81.57C44.55 81.57 44.57 81.57 44.59 81.57C44.59 81.57 44.59 81.56 44.59 81.56C47.12 81.52 47.72 80.06 47.72 80.06C55.4 61.71 76.53 54.36 85.23 52.06C87.48 51.47 89.06 49.44 89.06 47.12L89.06 5.46C89.06 2.4 86.38 0 83.34 0.38C59.78 3.33 50.5 18.16 47.87 24.1C47.29 25.41 45.98 26.27 44.54 26.27L44.51 26.27C43.07 26.27 41.77 25.41 41.19 24.1C38.55 18.16 29.27 3.33 5.71 0.38C2.68 0 0 2.4 0 5.46L0 47.12C0 49.44 1.58 51.47 3.82 52.06C12.53 54.36 33.66 61.71 41.33 80.06C41.33 80.06 41.93 81.52 44.47 81.56C44.47 81.56 44.47 81.57 44.47 81.57C44.49 81.57 44.51 81.57 44.53 81.57Z'],
+    capelo: [131.27, 83.31, 'M127.04 30.38L72.77 1.68C70.74 0.6 67.98 0 65.11 0C62.23 0 59.48 0.6 57.45 1.68L3.17 30.38C1.14 31.45 0 32.91 0 34.43C0 35.95 1.14 37.41 3.17 38.48L27.66 51.43L27.66 70.06C27.66 77.38 33.59 83.31 40.9 83.31L89.31 83.31C96.63 83.31 102.56 77.38 102.56 70.06L102.56 51.43L127.04 38.48C131.27 36.24 131.27 32.62 127.04 30.38Z'],
+    seta: [81.57, 89.06, 'M81.57 44.53C81.57 44.51 81.57 44.49 81.57 44.47C81.57 44.47 81.56 44.47 81.56 44.47C81.52 41.93 80.06 41.33 80.06 41.33C61.71 33.66 54.36 12.53 52.06 3.82C51.47 1.58 49.44 0 47.12 0L5.46 0C2.4 0 0 2.68 0.38 5.71C3.33 29.27 18.16 38.55 24.1 41.19C25.41 41.77 26.27 43.07 26.27 44.51L26.27 44.54C26.27 45.99 25.41 47.29 24.1 47.87C18.16 50.5 3.33 59.78 0.38 83.34C0 86.38 2.4 89.06 5.46 89.06L47.12 89.06C49.44 89.06 51.47 87.48 52.06 85.23C54.36 76.53 61.71 55.4 80.06 47.72C80.06 47.72 81.52 47.12 81.56 44.59C81.56 44.59 81.57 44.59 81.57 44.59C81.57 44.57 81.57 44.55 81.57 44.53Z'],
+    topo: [89.06, 81.57, 'M44.53 0C44.51 0 44.49 0 44.47 0C44.47 0 44.47 0 44.47 0C41.93 0.05 41.33 1.51 41.33 1.51C33.66 19.86 12.53 27.2 3.82 29.51C1.58 30.1 0 32.12 0 34.45L0 76.11C0 79.17 2.68 81.57 5.71 81.19C29.27 78.24 38.55 63.41 41.19 57.47C41.77 56.15 43.07 55.3 44.51 55.3L44.54 55.3C45.98 55.3 47.29 56.15 47.87 57.47C50.5 63.41 59.78 78.24 83.34 81.19C86.38 81.57 89.06 79.17 89.06 76.11L89.06 34.45C89.06 32.12 87.48 30.1 85.23 29.51C76.53 27.2 55.4 19.86 47.72 1.51C47.72 1.51 47.12 0.05 44.59 0C44.59 0 44.59 0 44.59 0C44.57 0 44.55 0 44.53 0Z']
   };
   var T = [
-    ['#0F89FF','balao','#5F00D0'], ['#9966F7','capelo','#FCEAE2'], ['#5F00D0','livro','#F78BDB'], ['#F78BDB',null], ['#0F89FF','faixas','#FCEAE2'], ['#9966F7','balao','#5F00D0'],
+    ['#0F89FF','balao','#5F00D0'], ['#9966F7','capelo','#FCEAE2'], ['#5F00D0','livro','#F78BDB'], ['#F78BDB',null], ['#0F89FF','faixas','#FCEAE2'], ['#9966F7','seta','#5F00D0'],
     ['#F78BDB','capelo','#5F00D0'], ['#5F00D0',null], ['#0F89FF','livro','#FCEAE2'], ['#9966F7','faixas','#5F00D0'], ['#5F00D0','balao','#FCEAE2'], ['#0F89FF',null],
-    [null], ['#9966F7','livro','#FCEAE2'], ['#F78BDB',null], ['#5F00D0','capelo','#FCEAE2'], [null], ['#F78BDB','faixas','#5F00D0']
+    [null], ['#9966F7','topo','#FCEAE2'], ['#F78BDB',null], ['#5F00D0','capelo','#FCEAE2'], [null], ['#F78BDB','faixas','#5F00D0']
   ];
   document.getElementById('mosaico').innerHTML = T.map(function (t, i) {
-    var icon = t[1] ? '<svg viewBox="0 0 100 100" fill="' + t[2] + '" stroke="' + t[2] + '">' + F[t[1]] + '</svg>' : '';
+    var f = F[t[1]], m = f && Math.max(f[0], f[1]);
+    var icon = f ? '<svg viewBox="' + (f[0] - m) / 2 + ' ' + (f[1] - m) / 2 + ' ' + m + ' ' + m + '"><path d="' + f[2] + '" fill="' + t[2] + '"/></svg>' : '';
     return '<div style="background:' + (t[0] || 'transparent') + ';animation-delay:' + (0.3 + i * 0.04).toFixed(2) + 's">' + icon + '</div>';
   }).join('');
 
