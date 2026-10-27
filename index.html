@@ -81,31 +81,28 @@
   /* Entrada: faixas de formas correndo, logo e lema; depois o painel aparece */
   #stage.na-entrada .a,#stage.na-entrada .mosaico div{animation-play-state:paused}
   #intro{position:absolute;inset:0;z-index:50;background:radial-gradient(circle at 50% 45%,#7A2BF0 0,var(--roxo) 55%,#4A00A8 100%);overflow:hidden;cursor:pointer}
-  #intro .faixas{position:absolute;inset:0;animation:zoomF 3.8s cubic-bezier(.33,0,.2,1) .2s both}
-  #intro .faixa{position:absolute;left:0;height:170px;display:flex;animation:faixaIn .9s cubic-bezier(.22,1,.36,1) both}
+  #intro .faixas{position:absolute;inset:0 -70px;animation:zoomF 5.2s cubic-bezier(.33,0,.2,1) .2s both}
+  #intro .faixa{position:absolute;left:70px;height:170px;display:flex;animation:faixaIn .9s cubic-bezier(.22,1,.36,1) both}
   #intro .faixa.cima{top:0}
   #intro .faixa.baixo{bottom:0;animation-name:faixaInB}
-  #intro .trilho{display:flex;flex:none;animation:corre 14s linear infinite}
-  #intro .baixo .trilho{animation-direction:reverse}
-  #intro.parado .trilho{animation-play-state:paused}
+  #intro .trilho{display:flex;flex:none}
   #intro .t{flex:none;width:170px;height:170px;display:flex;align-items:center;justify-content:center}
   #intro .t svg{width:84px;height:84px}
   #intro .t.txt{width:340px;padding:0 34px;box-sizing:border-box;justify-content:flex-start;font-size:17px;line-height:1.3;letter-spacing:.02em;color:var(--creme)}
   #intro .t.nome{width:340px;font-size:46px;font-weight:900;font-stretch:125%;letter-spacing:.08em;color:var(--creme)}
-  #intro .centro{position:absolute;left:0;right:0;top:170px;bottom:170px;display:flex;align-items:center;justify-content:center;animation:zoomC 3.8s cubic-bezier(.33,0,.2,1) .2s both}
+  #intro .centro{position:absolute;left:0;right:0;top:170px;bottom:170px;display:flex;align-items:center;justify-content:center;animation:zoomC 5.2s cubic-bezier(.33,0,.2,1) .2s both}
   #intro .resp{display:flex;flex-direction:column;align-items:center;gap:56px;animation:respira 7s ease-in-out infinite alternate paused}
   #intro.parado .resp{animation-play-state:running}
-  #intro .logo{width:760px;animation:logoIn 1.1s cubic-bezier(.34,1.56,.64,1) .45s both}
-  #intro .lema-i{width:520px;animation:sobe 1s cubic-bezier(.22,1,.36,1) 1.25s both}
+  #intro .logo{width:880px;animation:logoIn 1.1s cubic-bezier(.34,1.56,.64,1) .45s both}
+  #intro .lema-i{width:600px;animation:sobe 1s cubic-bezier(.22,1,.36,1) 1.25s both}
   #intro .entrar{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-size:18px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--creme);opacity:0;transition:opacity 1s}
   #intro.parado .entrar{opacity:.55;animation:pisca 2.4s ease-in-out 1s infinite}
   #intro.sai{animation:introOut .9s cubic-bezier(.65,0,.35,1) forwards}
   #intro.sai .cima{animation:faixaOut .8s cubic-bezier(.65,0,.35,1) forwards}
   #intro.sai .baixo{animation:faixaOutB .8s cubic-bezier(.65,0,.35,1) forwards}
-  @keyframes corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @keyframes zoomF{from{transform:scale(1)}to{transform:scale(1.06)}}
-  @keyframes zoomC{from{transform:scale(.92)}to{transform:scale(1.14)}}
-  @keyframes respira{from{transform:scale(1)}to{transform:scale(1.035)}}
+  @keyframes zoomF{from{transform:scale(.94)}to{transform:scale(1)}}
+  @keyframes zoomC{from{transform:scale(.8)}to{transform:scale(1)}}
+  @keyframes respira{from{transform:scale(1)}to{transform:scale(.97)}}
   @keyframes pisca{0%,100%{opacity:.55}50%{opacity:.25}}
   @keyframes faixaIn{from{transform:translateY(-100%)}to{transform:none}}
   @keyframes faixaInB{from{transform:translateY(100%)}to{transform:none}}
@@ -120,11 +117,11 @@
 <div id="stage">
   <div id="intro" aria-hidden="true">
     <div class="faixas"><div class="faixa cima"></div><div class="faixa baixo"></div></div>
-    <div class="centro"><div class="resp"><img class="logo" src="assets/identidade/gefdp-logo.svg" alt=""><img class="lema-i" src="assets/identidade/formar-creme.svg" alt=""></div></div>
+    <div class="centro"><div class="resp"><img class="logo" src="assets/identidade/gefdp-logo-creme.png" alt=""><img class="lema-i" src="assets/identidade/formar-creme.svg" alt=""></div></div>
     <div class="entrar">Toque para entrar</div>
   </div>
   <header class="topo a">
-    <div class="marca"><img src="assets/identidade/gefdp-logo.svg" alt="GEFDP · Gerência Executiva de Formação e Desenvolvimento dos Profissionais da Educação"></div>
+    <div class="marca"><img src="assets/identidade/gefdp-logo-creme.png" alt="GEFDP · Gerência Executiva de Formação e Desenvolvimento dos Profissionais da Educação"></div>
     <div class="modo">
       <div class="seg" role="group" aria-label="Modo de passagem">
         <button type="button" data-modo="loop" aria-pressed="true">
@@ -215,14 +212,18 @@
       return '<div class="t" style="background:' + t[0] + '">' + (t[1] ? ic(t[1], t[2]) : '') + '</div>';
     }).join('');
     var trilho = '<div class="trilho">' + tiles + tiles + tiles + tiles + '</div>';
-    intro.querySelectorAll('.faixa').forEach(function (f) { f.innerHTML = trilho; });
+    intro.querySelectorAll('.faixa').forEach(function (f, k) {
+      f.innerHTML = trilho;
+      var de = k ? -2380 : -340, ate = k ? -340 : -2380;
+      f.firstChild.animate([{ transform: 'translateX(' + de + 'px)' }, { transform: 'translateX(' + ate + 'px)' }], { duration: 5400, easing: 'cubic-bezier(.12,.62,.25,1)', fill: 'both' });
+    });
     stage.classList.add('na-entrada');
     var fim = function () {
       if (!intro.isConnected || intro.classList.contains('sai')) return;
       intro.classList.add('sai'); stage.classList.remove('na-entrada');
       setTimeout(function () { intro.remove(); }, 950);
     };
-    setTimeout(function () { intro.classList.add('parado'); }, 4000);
+    setTimeout(function () { intro.classList.add('parado'); }, 5400);
     intro.addEventListener('click', fim);
     addEventListener('keydown', function (e) { if (intro.isConnected) { e.stopImmediatePropagation(); fim(); } }, { once: true, capture: true });
   })();
