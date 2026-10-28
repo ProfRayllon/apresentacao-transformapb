@@ -10,65 +10,340 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#000;font-family:'Archivo',sans-serif}deck-stage>section[data-deck-active]>*{visibility:visible}[data-ci]{transition:background .45s,color .45s,box-shadow .45s,transform .45s}[data-cycle] button[data-ci]{background:transparent;color:#2A0066}[data-cycle] button[data-ci][data-active]{background:#5A00D2;color:#fff;transform:scale(1.02);box-shadow:0 16px 36px rgba(90,0,210,.28)}[data-cycle] button[data-ci]:focus-visible{outline:4px solid #F28BE0;outline-offset:3px}[data-ci] [data-ico]{background:#EEE5FF;color:#5A00D2;transition:background .45s,color .45s}[data-ci][data-active] [data-ico]{background:#F28BE0;color:#3B0090}[data-cycle] button[data-ci]:not([data-active]) {box-shadow:inset 0 0 0 2px #E8DDFA}@keyframes pulso{0%,100%{opacity:1}50%{opacity:.45}}[data-pulse]{animation:pulso 1.6s ease-in-out infinite}</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Montserrat:wght@400..900&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#000;font-family:'Archivo',sans-serif}deck-stage>section[data-deck-active]>*{visibility:visible}[data-ci]{transition:background .45s,color .45s,box-shadow .45s,transform .45s}[data-cycle] button[data-ci]{background:transparent;color:#2A0066}[data-cycle] button[data-ci][data-active]{background:#5A00D2;color:#fff;transform:scale(1.02);box-shadow:0 16px 36px rgba(90,0,210,.28)}[data-cycle] button[data-ci]:focus-visible{outline:4px solid #F28BE0;outline-offset:3px}[data-ci] [data-ico]{background:#EEE5FF;color:#5A00D2;transition:background .45s,color .45s}[data-ci][data-active] [data-ico]{background:#F28BE0;color:#3B0090}[data-cycle] button[data-ci]:not([data-active]) {box-shadow:inset 0 0 0 2px #E8DDFA}@keyframes pulso{0%,100%{opacity:1}50%{opacity:.45}}[data-pulse]{animation:pulso 1.6s ease-in-out infinite}@keyframes flutua{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-18px) rotate(-1deg)}}</style>
 </helmet>
 <x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
 
-<section data-label="Capa" data-screen-label="01 Capa" data-duration="9000" style="background:#5A00D2 url('assets/aqa/slides/s14.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="suave" src="assets/aqa/slides/s01.jpg" alt="Antes que Aconteça nas Escolas · slide 1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Capa" data-screen-label="01 Capa" data-duration="10000" style="background:#5F00D0;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <div data-anim="suave" style="position:absolute;left:110px;top:100px;right:110px;bottom:100px;border-radius:110px;background:linear-gradient(150deg,#6608DA 0%,#5200C2 55%,#4600AE 100%);box-shadow:0 40px 120px rgba(25,0,70,.55),inset 0 0 0 1.5px rgba(255,255,255,.22);overflow:hidden">
+    <div style="position:absolute;right:-30px;top:-70px;height:1020px;width:800px;animation:flutua 7s ease-in-out infinite alternate"><img data-anim="flor" src="assets/aqa/mulher-flor-rosa.png" alt="" style="height:100%;display:block"></img></div>
+    <img data-anim="fade" data-delay="300" src="assets/identidade/formar-creme.svg" alt="Formar para transformar" style="position:absolute;left:120px;top:80px;width:230px"></img>
+    <div style="position:absolute;left:120px;top:205px;width:900px">
+      <img data-anim="zoom" src="assets/antes-que-aconteca-branco.png" alt="Antes que Aconteça nas Escolas · Rede de apoio no combate à violência contra a mulher" style="width:720px;display:block"></img>
+      <div data-anim="up" data-delay="900" style="margin-top:30px;width:720px;border-top:3px solid #F494EB;padding-top:24px;font-family:'Montserrat',sans-serif;font-size:28px;line-height:1.4;font-weight:500;color:#F3EAFF">Ações realizadas, comitês escolares e o sistema de monitoramento</div>
+    </div>
+    <img data-anim="fade" data-delay="1300" src="assets/logos-branco-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="position:absolute;left:120px;bottom:64px;width:600px"></img>
+  </div>
 </section>
 
-<section data-label="Ações realizadas" data-screen-label="02 Ações realizadas" data-duration="9000" style="background:#5A00D2 url('assets/aqa/slides/s01.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="sobe" src="assets/aqa/slides/s02.jpg" alt="Antes que Aconteça nas Escolas · slide 2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Ações realizadas" data-screen-label="02 Ações realizadas" data-duration="16000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:0;top:92px;width:1240px;bottom:96px;background:#FCE9E2"></div>
+  <div style="position:absolute;left:110px;top:140px;width:1030px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#5F00D0">Antes que Aconteça nas Escolas</div>
+    <h1 data-anim="up" data-delay="700" style="margin:14px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:100px;line-height:.88;color:#5F00D0">Ações realizadas<br>e etapa atual</h1>
+  </div>
+  <div style="position:absolute;left:110px;top:388px;width:1030px;height:540px;display:flex;flex-direction:column;justify-content:space-between">
+    <div data-anim="barY" data-delay="900" style="position:absolute;left:41px;top:40px;bottom:60px;width:3px;background:#AA8BF3;transform-origin:top"></div>
+    <div data-anim="up" data-delay="1000" style="position:relative;display:flex;align-items:center;gap:30px">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px #5F00D0;color:#5F00D0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px">1</span>
+        <span style="flex:1;font-size:28px;line-height:1.22;font-weight:600">Reunião de apresentação do programa às GREs</span>
+        <span style="flex:none;display:flex;align-items:center;gap:8px;border-radius:999px;background:#EDE3FF;color:#5F00D0;padding:9px 18px 9px 14px;font-size:16px;font-weight:800;letter-spacing:.12em"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CONCLUÍDA</span>
+      </div><div data-anim="up" data-delay="1220" style="position:relative;display:flex;align-items:center;gap:30px">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px #5F00D0;color:#5F00D0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px">2</span>
+        <span style="flex:1;font-size:28px;line-height:1.22;font-weight:600">Envio dos documentos orientadores às GREs</span>
+        <span style="flex:none;display:flex;align-items:center;gap:8px;border-radius:999px;background:#EDE3FF;color:#5F00D0;padding:9px 18px 9px 14px;font-size:16px;font-weight:800;letter-spacing:.12em"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CONCLUÍDA</span>
+      </div><div data-anim="up" data-delay="1440" style="position:relative;display:flex;align-items:center;gap:30px">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px #5F00D0;color:#5F00D0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px">3</span>
+        <span style="flex:1;font-size:28px;line-height:1.22;font-weight:600">Indicação dos representantes estaduais nas GREs</span>
+        <span style="flex:none;display:flex;align-items:center;gap:8px;border-radius:999px;background:#EDE3FF;color:#5F00D0;padding:9px 18px 9px 14px;font-size:16px;font-weight:800;letter-spacing:.12em"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CONCLUÍDA</span>
+      </div><div data-anim="up" data-delay="1660" style="position:relative;display:flex;align-items:center;gap:30px">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px #5F00D0;color:#5F00D0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px">4</span>
+        <span style="flex:1;font-size:28px;line-height:1.22;font-weight:600">Orientações para a constituição dos Comitês Escolares de Prevenção e Enfrentamento à Violência contra a Mulher</span>
+        <span style="flex:none;display:flex;align-items:center;gap:8px;border-radius:999px;background:#EDE3FF;color:#5F00D0;padding:9px 18px 9px 14px;font-size:16px;font-weight:800;letter-spacing:.12em"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CONCLUÍDA</span>
+      </div><div data-anim="up" data-delay="1880" style="position:relative;display:flex;align-items:center;gap:30px;background:#5F00D0;border-radius:40px;padding:22px 36px 22px 22px;margin-left:-22px;box-shadow:0 22px 50px rgba(95,0,208,.3)">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:#F494EB;color:#5F00D0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px">5</span>
+        <span style="flex:1;font-size:32px;line-height:1.2;font-weight:700;color:#fff">Implementação dos comitês nas escolas</span>
+        <span data-pulse style="flex:none;border-radius:999px;background:#F494EB;color:#2A0066;padding:10px 22px;font-size:17px;font-weight:800;letter-spacing:.16em">ETAPA ATUAL</span>
+      </div>
+  </div>
+  <div data-anim="lado" data-delay="400" style="position:absolute;left:1240px;right:0;top:92px;bottom:96px;background:#FA93EC;border-radius:90px 0 0 90px">
+    <img data-anim="cert" data-delay="600" src="assets/aqa/guia-comite.jpg" alt="Guia de implementação do Comitê Escolar de Prevenção e Enfrentamento à Violência contra as Meninas e Mulheres" style="position:absolute;left:105px;top:46px;height:690px;display:block"></img>
+    <div data-anim="fade" data-delay="1600" style="position:absolute;left:60px;right:60px;bottom:40px;text-align:center;font-size:21px;line-height:1.35;font-weight:600;color:#3B0090">Guia de implementação para as escolas<br><b style="font-weight:800">Resolução CEE/PB n.º 108/2026 · Art. 6º</b></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Etapas 1 a 3" data-screen-label="03 Etapas 1 a 3" data-duration="14000" style="background:#5A00D2 url('assets/aqa/slides/s02.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s03.jpg" alt="Antes que Aconteça nas Escolas · slide 3" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Comitês por GRE" data-screen-label="03 Comitês por GRE" data-duration="20000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:0;right:0;top:92px;bottom:96px;background:#FCE9E2"></div>
+  <div style="position:absolute;left:110px;right:110px;top:132px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div>
+      <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#5F00D0">Comitês escolares · situação por GRE</div>
+      <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:92px;line-height:.88;color:#5F00D0">Comitês formados<br>× escolas da GRE</h1>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,250px);gap:20px">
+      <div data-anim="up" data-delay="900" style="min-width:0;border-radius:30px;background:#fff;padding:18px 28px 20px;display:flex;flex-direction:column;gap:4px;box-shadow:0 14px 34px rgba(95,0,208,.10)">
+      <span style="font-size:15px;font-weight:800;letter-spacing:.2em;color:#7A5BC4;white-space:nowrap">COMITÊS</span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:76px;line-height:.9;color:#5F00D0"><span data-count="289" data-delay="300">289</span></span>
+      <span style="font-size:17px;font-weight:600;color:#6B5A99;white-space:nowrap">de 603 escolas</span></div>
+      <div data-anim="up" data-delay="1050" style="min-width:0;border-radius:30px;background:#fff;padding:18px 28px 20px;display:flex;flex-direction:column;gap:4px;box-shadow:0 14px 34px rgba(95,0,208,.10)">
+      <span style="font-size:15px;font-weight:800;letter-spacing:.2em;color:#7A5BC4;white-space:nowrap">COBERTURA</span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:76px;line-height:.9;color:#C2189B">47,9%</span>
+      <span style="font-size:17px;font-weight:600;color:#6B5A99;white-space:nowrap">das escolas da rede</span></div>
+      <div data-anim="up" data-delay="1200" style="min-width:0;border-radius:30px;background:#fff;padding:18px 28px 20px;display:flex;flex-direction:column;gap:4px;box-shadow:0 14px 34px rgba(95,0,208,.10)">
+      <span style="font-size:15px;font-weight:800;letter-spacing:.2em;color:#7A5BC4;white-space:nowrap">GRES COM 100%</span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:76px;line-height:.9;color:#5F00D0"><span data-count="4" data-delay="300">4</span></span>
+      <span style="font-size:17px;font-weight:600;color:#6B5A99;white-space:nowrap">todas as escolas</span></div>
+    </div>
+  </div>
+  <div data-anim="up" data-delay="500" style="position:absolute;left:110px;right:110px;top:388px;bottom:130px;border-radius:44px;background:#fff;box-shadow:0 24px 60px rgba(95,0,208,.10);padding:46px 44px 26px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div data-gre-chart data-gre='[["1ª", 30, 90], ["2ª", null, 59], ["3ª", 49, 83], ["4ª", 19, 19], ["5ª", 26, 26], ["6ª", 4, 43], ["7ª", 23, 30], ["8ª", 8, 22], ["9ª", 30, 33], ["10ª", 29, 30], ["11ª", 16, 16], ["12ª", 5, 23], ["13ª", 0, 15], ["14ª", 31, 31], ["15ª", 15, 22], ["16ª", 4, 61]]' style="flex:1;min-height:0;display:flex;flex-direction:column"></div>
+  </div>
+  <div data-anim="fade" data-delay="2400" style="position:absolute;left:110px;right:110px;bottom:100px;display:flex;justify-content:space-between;font-size:17px;font-weight:600;color:#7A5BC4">
+    <span><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#5F00D0;vertical-align:-1px;margin-right:8px"></span>escolas com comitê &nbsp;&nbsp;<span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#EFE6FF;vertical-align:-1px;margin-right:8px"></span>total de escolas da GRE &nbsp;&nbsp;<span style="display:inline-block;width:22px;border-top:3px dashed #E6009A;vertical-align:4px;margin-right:8px"></span>média da rede</span>
+    <span>2ª GRE: dado em atualização · escolas por GRE: base GOAAG/SEE-PB</span>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Etapas 4 e 5" data-screen-label="04 Etapas 4 e 5" data-duration="14000" style="background:#5A00D2 url('assets/aqa/slides/s03.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s04.jpg" alt="Antes que Aconteça nas Escolas · slide 4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Sistema de monitoramento" data-screen-label="04 Sistema de monitoramento" data-duration="9000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <img data-anim="suave" src="assets/aqa/notebook.jpg" alt="Notebook com a tela do sistema Antes que Aconteça nas Escolas" style="position:absolute;left:0;top:92px;width:1120px;height:892px;object-fit:cover;object-position:40% 50%;display:block"></img>
+  <div style="position:absolute;left:1200px;right:60px;top:300px">
+    <div data-anim="bar" data-delay="600" style="width:300px;height:3px;background:#5F00D0;transform-origin:left"></div>
+    <h1 data-anim="up" data-delay="700" style="margin:48px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:100px;line-height:.86;color:#5F00D0">Sistema de<br>monitoramento</h1>
+    <div data-anim="up" data-delay="950" style="margin-top:34px;font-size:32px;font-weight:600;line-height:1.3;color:#3B0090">do Antes que Aconteça<br>nas Escolas</div>
+    <div data-anim="bar" data-delay="1200" style="margin-top:48px;width:300px;height:3px;background:#5F00D0;transform-origin:left"></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Comitês por GRE" data-screen-label="05 Comitês por GRE" data-duration="14000" style="background:#5A00D2 url('assets/aqa/slides/s04.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="sobe" src="assets/aqa/slides/s05.jpg" alt="Antes que Aconteça nas Escolas · slide 5" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Página pública" data-screen-label="05 Página pública" data-duration="16000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div data-anim="lado" data-delay="300" style="position:absolute;left:90px;top:150px;width:1040px;border-radius:30px;background:#fff;box-shadow:0 30px 80px rgba(95,0,208,.20);overflow:hidden">
+    <div style="height:44px;background:#F3ECFA;display:flex;align-items:center;gap:10px;padding:0 22px"><span style="width:13px;height:13px;border-radius:50%;background:#F494EB"></span><span style="width:13px;height:13px;border-radius:50%;background:#AA8BF3"></span><span style="width:13px;height:13px;border-radius:50%;background:#5F00D0"></span><span style="margin-left:18px;flex:1;height:24px;border-radius:999px;background:#fff;font-size:14px;line-height:24px;padding-left:16px;color:#8B78B8">antesqueaconteca · página pública</span></div>
+    <img src="assets/aqa/portal.jpg" alt="Página pública do Antes que Aconteça nas Escolas" style="width:100%;display:block"></img>
+  </div>
+  <div style="position:absolute;left:1220px;right:90px;top:140px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#5F00D0">Espaço público · aberto a todos</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:96px;line-height:.88;color:#5F00D0">Uma página<br>do programa</h1>
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:26px"><div data-anim="up" data-delay="1000" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:62px;height:62px;border-radius:20px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:27px;font-weight:800;color:#2A0066">O programa e as parcerias</b><span style="font-size:21px;line-height:1.3;font-weight:500;color:#5B4A8A">Projeto da SEE/PB em parceria com o Programa Antes que Aconteça</span></span></div><div data-anim="up" data-delay="1180" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:62px;height:62px;border-radius:20px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:27px;font-weight:800;color:#2A0066">Dados e indicadores</b><span style="font-size:21px;line-height:1.3;font-weight:500;color:#5B4A8A">Cenário e resultados da rede abertos à consulta</span></span></div><div data-anim="up" data-delay="1360" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:62px;height:62px;border-radius:20px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:27px;font-weight:800;color:#2A0066">Legislação</b><span style="font-size:21px;line-height:1.3;font-weight:500;color:#5B4A8A">Leis e resoluções que orientam o programa</span></span></div><div data-anim="up" data-delay="1540" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:62px;height:62px;border-radius:20px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:27px;font-weight:800;color:#2A0066">Materiais de apoio</b><span style="font-size:21px;line-height:1.3;font-weight:500;color:#5B4A8A">Guias, cartilhas e orientações para as escolas</span></span></div><div data-anim="up" data-delay="1720" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:62px;height:62px;border-radius:20px;background:#E6009A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:27px;font-weight:800;color:#2A0066">Canal de suporte</b><span style="font-size:21px;line-height:1.3;font-weight:500;color:#5B4A8A">Atendimento para dúvidas e orientações</span></span></div></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Comitês por GRE (cont.)" data-screen-label="06 Comitês por GRE (cont.)" data-duration="14000" style="background:#5A00D2 url('assets/aqa/slides/s05.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s06.jpg" alt="Antes que Aconteça nas Escolas · slide 6" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Níveis de acesso" data-screen-label="06 Níveis de acesso" data-duration="16000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:0;right:0;top:92px;bottom:96px;background:#FCE9E2"></div>
+  <div style="position:absolute;left:110px;right:110px;top:134px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#5F00D0">Monitoramento · quem acessa e o que faz</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:96px;line-height:.88;color:#5F00D0">Três níveis de acesso</h1>
+  </div>
+  <div style="position:absolute;left:110px;right:110px;top:330px;bottom:136px;display:flex;gap:26px"><div data-anim="up" data-delay="1000" style="flex:1;min-width:0;border-radius:56px;background:#fff;box-shadow:inset 0 0 0 3px #5F00D0;padding:48px 48px 44px;display:flex;flex-direction:column;color:#2A0066">
+      <span style="width:96px;height:96px;border-radius:30px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg></span>
+      <span style="margin-top:34px;font-size:18px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#5F00D0;opacity:.85">Núcleo escolar</span>
+      <span style="margin-top:6px;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:92px;line-height:.86;color:#5F00D0">Escola</span>
+      <span style="margin-top:26px;font-size:27px;line-height:1.38;font-weight:500">Cada escola tem o seu acesso para <b>inserir as ações e os registros</b> de cada indicador, com as evidências.</span>
+      <span style="margin-top:auto;padding-top:28px;align-self:flex-start;border-radius:999px;padding:12px 26px;background:#5F00D0;color:#fff;font-size:19px;font-weight:800;letter-spacing:.18em;text-transform:uppercase">registra</span>
+    </div><div data-anim="pop" data-delay="1600" style="flex:none;align-self:center;width:64px;height:64px;border-radius:50%;background:#F494EB;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div><div data-anim="up" data-delay="1300" style="flex:1;min-width:0;border-radius:56px;background:#AA8BF3;box-shadow:none;padding:48px 48px 44px;display:flex;flex-direction:column;color:#2A0066">
+      <span style="width:96px;height:96px;border-radius:30px;background:rgba(255,255,255,.55);color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></span>
+      <span style="margin-top:34px;font-size:18px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#5F00D0;opacity:.85">GRE</span>
+      <span style="margin-top:6px;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:92px;line-height:.86;color:#5F00D0">Regional</span>
+      <span style="margin-top:26px;font-size:27px;line-height:1.38;font-weight:500">Vê <b>todas as escolas da regional</b>, faz as <b>validações</b> e acompanha o monitoramento.</span>
+      <span style="margin-top:auto;padding-top:28px;align-self:flex-start;border-radius:999px;padding:12px 26px;background:#5F00D0;color:#fff;font-size:19px;font-weight:800;letter-spacing:.18em;text-transform:uppercase">valida</span>
+    </div><div data-anim="pop" data-delay="1900" style="flex:none;align-self:center;width:64px;height:64px;border-radius:50%;background:#F494EB;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div><div data-anim="up" data-delay="1600" style="flex:1;min-width:0;border-radius:56px;background:#5F00D0;box-shadow:none;padding:48px 48px 44px;display:flex;flex-direction:column;color:#fff">
+      <span style="width:96px;height:96px;border-radius:30px;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
+      <span style="margin-top:34px;font-size:18px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#fff;opacity:.85">SEE/PB</span>
+      <span style="margin-top:6px;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:92px;line-height:.86;color:#fff">Secretaria</span>
+      <span style="margin-top:26px;font-size:27px;line-height:1.38;font-weight:500"><b>Visão geral de todas as escolas</b> e de todas as GREs do estado.</span>
+      <span style="margin-top:auto;padding-top:28px;align-self:flex-start;border-radius:999px;padding:12px 26px;background:#F494EB;color:#2A0066;font-size:19px;font-weight:800;letter-spacing:.18em;text-transform:uppercase">acompanha</span>
+    </div></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Sistema de monitoramento" data-screen-label="07 Sistema de monitoramento" data-duration="9000" style="background:#5A00D2 url('assets/aqa/slides/s06.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="sobe" src="assets/aqa/slides/s07.jpg" alt="Antes que Aconteça nas Escolas · slide 7" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="IPF" data-screen-label="07 IPF" data-duration="20000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <img data-anim="fade" data-delay="1600" src="assets/aqa/mulher-flor-rosa.png" alt="" style="position:absolute;right:-60px;top:70px;height:380px;opacity:.55"></img>
+  <div style="position:absolute;left:110px;right:110px;top:132px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#E6009A">Como o monitoramento é feito</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:92px;line-height:.88;color:#E6009A">Índice de Proteção Feminina <span style="color:#7B0A5E">· IPF</span></h1>
+    <div data-anim="up" data-delay="850" style="margin-top:14px;font-size:25px;font-weight:500;color:#5B4A8A">Dois eixos, <b style="color:#2A0066">10 indicadores</b>, com pontuação a cada bimestre.</div>
+  </div>
+  <div style="position:absolute;left:110px;right:110px;top:388px;bottom:130px;display:grid;grid-template-columns:1.55fr 1fr;gap:28px">
+    <div data-anim="up" data-delay="1000" style="min-width:0;border-radius:48px;background:#FCE4F4;padding:34px 36px;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:17px;font-weight:800;letter-spacing:.24em;color:#E6009A">EIXO 1</span><span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:66px;line-height:.9;color:#E6009A">Prevenção</span><span style="margin-left:auto;font-size:19px;font-weight:600;color:#8A2A72">Ações para prevenir a violência de gênero</span></div>
+      <div style="margin-top:24px;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:14px"><div data-anim="pop" data-delay="1300" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P1</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Comitê ativo</span></div><div data-anim="pop" data-delay="1430" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P2</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Integração ao Projeto Político-Pedagógico</span></div><div data-anim="pop" data-delay="1560" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P3</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Diagnóstico de cultura, prevenção e proteção</span></div><div data-anim="pop" data-delay="1690" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P4</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Formação dos profissionais da educação</span></div><div data-anim="pop" data-delay="1820" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P5</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Trilhas formativas</span></div><div data-anim="pop" data-delay="1950" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#E6009A;width:78px">P6</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Ações pedagógicas de prevenção</span></div></div>
+    </div>
+    <div data-anim="up" data-delay="1900" style="min-width:0;border-radius:48px;background:#1E3A8A;padding:34px 36px;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:17px;font-weight:800;letter-spacing:.24em;color:#F7A8E0">EIXO 2</span><span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:66px;line-height:.9;color:#fff">Remediação</span></div>
+      <div style="margin-top:6px;font-size:19px;font-weight:600;color:#C9D3FF">Cuidado, apoio e responsabilização</div>
+      <div style="margin-top:20px;flex:1;display:grid;grid-template-columns:1fr;grid-auto-rows:1fr;gap:12px"><div data-anim="pop" data-delay="2200" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#1E3A8A;width:78px">R1</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Registro e acompanhamento de situações</span></div><div data-anim="pop" data-delay="2330" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#1E3A8A;width:78px">R2</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Protocolo de acolhimento</span></div><div data-anim="pop" data-delay="2460" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#1E3A8A;width:78px">R3</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Encaminhamento à rede</span></div><div data-anim="pop" data-delay="2590" style="min-width:0;display:flex;align-items:center;gap:20px;border-radius:28px;background:#fff;padding:18px 24px">
+      <span style="flex:none;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:62px;line-height:.9;color:#1E3A8A;width:78px">R4</span>
+      <span style="font-size:23px;line-height:1.22;font-weight:700;color:#2A0066">Resultado do acompanhamento</span></div></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Plataforma" data-screen-label="08 Plataforma" data-duration="12000" style="background:#5A00D2 url('assets/aqa/slides/s07.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s08.jpg" alt="Antes que Aconteça nas Escolas · slide 8" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Pontuação" data-screen-label="08 Pontuação" data-duration="20000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:0;top:92px;width:860px;bottom:96px;background:#F5E6FA"></div>
+  <div data-anim="lado" data-delay="300" style="position:absolute;left:90px;top:136px;width:720px;height:790px;border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(110,11,90,.22)">
+    <img src="assets/aqa/esc-painel.png" alt="Painel IPF da escola: pontuação do bimestre e status de cada indicador" style="width:100%;display:block"></img>
+  </div>
+  <div data-anim="pop" data-delay="2600" style="position:absolute;left:500px;top:338px;border-radius:999px;background:#2A0066;color:#fff;padding:12px 24px;font-size:19px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.25)">Pontuação do bimestre</div>
+  <div data-anim="pop" data-delay="2900" style="position:absolute;left:470px;top:900px;border-radius:999px;background:#2A0066;color:#fff;padding:12px 24px;font-size:19px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.25)">Status de cada indicador</div>
+  <div style="position:absolute;left:960px;right:100px;top:136px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#E6009A">Pontuação · monitoramento bimestral</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:96px;line-height:.88;color:#E6009A">Cada indicador<br>pontua no bimestre</h1>
+    <div data-anim="up" data-delay="900" style="margin-top:26px;font-size:25px;line-height:1.42;font-weight:500;color:#4A3A7A">A escola registra as ações de cada indicador. Indicador <b style="color:#2A0066">concluído</b> soma pontos; a soma vira o <b style="color:#2A0066">percentual do IPF</b> da escola no bimestre.</div>
+    <div style="margin-top:30px;display:flex;gap:14px"><div data-anim="pop" data-delay="1500" style="flex:1;border-radius:22px;padding:16px 10px;text-align:center;background:#E6009A;color:#fff;box-shadow:none"><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:46px;line-height:.9">1º</div><div style="font-size:16px;font-weight:700;letter-spacing:.14em">BIMESTRE</div></div><div data-anim="pop" data-delay="1660" style="flex:1;border-radius:22px;padding:16px 10px;text-align:center;background:#fff;color:#2A0066;box-shadow:inset 0 0 0 2px #F2C6E6"><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:46px;line-height:.9">2º</div><div style="font-size:16px;font-weight:700;letter-spacing:.14em">BIMESTRE</div></div><div data-anim="pop" data-delay="1820" style="flex:1;border-radius:22px;padding:16px 10px;text-align:center;background:#fff;color:#2A0066;box-shadow:inset 0 0 0 2px #F2C6E6"><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:46px;line-height:.9">3º</div><div style="font-size:16px;font-weight:700;letter-spacing:.14em">BIMESTRE</div></div><div data-anim="pop" data-delay="1980" style="flex:1;border-radius:22px;padding:16px 10px;text-align:center;background:#fff;color:#2A0066;box-shadow:inset 0 0 0 2px #F2C6E6"><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:46px;line-height:.9">4º</div><div style="font-size:16px;font-weight:700;letter-spacing:.14em">BIMESTRE</div></div></div>
+    <div data-anim="up" data-delay="2200" style="margin-top:30px;border-radius:32px;background:#FCE4F4;padding:24px 30px;display:flex;align-items:center;gap:26px">
+      <span style="font-size:16px;font-weight:800;letter-spacing:.2em;color:#E6009A;writing-mode:vertical-rl;transform:rotate(180deg)">EXEMPLO</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:center">
+        <div><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:64px;line-height:.9;color:#2A0066">7 de 10</div><div style="font-size:17px;font-weight:600;color:#6B5A99">indicadores concluídos</div></div>
+        <span style="color:#E6009A"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        <div><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:64px;line-height:.9;color:#2A0066">14/20</div><div style="font-size:17px;font-weight:600;color:#6B5A99">pontos</div></div>
+        <span style="color:#E6009A"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        <div><div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:80px;line-height:.9;color:#E6009A">70%</div><div style="font-size:17px;font-weight:600;color:#6B5A99">IPF do bimestre</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Funcionalidades" data-screen-label="09 Funcionalidades" data-duration="16000" style="background:#5A00D2 url('assets/aqa/slides/s08.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s09.jpg" alt="Antes que Aconteça nas Escolas · slide 9" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Recursos do sistema" data-screen-label="09 Recursos do sistema" data-duration="18000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:0;right:0;top:92px;bottom:96px;background:#FCE9E2"></div>
+  <div style="position:absolute;left:110px;right:110px;top:134px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#5F00D0">Sistema · recursos para escola, GRE e secretaria</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:96px;line-height:.88;color:#5F00D0">Além dos indicadores</h1>
+  </div>
+  <div style="position:absolute;left:110px;right:110px;top:320px;bottom:130px;display:grid;grid-template-rows:1.12fr 1fr;gap:24px">
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px"><div data-anim="up" data-delay="1000" style="min-width:0;border-radius:44px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;gap:18px;box-shadow:0 18px 44px rgba(95,0,208,.10)">
+      <span style="width:80px;height:80px;border-radius:26px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2M15 12h2M7 16h10"/></svg></span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px;line-height:.9;color:#5F00D0">Perfil do profissional</span>
+      <span style="font-size:24px;line-height:1.36;font-weight:500">Dados acadêmicos e características já vinculados à escola.</span></div><div data-anim="up" data-delay="1180" style="min-width:0;border-radius:44px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;gap:18px;box-shadow:0 18px 44px rgba(95,0,208,.10)">
+      <span style="width:80px;height:80px;border-radius:26px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px;line-height:.9;color:#5F00D0">Notificação de prazos</span>
+      <span style="font-size:24px;line-height:1.36;font-weight:500">Alertas de prazos e pendências de cada bimestre.</span></div><div data-anim="up" data-delay="1360" style="min-width:0;border-radius:44px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;gap:18px;box-shadow:0 18px 44px rgba(95,0,208,.10)">
+      <span style="width:80px;height:80px;border-radius:26px;background:#F3E4FF;color:#5F00D0;display:flex;align-items:center;justify-content:center"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px;line-height:.9;color:#5F00D0">Chat</span>
+      <span style="font-size:24px;line-height:1.36;font-weight:500">Conversa direta entre escola, regional e secretaria.</span></div></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px"><div data-anim="up" data-delay="1700" style="min-width:0;border-radius:44px;background:#5F00D0;color:#fff;padding:34px 40px;display:flex;align-items:center;gap:30px">
+      <span style="flex:none;width:96px;height:96px;border-radius:30px;background:rgba(255,255,255,.14);color:#F494EB;display:flex;align-items:center;justify-content:center"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:10px"><span style="display:flex;align-items:center;gap:16px"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px;line-height:.9">Envio de evidências</span><span style="border-radius:999px;background:#F494EB;color:#2A0066;padding:6px 14px;font-size:14px;font-weight:800;letter-spacing:.16em">IMPORTANTE</span></span><span style="font-size:24px;line-height:1.36;font-weight:500;color:#EDE3FF">PDF, imagens e outros arquivos, conforme o critério de cada indicador.</span></span></div><div data-anim="up" data-delay="1920" style="min-width:0;border-radius:44px;background:#2A0066;color:#fff;padding:34px 40px;display:flex;align-items:center;gap:30px">
+      <span style="flex:none;width:96px;height:96px;border-radius:30px;background:rgba(255,255,255,.14);color:#F494EB;display:flex;align-items:center;justify-content:center"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:10px"><span style="display:flex;align-items:center;gap:16px"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:58px;line-height:.9">Registros sigilosos</span><span style="border-radius:999px;background:#F494EB;color:#2A0066;padding:6px 14px;font-size:14px;font-weight:800;letter-spacing:.16em">IMPORTANTE</span></span><span style="font-size:24px;line-height:1.36;font-weight:500;color:#EDE3FF">Situações registradas com acesso restrito, preservando quem foi atendida.</span></span></div></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Inteligência de dados" data-screen-label="10 Inteligência de dados" data-duration="16000" style="background:#5A00D2 url('assets/aqa/slides/s09.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s10.jpg" alt="Antes que Aconteça nas Escolas · slide 10" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Visão da regional" data-screen-label="10 Visão da regional" data-duration="18000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:820px;right:0;top:92px;bottom:96px;background:#F5E6FA;border-radius:90px 0 0 90px"></div>
+  <div style="position:absolute;left:110px;width:640px;top:136px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#E6009A">Monitoramento · GRE</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:110px;line-height:.86;color:#E6009A">Visão da<br>regional</h1>
+    <div data-anim="up" data-delay="850" style="margin-top:20px;font-size:26px;line-height:1.36;font-weight:500;color:#4A3A7A">Cada GRE monitora <b style="color:#2A0066">as suas escolas</b>.</div>
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:28px"><div data-anim="up" data-delay="1100" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#E6009A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Situação das escolas</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">Satisfatórias, em andamento e em atenção</span></span></div><div data-anim="up" data-delay="1300" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#E6009A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Evolução dos indicadores</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">Prevenção e remediação, bimestre a bimestre</span></span></div><div data-anim="up" data-delay="1500" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#E6009A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Gráficos das escolas</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">Cada escola da regional lado a lado</span></span></div><div data-anim="up" data-delay="1700" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#E6009A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Baixar os dados</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">Planilha das escolas para uso da GRE</span></span></div></div>
+  </div>
+  <div data-anim="up" data-delay="600" style="position:absolute;left:900px;top:140px;width:940px;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 28px 70px rgba(110,11,90,.22);z-index:1"><img src="assets/aqa/sec-situacao.png" alt="Situação atual das escolas e evolução de prevenção e remediação" style="width:100%;display:block"></img></div>
+  <div data-anim="up" data-delay="1000" style="position:absolute;left:860px;top:520px;width:900px;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 28px 70px rgba(110,11,90,.22);z-index:2"><img src="assets/aqa/sec-escolas.png" alt="Lista das escolas com situação, pontuação e botão Baixar" style="width:100%;display:block"></img></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Planejamento 2027" data-screen-label="11 Planejamento 2027" data-duration="12000" style="background:#5A00D2 url('assets/aqa/slides/s10.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="sobe" src="assets/aqa/slides/s11.jpg" alt="Antes que Aconteça nas Escolas · slide 11" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Visão da Secretaria" data-screen-label="11 Visão da Secretaria" data-duration="18000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div style="position:absolute;left:820px;right:0;top:92px;bottom:96px;background:#E9ECFA;border-radius:90px 0 0 90px"></div>
+  <div style="position:absolute;left:110px;width:640px;top:136px">
+    <div data-anim="up" data-delay="600" style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#1E3A8A">Monitoramento · SEE/PB</div>
+    <h1 data-anim="up" data-delay="700" style="margin:12px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:110px;line-height:.86;color:#1E3A8A">Visão da<br>Secretaria</h1>
+    <div data-anim="up" data-delay="850" style="margin-top:20px;font-size:26px;line-height:1.36;font-weight:500;color:#3A4370">Tudo o que a regional vê, <b style="color:#2A0066">para toda a rede</b>, e mais:</div>
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:28px"><div data-anim="up" data-delay="1100" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#1E3A8A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Dados sigilosos</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">Registros das situações, com acesso restrito</span></span></div><div data-anim="up" data-delay="1300" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#1E3A8A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Mapa do IPF</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">As escolas no mapa da Paraíba, por situação</span></span></div><div data-anim="up" data-delay="1500" style="display:flex;gap:22px;align-items:flex-start">
+      <span style="flex:none;width:64px;height:64px;border-radius:20px;background:#1E3A8A;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span>
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:2px"><b style="font-size:28px;font-weight:800;color:#2A0066">Comparativo das GREs</b><span style="font-size:21px;line-height:1.32;font-weight:500;color:#5B4A8A">As 16 regionais lado a lado</span></span></div></div>
+  </div>
+  <div data-anim="up" data-delay="600" style="position:absolute;left:900px;top:132px;width:900px;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 28px 70px rgba(110,11,90,.22);z-index:1"><img src="assets/aqa/sec-mapa.png" alt="Mapa da rede com as escolas agrupadas por região" style="width:100%;display:block"></img></div>
+  <div data-anim="up" data-delay="1000" style="position:absolute;left:960px;top:560px;width:860px;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 28px 70px rgba(110,11,90,.22);z-index:2"><img src="assets/aqa/sec-gres.png" alt="Comparativo das 16 GREs" style="width:100%;display:block"></img></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Cronograma" data-screen-label="12 Cronograma" data-duration="16000" style="background:#5A00D2 url('assets/aqa/slides/s11.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="lado" src="assets/aqa/slides/s12.jpg" alt="Antes que Aconteça nas Escolas · slide 12" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+<section data-label="Formação das regionais" data-screen-label="12 Formação das regionais" data-duration="16000" style="background:#fff;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
+
+  <img src="assets/aqa/faixa.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:92px;display:block;z-index:5"></img>
+  <div data-anim="suave" style="position:absolute;left:0;top:92px;width:780px;bottom:96px;background:#5F00D0;overflow:hidden">
+    <img src="assets/aqa/mulher-flor-branca.png" alt="" style="position:absolute;right:-180px;bottom:-140px;height:640px;opacity:.16"></img>
+    <div style="position:absolute;left:110px;right:60px;top:300px">
+      <div data-anim="bar" data-delay="500" style="width:300px;height:3px;background:#FCE9E2;transform-origin:left"></div>
+      <h1 data-anim="up" data-delay="600" style="margin:44px 0 0;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:118px;line-height:.86;color:#FCE9E2">Formação<br>do sistema<br>para as GREs</h1>
+      <div data-anim="bar" data-delay="900" style="margin-top:44px;width:300px;height:3px;background:#FCE9E2;transform-origin:left"></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:880px;right:90px;top:92px;bottom:96px;display:flex;flex-direction:column;justify-content:center;gap:40px"><div data-anim="lado" data-delay="900" style="display:flex;align-items:center;gap:34px;border-radius:999px;background:#FCE9E2;padding:30px 70px 30px 34px">
+      <span style="flex:none;width:96px;height:96px;border-radius:50%;background:#5F00D0;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:64px">1</span>
+      <span style="font-size:32px;line-height:1.32;font-weight:500;color:#2A0066">Encontro de <b>formação com as GREs</b> sobre o uso do sistema: perfis, registros, validação e monitoramento;</span></div><div data-anim="lado" data-delay="1200" style="display:flex;align-items:center;gap:34px;border-radius:999px;background:#FCE9E2;padding:30px 70px 30px 34px">
+      <span style="flex:none;width:96px;height:96px;border-radius:50%;background:#5F00D0;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:64px">2</span>
+      <span style="font-size:32px;line-height:1.32;font-weight:500;color:#2A0066">Etapa de <b>orientação às escolas</b> pelas GREs;</span></div><div data-anim="lado" data-delay="1500" style="display:flex;align-items:center;gap:34px;border-radius:999px;background:#FCE9E2;padding:30px 70px 30px 34px">
+      <span style="flex:none;width:96px;height:96px;border-radius:50%;background:#5F00D0;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-stretch:62%;text-transform:uppercase;letter-spacing:-.005em;font-size:64px">3</span>
+      <span style="font-size:32px;line-height:1.32;font-weight:500;color:#2A0066"><b>Liberação dos acessos</b> para as equipes e início do <b>monitoramento bimestral</b>.</span></div></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:4"><img src="assets/logos-cor-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="width:470px;display:block"></img></div>
 </section>
 
-<section data-label="Encaminhamentos" data-screen-label="13 Encaminhamentos" data-duration="14000" style="background:#5A00D2 url('assets/aqa/slides/s12.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="sobe" src="assets/aqa/slides/s13.jpg" alt="Antes que Aconteça nas Escolas · slide 13" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
-</section>
+<section data-label="Encerramento" data-screen-label="13 Encerramento" data-duration="9000" style="background:#5F00D0;overflow:hidden;font-family:'Montserrat',sans-serif;color:#2A0066">
 
-<section data-label="Encerramento" data-screen-label="14 Encerramento" data-duration="10000" style="background:#5A00D2 url('assets/aqa/slides/s13.jpg') center/cover no-repeat;overflow:hidden">
-  <img data-anim="suave" src="assets/aqa/slides/s14.jpg" alt="Antes que Aconteça nas Escolas · slide 14" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></img>
+  <div data-anim="suave" style="position:absolute;left:110px;top:100px;right:110px;bottom:100px;border-radius:110px;background:linear-gradient(150deg,#6608DA 0%,#5200C2 55%,#4600AE 100%);box-shadow:0 40px 120px rgba(25,0,70,.55),inset 0 0 0 1.5px rgba(255,255,255,.22);overflow:hidden">
+    <div style="position:absolute;right:-30px;top:-70px;height:1020px;width:800px;animation:flutua 7s ease-in-out infinite alternate"><img data-anim="flor" src="assets/aqa/mulher-flor-rosa.png" alt="" style="height:100%;display:block"></img></div>
+    <img data-anim="fade" data-delay="300" src="assets/identidade/formar-creme.svg" alt="Formar para transformar" style="position:absolute;left:120px;top:80px;width:230px"></img>
+    <div style="position:absolute;left:120px;top:250px;width:900px">
+      <img data-anim="zoom" src="assets/antes-que-aconteca-branco.png" alt="Antes que Aconteça nas Escolas · Rede de apoio no combate à violência contra a mulher" style="width:820px;display:block"></img>
+      
+    </div>
+    <img data-anim="fade" data-delay="1300" src="assets/logos-branco-crop.png" alt="GEFDP · Secretaria de Estado da Educação · Governo da Paraíba" style="position:absolute;left:120px;bottom:64px;width:600px"></img>
+  </div>
 </section>
 
 </x-import>
@@ -113,6 +388,27 @@ class Component extends DCLogic {
     const pb = btn(() => this.togglePause());
     box.append(menu, pb, ant, prox); document.body.appendChild(box);
     this.pauseBtn = pb; this.modoBtn = md; this.antBtn = ant; this.proxBtn = prox; this.updateCtrl();
+  }
+  // Gráfico de comitês por GRE: desenhado a partir de data-gre ([GRE, comitês, escolas]; comitês null = GRE ainda sem informação).
+  buildGre(slide) {
+    slide.querySelectorAll('[data-gre-chart]').forEach(box => {
+      if (box.dataset.built) return; box.dataset.built = '1';
+      const d = JSON.parse(box.dataset.gre), tc = d.reduce((s, g) => s + (g[1] || 0), 0), te = d.reduce((s, g) => s + g[2], 0), media = tc / te * 100;
+      const pc = (v) => (Math.round(v * 10) / 10).toLocaleString('pt-BR');
+      let bars = '', labs = '';
+      d.forEach((g, i) => {
+        const [nome, c, e] = g, p = c == null ? null : c / e * 100, dl = 900 + i * 90, cheia = p === 100;
+        bars += '<div style="flex:1;min-width:0;display:flex;justify-content:center"><div style="position:relative;width:62px;height:100%;border-radius:14px;background:' + (p == null ? 'repeating-linear-gradient(135deg,#F3ECFF 0 10px,#fff 10px 20px);box-shadow:inset 0 0 0 2px #D9C9FA' : '#EFE6FF') + '">'
+          + (p == null ? '<span data-anim="fade" data-delay="' + dl + '" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:800 22px Montserrat,sans-serif;color:#9A86C8">?</span>'
+            : '<div data-anim="barY" data-delay="' + dl + '" style="position:absolute;left:0;right:0;bottom:0;height:' + p + '%;border-radius:14px;background:' + (cheia ? '#5F00D0' : '#7B3BE0') + ';transform-origin:bottom"></div>'
+            + '<span data-anim="fade" data-delay="' + (dl + 700) + '" style="position:absolute;left:-20px;right:-20px;bottom:calc(' + p + '% + 8px);text-align:center;font:800 23px Montserrat,sans-serif;color:' + (cheia ? '#C2189B' : '#2A0066') + '">' + Math.round(p) + '%</span>')
+          + '</div></div>';
+        labs += '<div style="flex:1;min-width:0;text-align:center;font-family:Montserrat,sans-serif"><div style="font-size:22px;font-weight:800;color:#5F00D0">' + nome + '</div><div style="font-size:18px;font-weight:600;color:#6B5A99">' + (c == null ? '?' : c) + '/' + e + '</div></div>';
+      });
+      box.innerHTML = '<div style="position:relative;flex:1;min-height:0"><div style="position:absolute;left:0;right:0;top:40px;bottom:0;display:flex">' + bars
+        + '<div data-anim="fade" data-delay="2400" style="position:absolute;left:-14px;right:-14px;bottom:' + media + '%;border-top:3px dashed #E6009A;z-index:2;pointer-events:none"><span style="position:absolute;left:0;top:-38px;border-radius:999px;background:#E6009A;color:#fff;padding:5px 14px;font:800 16px Montserrat,sans-serif;letter-spacing:.06em">MÉDIA DA REDE ' + pc(media) + '%</span></div></div></div>'
+        + '<div style="display:flex;margin-top:14px">' + labs + '</div>';
+    });
   }
   auto() { return (this.props.autoplay ?? true) && !this.manual; }
   toggleModo() {
@@ -208,6 +504,7 @@ class Component extends DCLogic {
     if (this.auto() && !this.paused) this.armAdvance();
   }
   animate(slide) {
+    this.buildGre(slide);
     const ease = 'cubic-bezier(.22,1,.36,1)';
     const run = (el, kf, o) => { const a = el.animate(kf, Object.assign({ fill: 'backwards', easing: ease }, o)); this.anims.push(a); };
     slide.querySelectorAll('[data-anim]').forEach(el => {
@@ -225,6 +522,7 @@ class Component extends DCLogic {
       else if (t === 'pop') run(el, [{ opacity: 0, transform: 'scale(.6)' }, { opacity: 1, transform: 'none' }], { duration: 800, delay: d, easing: 'cubic-bezier(.34,1.56,.64,1)' });
       else if (t === 'cert') run(el, [{ opacity: 0, transform: 'translateY(120px) rotate(6deg) scale(.9)' }, { opacity: 1, transform: 'rotate(-2deg)' }], { duration: 1200, delay: d });
       else if (t === 'barY') run(el, [{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: 1200, delay: d });
+      else if (t === 'flor') run(el, [{ opacity: 0, transform: 'translateY(40px) scale(1.04)' }, { opacity: 1, transform: 'none' }], { duration: 3200, delay: d });
     });
     slide.querySelectorAll('[data-count]').forEach(el => this.count(el, el.hasAttribute('data-raw') ? +el.dataset.count - 30 : 0, +el.dataset.count, 1800, (+el.dataset.delay || 0) + 900));
     // Itens interativos: o destaque passa sozinho pela lista e também pode ser escolhido com um toque.
