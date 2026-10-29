@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apresentações GEFDP</title>
 <script>
-  // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada, #ieg ou #antes abre a apresentação sem passar pelo menu.
-  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=18', IEG = 'IEG%202026.dc.html?v=31', ANTES = 'Antes%20que%20Aconteca.dc.html?v=10';
+  // Atalhos diretos (TV / favoritos): index.html#transforma, #jornada, #ieg, #antes ou #nota abre a apresentação sem passar pelo menu.
+  var DECK = 'Transforma%20Educacao%20PB%202026.dc.html?v=18', IEG = 'IEG%202026.dc.html?v=31', ANTES = 'Antes%20que%20Aconteca.dc.html?v=10', NOTA = 'Nota%201000.dc.html?v=1';
   function modoSalvo() { try { return localStorage.getItem('apresentacao-modo') || 'loop'; } catch (e) { return 'loop'; } }
-  function destino(prog) { if (prog === 'antes') return ANTES + '&modo=' + modoSalvo(); return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
+  function destino(prog) { if (prog === 'antes') return ANTES + '&modo=' + modoSalvo(); if (prog === 'nota') return NOTA + '&modo=' + modoSalvo(); return prog === 'ieg' ? IEG + '&modo=' + modoSalvo() : DECK + '&modo=' + modoSalvo() + (prog === 'jornada' ? '#jornada' : ''); }
   function abrir(prog) { location.href = destino(prog); }
-  if (/^#(transforma|jornada|ieg|antes)$/.test(location.hash)) location.replace(destino(location.hash.slice(1)));
+  if (/^#(transforma|jornada|ieg|antes|nota)$/.test(location.hash)) location.replace(destino(location.hash.slice(1)));
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,10 +160,10 @@
       <span class="logo"><img src="Jornada/assets/24bbb5eb015929b0ccd8ecb3e96cce30.png" alt="Jornada Formativa" style="max-height:80px"></span>
       <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9966F7" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
-    <button class="card c-nota a" style="animation-delay:.75s" aria-disabled="true">
-      <span class="tag breve">Em breve</span>
-      <span class="logo"><img src="assets/professor-nota-1000-cor.png" alt="Professor Nota 1000"></span>
-      <span class="acao" style="opacity:.75">Apresentação em preparo</span>
+    <button class="card c-nota a" style="animation-delay:.75s" data-prog="nota">
+      <span class="tag">Prêmios · critérios</span>
+      <span class="logo" style="gap:10px"><img src="assets/professor-nota-1000-cor.png" alt="Professor Nota 1000" style="max-width:48%"><img src="assets/escola-nota-1000-cor.png" alt="Escola Nota 1000" style="max-width:48%"></span>
+      <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9966F7" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
     <button class="card c-ieg a" style="animation-delay:.85s" data-prog="ieg">
       <span class="tag">Indicadores</span>
