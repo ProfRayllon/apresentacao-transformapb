@@ -399,34 +399,31 @@ class Component extends DCLogic {
       if (bar && ln) ln.style.top = (bar.offsetTop + bar.offsetHeight - 3.2 * +box.dataset.media) + 'px'; // barras: 3,2px por ponto percentual
     };
     slide.querySelectorAll('[data-media]').forEach(posLinha);
-    // Leitura "Pontuação" dos gráficos por GRE: cada barra na cor da sua faixa (3 pontos, 1,5 ponto, 0)
-    // e o anel resume quantas GREs fecham 3 pontos e quantas ficam no mínimo. o = null volta à leitura normal.
+    // Leitura "Pontuação" dos gráficos por GRE: destaca as GREs que alcançam pelo menos a pontuação mínima
+    // (o.min) e o anel mostra esse percentual. o = null volta à leitura normal.
     const faixas = (box, tg, o) => {
       const sl = box.closest('section'), C = 691.1, ln = box.querySelector('[data-media-linha]'), lm = box.querySelector('[data-min-linha]');
-      const arco = tg.querySelector('[data-tg-arco]'), arco2 = tg.querySelector('[data-tg-arco2]');
+      const arco = tg.querySelector('[data-tg-arco]'), arco2 = tg.querySelector('[data-tg-arco2]'), lp = sl.querySelector('[data-leg-pts]');
       const cols = [...box.querySelectorAll('[data-v]')].map(b => { const [a, t] = b.parentNode.lastElementChild.textContent.split('/').map(Number); return { b, lab: b.previousElementSibling, p: a / t * 100 }; });
       sl.querySelector('[data-leg-box]').style.display = o ? 'none' : 'flex';
-      sl.querySelector('[data-leg-pts]').style.display = o ? 'flex' : 'none';
-      lm.style.opacity = o ? 1 : 0; arco.style.strokeLinecap = o ? 'butt' : 'round';
-      if (!o) { cols.forEach(c => { c.lab.textContent = Math.round(c.p) + '%'; }); arco2.style.strokeDasharray = '0 ' + C; return; }
-      let n3 = 0, n1 = 0;
+      lp.style.display = o ? 'flex' : 'none'; lm.style.opacity = 0; arco2.style.strokeDasharray = '0 ' + C;
+      if (!o) { cols.forEach(c => { c.lab.textContent = Math.round(c.p) + '%'; }); return; }
+      let ok = 0;
       cols.forEach(c => {
-        const pts = c.p > 85 ? 3 : c.p >= o.min ? 1.5 : 0;
-        if (pts === 3) n3++; else if (pts) n1++;
-        c.b.style.background = pts === 3 ? o.cor : pts ? '#F2A900' : '#F4C3B9';
+        const pontua = c.p >= o.min; if (pontua) ok++;
+        c.b.style.background = pontua ? o.cor : '#F4C3B9';
         c.lab.textContent = (Math.round(c.p * 10) / 10).toLocaleString('pt-BR') + '%';
       });
-      const n = cols.length, a3 = C * n3 / n, a1 = C * n1 / n, n0 = n - n3 - n1;
-      arco.style.strokeDasharray = a3.toFixed(1) + ' ' + C; arco.style.stroke = o.cor;
-      arco2.style.strokeDasharray = a1.toFixed(1) + ' ' + C; arco2.style.strokeDashoffset = (-a3).toFixed(1);
-      box.dataset.media = 85; posLinha(box); ln.style.borderTopColor = '#0F227F';
-      lm.style.top = (cols[0].b.offsetTop + cols[0].b.offsetHeight - 3.2 * o.min) + 'px';
-      const pc = k => (Math.round(k / n * 1000) / 10).toLocaleString('pt-BR') + '%'; // percentual das GREs
-      const val = tg.querySelector('[data-tg-valor]'); val.textContent = pc(n3 + n1); val.style.color = o.cor; val.style.fontSize = pc(n3 + n1).length > 3 ? '56px' : '70px';
+      const n = cols.length, pct = Math.round(ok / n * 100);
+      arco.style.strokeDasharray = (C * ok / n).toFixed(1) + ' ' + C; arco.style.stroke = o.cor;
+      box.dataset.media = o.min; posLinha(box); ln.style.borderTopColor = '#0F227F';
+      const sw = c => '<span style="width:14px;height:14px;border-radius:4px;background:' + c + '"></span>';
+      lp.innerHTML = '<span style="display:flex;align-items:center;gap:8px">' + sw(o.cor) + 'pontua · ' + o.min + '% ou mais</span><span style="display:flex;align-items:center;gap:8px">' + sw('#F4C3B9') + 'não pontua · abaixo de ' + o.min + '%</span>'
+        + '<span style="display:flex;align-items:center;gap:8px"><span style="width:22px;border-top:3px dashed #0F227F"></span>pontuação mínima (' + o.min + '%)</span>';
+      const val = tg.querySelector('[data-tg-valor]'); val.textContent = pct + '%'; val.style.color = o.cor; val.style.fontSize = pct > 99 ? '60px' : '70px';
       run(val, [{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 500 });
       tg.querySelector('[data-tg-rot]').textContent = 'das GREs pontuam';
-      tg.querySelector('[data-tg-det]').innerHTML = '<strong style="color:' + o.cor + '">' + pc(n3) + '</strong> com 3 pontos<br><strong style="color:#B07A00">' + pc(n1) + '</strong> com 1,5 ponto'
-        + (n0 ? ' · <strong style="color:#C0392B">' + pc(n0) + '</strong> com 0 ponto' : '') + '<br><span style="color:#5A6699;font-size:15px">' + o.nota + '</span>';
+      tg.querySelector('[data-tg-det]').innerHTML = '<strong>' + ok + ' de ' + n + ' GREs</strong> com pelo menos 1,5 ponto (' + o.min + '% ou mais)<br><span style="color:#5A6699;font-size:15px">' + o.nota + '</span>';
     };
     // Rosca com duas leituras (credenciamento × pontuação por GRE) e filtro por formação no gráfico.
     const tg = slide.querySelector('[data-toggle]');
