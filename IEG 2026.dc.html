@@ -421,11 +421,12 @@ class Component extends DCLogic {
       arco2.style.strokeDasharray = a1.toFixed(1) + ' ' + C; arco2.style.strokeDashoffset = (-a3).toFixed(1);
       box.dataset.media = 85; posLinha(box); ln.style.borderTopColor = '#0F227F';
       lm.style.top = (cols[0].b.offsetTop + cols[0].b.offsetHeight - 3.2 * o.min) + 'px';
-      const val = tg.querySelector('[data-tg-valor]'); val.textContent = n3 + '/' + n; val.style.color = o.cor; val.style.fontSize = '64px';
+      const pc = k => (Math.round(k / n * 1000) / 10).toLocaleString('pt-BR') + '%'; // percentual das GREs
+      const val = tg.querySelector('[data-tg-valor]'); val.textContent = pc(n3 + n1); val.style.color = o.cor; val.style.fontSize = pc(n3 + n1).length > 3 ? '56px' : '70px';
       run(val, [{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 500 });
-      tg.querySelector('[data-tg-rot]').textContent = 'GREs com 3 pontos';
-      tg.querySelector('[data-tg-det]').innerHTML = '<strong>' + n3 + '</strong> com 3 pontos · <strong style="color:#B07A00">' + n1 + '</strong> com 1,5 ponto'
-        + (n0 ? ' · <strong style="color:#C0392B">' + n0 + '</strong> com 0' : '') + '<br><span style="color:#5A6699;font-size:15px">' + o.nota + '</span>';
+      tg.querySelector('[data-tg-rot]').textContent = 'das GREs pontuam';
+      tg.querySelector('[data-tg-det]').innerHTML = '<strong style="color:' + o.cor + '">' + pc(n3) + '</strong> com 3 pontos<br><strong style="color:#B07A00">' + pc(n1) + '</strong> com 1,5 ponto'
+        + (n0 ? ' · <strong style="color:#C0392B">' + pc(n0) + '</strong> com 0 ponto' : '') + '<br><span style="color:#5A6699;font-size:15px">' + o.nota + '</span>';
     };
     // Rosca com duas leituras (credenciamento × pontuação por GRE) e filtro por formação no gráfico.
     const tg = slide.querySelector('[data-toggle]');
