@@ -402,14 +402,26 @@ class Component extends DCLogic {
     slide.querySelectorAll('[data-ciclo]').forEach(box => {
       const tok = this.seq = (this.seq || 0) + 1, cor = box.dataset.cor, hold = +box.dataset.ciclo;
       const bts = [...box.querySelectorAll('[data-aba]')], ps = [...box.querySelectorAll('[data-painel]')];
-      let cur = -1;
+      let cur = -1, pisca = [];
       const show = (k, d0) => {
         cur = k;
+        pisca.forEach(a => a.cancel()); pisca = [];
         bts.forEach((b, j) => { b.style.background = j === k ? cor : 'transparent'; b.style.color = j === k ? '#fff' : '#5D6787'; });
         ps.forEach((p, j) => { p.style.opacity = j === k ? 1 : 0; p.style.pointerEvents = j === k ? '' : 'none'; });
         const p = ps[k];
         p.querySelectorAll('[data-seg]').forEach((s, i) => run(s, [{ opacity: 0, transform: 'scaleX(.2)' }, { opacity: 1, transform: 'none' }], { duration: 800, delay: d0 + i * 140 }));
         p.querySelectorAll('[data-seg2]').forEach((s, i) => run(s, [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: d0 + 300 + i * 110 }));
+        // Depois de entrar, cada barra pisca junto com o card dela, na cor da barra, um par por vez.
+        const segs = [...p.querySelectorAll('[data-seg]')], cards = [...p.querySelectorAll('[data-seg2]')];
+        const t0 = d0 + 300 + cards.length * 110 + 700, passo = Math.min(1500, (hold - t0 - 400) / segs.length);
+        segs.forEach((s, i) => {
+          const c = cards[i]; if (!c) return;
+          const [r, g, b] = getComputedStyle(s).backgroundColor.match(/\d+/g).map(Number), claro = (r * .299 + g * .587 + b * .114) > 215;
+          const borda = claro ? '#8A96B3' : `rgb(${r},${g},${b})`, fundo = claro ? '#E2E7F0' : `rgba(${r},${g},${b},.16)`, base = getComputedStyle(c).backgroundColor;
+          const o = { duration: passo * .95, delay: t0 + i * passo, fill: 'none', easing: 'ease-in-out' };
+          pisca.push(run(s, [{ transform: 'none', boxShadow: '0 0 0 0 rgba(0,0,0,0)' }, { transform: 'translateY(-8px)', boxShadow: `0 16px 34px rgba(${r},${g},${b},.45)`, offset: .3 }, { transform: 'translateY(-8px)', boxShadow: `0 16px 34px rgba(${r},${g},${b},.45)`, offset: .7 }, { transform: 'none', boxShadow: '0 0 0 0 rgba(0,0,0,0)' }], o));
+          pisca.push(run(c, [{ background: base, boxShadow: 'inset 0 0 0 0 rgba(0,0,0,0)' }, { background: fundo, boxShadow: `inset 0 0 0 4px ${borda}`, offset: .3 }, { background: fundo, boxShadow: `inset 0 0 0 4px ${borda}`, offset: .7 }, { background: base, boxShadow: 'inset 0 0 0 0 rgba(0,0,0,0)' }], o));
+        });
       };
       const next = () => { if (tok !== this.seq || !this.auto()) return; show((cur + 1) % ps.length, 0); this.later(next, hold); };
       bts.forEach((b, j) => { b.onclick = e => { e.stopPropagation(); show(j, 0); }; });
