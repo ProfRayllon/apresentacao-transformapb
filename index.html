@@ -49,7 +49,9 @@
 
   /* Programas */
   .rotulo{position:absolute;left:112px;top:560px;font-size:18px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
-  .progs{position:absolute;left:112px;right:112px;top:604px;height:320px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px}
+  .progs{position:absolute;left:112px;right:112px;top:604px;height:320px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+  /* Programa oculto do menu (continua no projeto; para mostrar de novo, tire data-oculto e volte a grade para 5 colunas) */
+  .card[data-oculto]{display:none}
   .card{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:28px 28px;border-radius:44px;border:0;text-align:left;font-family:inherit;color:#fff;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s}
   .card:hover,.card:focus-visible{transform:translateY(-10px);box-shadow:0 28px 50px rgba(4,10,50,.5)}
   .card:focus-visible{outline:6px solid var(--creme);outline-offset:8px}
@@ -155,7 +157,7 @@
       <span class="logo"><img src="assets/antes-que-aconteca-branco.png" alt="Antes que Aconteça nas Escolas"></span>
       <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3FC4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
     </button>
-    <button class="card c-jornada a" style="animation-delay:.65s" data-prog="jornada">
+    <button class="card c-jornada a" style="animation-delay:.65s" data-prog="jornada" data-oculto>
       <span class="tag">Cartilhas</span>
       <span class="logo"><img src="Jornada/assets/24bbb5eb015929b0ccd8ecb3e96cce30.png" alt="Jornada Formativa" style="max-height:80px"></span>
       <span class="acao">Apresentar <span class="seta"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9966F7" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
@@ -247,7 +249,7 @@
   segs.forEach(function (b) { b.addEventListener('click', function () { try { localStorage.setItem('apresentacao-modo', b.dataset.modo); } catch (e) {} marcar(b.dataset.modo); }); });
 
   // Programas
-  var cards = [].slice.call(document.querySelectorAll('.card'));
+  var cards = [].slice.call(document.querySelectorAll('.card:not([data-oculto])'));
   cards.forEach(function (c) { c.addEventListener('click', function () { if (c.dataset.prog) abrir(c.dataset.prog); }); });
 
   // Controle remoto / teclado: setas movem o foco, OK/Enter escolhe.
